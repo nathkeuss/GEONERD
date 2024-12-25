@@ -1,0 +1,37 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des pays{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <form action="{{ path('list_countries') }}" method="get">
+        <input type="text" name="search" placeholder="Rechercher un pays" value="{{ search|default('') }}">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if search %}
+        <h1>Résultat de recherche pour "{{ search }}"</h1>
+    {% else %}
+        <h1>Liste de tous les pays</h1>
+    {% endif %}
+
+    <ul>
+        {% for country in countries %}
+            <li>
+                <h3>Nom du pays : {{ country.name }}</h3>
+                <div>
+                    <img src="{{ asset('assets/img_uploads/img_flags/' ~ country.flag) }}" alt="Image du drapeau de {{ country.name }}" style="max-height: 150px;">
+                </div>
+                <a href="{{ path('update_country', {'id': country.id}) }}">Modifier</a>
+                <a href="{{ path('delete_country', {'id': country.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce pays ?')">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+

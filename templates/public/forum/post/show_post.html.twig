@@ -1,0 +1,39 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Liste des posts{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h1>{{ post.title }}</h1>
+    <h2>{{ post.content }}</h2>
+    <h3>{{ post.user.username }}</h3>
+
+    {% if post.user == app.user %}
+        <a href="{{ path('update_post', {'id': post.id}) }}">Modifier</a>
+        <a href="{{ path('delete_post', {'id': post.id}) }}">Supprimer</a>
+    {% endif %}
+
+    <h2>Réponses</h2>
+
+    {% for reply in replies %}
+
+        <p>{{ reply.content }}</p>
+        <p>{{ reply.user.username }}</p>
+
+        {% if reply.user == app.user %}
+        <a href="{{ path('update_reply', {'id': reply.id}) }}">Modifier</a>
+        <a href="{{ path('delete_reply', {'id': reply.id}) }}">Supprimer</a>
+        {% endif %}
+
+    {% endfor %}
+
+    <a href="{{ path('reply_post', {'id': post.id}) }}">Répondre</a>
+
+{% endblock %}
+
+

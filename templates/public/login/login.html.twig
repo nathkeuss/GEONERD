@@ -1,0 +1,29 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main>
+
+        <form action="{{ path('public_login') }}" method="POST">
+
+            <label> Email </label>
+            <input type="text" name="_username"/>
+
+            <label> Mot de passe </label>
+            <input type="password" name="_password"/>
+
+
+            <input type="submit" value="Se connecter">
+
+        </form>
+
+    </main>
+
+{% endblock %}

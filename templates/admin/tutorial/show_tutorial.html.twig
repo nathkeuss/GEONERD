@@ -1,0 +1,39 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Tutoriel {{ tutorial.title }}{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main>
+        <section>
+            <h1>{{ tutorial.title }}</h1>
+            <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorial.backgroundImage) }}" alt="Image du tutoriel {{ tutorial.title }}" style="max-height: 300px;">
+
+            <a href="{{ path('update_tutorial', {'id': tutorial.id}) }}">Modifier le tutoriel</a>
+            <a href="{{ path('delete_tutorial', {'id': tutorial.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce tutoriel ?')">Supprimer le tutoriel</a>
+        </section>
+
+
+        <section>
+            <h2>Parties du tutoriel</h2>
+            <a href="{{ path('create_tutorialpart') }}">Ajouter une partie au tutoriel</a>
+
+                {% for tutorialPart in tutorialParts %}
+                    <article>
+                        <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorialPart.image) }}" alt="Image descriptif d'un élément du tutoriel {{ tutorial.title }}" style="max-height: 150px;">
+                        <p>{{ tutorialPart.content|raw }}</p>
+                        <a href="{{ path('update_tutorial_part', {'id': tutorialPart.id}) }}">Modifier</a>
+                        <a href="{{ path('delete_tutorial_part', {'id': tutorialPart.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette partie ?')">Supprimer</a>
+                    </article>
+                {% endfor %}
+        </section>
+    </main>
+
+{% endblock %}
+
+

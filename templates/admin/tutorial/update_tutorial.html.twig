@@ -1,0 +1,54 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier le tutoriel{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div>
+        <p>Image actuel :</p>
+        <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ currentImage) }}" alt="Image du tutoriel {{ tutorial.title }}" style="max-height: 150px;">
+    </div>
+    <div>
+        <p>Image de fond actuel :</p>
+        <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ currentBackgroundImage) }}" alt="Image du tutoriel {{ tutorial.title }}" style="max-height: 150px;">
+    </div>
+
+    {{ form_start(formTutorialView) }}
+
+    <div>
+        {{ form_label(formTutorialView.image, 'Image associée') }}
+        {{ form_widget(formTutorialView.image) }}
+        {{ form_errors(formTutorialView.image) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialView.backgroundImage, 'Image de fond') }}
+        {{ form_widget(formTutorialView.backgroundImage) }}
+        {{ form_errors(formTutorialView.backgroundImage) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialView.title, 'Titre') }}
+        {{ form_widget(formTutorialView.title) }}
+        {{ form_errors(formTutorialView.title) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialView.country, 'Pays associé') }}
+        {{ form_widget(formTutorialView.country) }}
+        {{ form_errors(formTutorialView.country) }}
+    </div>
+
+    <div>
+        {{ form_widget(formTutorialView.Valider) }}
+    </div>
+
+    {{ form_end(formTutorialView) }}
+
+{% endblock %}
+

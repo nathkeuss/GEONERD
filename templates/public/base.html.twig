@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Accueil GEONERD{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    {% block stylesheets %}
+    {% endblock %}
+
+    {% block javascripts %}
+    {% endblock %}
+</head>
+<body>
+
+<header>
+    <h1>HEADER PUBLIC</h1>
+    <a href="{{ path('public_list_tutorials') }}">TUTO</a>
+    <a href="{{ path('public_login') }}">Se connecter</a>
+    <a href="{{ path('user_logout') }}">Se déconnecter</a>
+{#
+    <li>Connecté en tant que {{ app.user.username }}</li>
+#}
+</header>
+
+
+{% block body %}{% endblock %}
+<footer>
+    <h1>footer base public</h1>
+</footer>
+</body>
+</html>

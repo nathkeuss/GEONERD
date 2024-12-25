@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier le tutoriel{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div>
+        <p>Image actuel :</p>
+        <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ currentImage) }}" alt="Image descriptif d'un élément du pays {{ tutorialPart.tutorial.title }}" style="max-height: 150px;">
+    </div>
+
+    {{ form_start(formTutorialPartView) }}
+
+    <div>
+        {{ form_label(formTutorialPartView.image, 'Image associée') }}
+        {{ form_widget(formTutorialPartView.image) }}
+        {{ form_errors(formTutorialPartView.image) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialPartView.content, 'Contenu') }}
+        {{ form_widget(formTutorialPartView.content) }}
+        {{ form_errors(formTutorialPartView.content) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialPartView.tutorial, 'Tutoriel associé') }}
+        {{ form_widget(formTutorialPartView.tutorial) }}
+        {{ form_errors(formTutorialPartView.tutorial) }}
+    </div>
+
+    <div>
+        {{ form_widget(formTutorialPartView.Valider) }}
+    </div>
+
+    {{ form_end(formTutorialPartView) }}
+
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Créer une partie du tutoriel{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>Créer une partie du tutoriel</h1>
+
+
+    {{ form_start(formTutorialPartView) }}
+
+    <div>
+        {{ form_label(formTutorialPartView.image, 'Image associée') }}
+        {{ form_widget(formTutorialPartView.image) }}
+        {{ form_errors(formTutorialPartView.image) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialPartView.content, 'Contenu') }}
+        {{ form_widget(formTutorialPartView.content) }}
+        {{ form_errors(formTutorialPartView.content) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialPartView.tutorial, 'Tutoriel associé') }}
+        {{ form_widget(formTutorialPartView.tutorial) }}
+        {{ form_errors(formTutorialPartView.tutorial) }}
+    </div>
+
+    <div>
+        {{ form_widget(formTutorialPartView.Valider) }}
+    </div>
+
+    {{ form_end(formTutorialPartView) }}
+
+{% endblock %}

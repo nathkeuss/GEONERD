@@ -1,0 +1,40 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Créer un post{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h1>Créer un nouveau post dans le forum</h1>
+
+    {{ form_start(formForumPostView) }}
+    <div>
+        {{ form_label(formForumPostView.title) }}
+        {{ form_widget(formForumPostView.title) }}
+        {{ form_errors(formForumPostView.title) }}
+    </div>
+
+    <div>
+        {{ form_label(formForumPostView.content) }}
+        {{ form_widget(formForumPostView.content) }}
+        {{ form_errors(formForumPostView.content) }}
+    </div>
+
+    <div >
+        {{ form_label(formForumPostView.image) }}
+        {{ form_widget(formForumPostView.image) }}
+        {{ form_errors(formForumPostView.image) }}
+    </div>
+
+    <div>
+        {{ form_widget(formForumPostView.Valider) }}
+    </div>
+    {{ form_end(formForumPostView) }}
+
+{% endblock %}
+
+

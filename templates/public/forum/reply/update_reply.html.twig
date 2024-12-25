@@ -1,0 +1,49 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Répondre au post{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h1>{{ parentPost.title }}</h1>
+    <h2>{{ parentPost.content }}</h2>
+    <h3>{{ parentPost.user.username }}</h3>
+
+    <h2>Réponses</h2>
+
+    {% for reply in replies %}
+
+        <p>{{ reply.content }}</p>
+        <p>{{ reply.user.username }}</p>
+
+    {% endfor %}
+
+
+<h1>Modifie ton message</h1>
+
+    {{ form_start(formUpdateReplyView) }}
+
+    <div>
+        {{ form_label(formUpdateReplyView.content) }}
+        {{ form_widget(formUpdateReplyView.content) }}
+        {{ form_errors(formUpdateReplyView.content) }}
+    </div>
+
+    <div >
+        {{ form_label(formUpdateReplyView.image) }}
+        {{ form_widget(formUpdateReplyView.image) }}
+        {{ form_errors(formUpdateReplyView.image) }}
+    </div>
+
+    <div>
+        {{ form_widget(formUpdateReplyView.Valider) }}
+    </div>
+    {{ form_end(formUpdateReplyView) }}
+
+{% endblock %}
+
+

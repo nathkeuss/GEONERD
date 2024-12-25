@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Créer un tutoriel{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>Créer un tutoriel</h1>
+
+    {{ form_start(formTutorialView) }}
+
+    <div>
+        {{ form_label(formTutorialView.image, 'Image associée') }}
+        {{ form_widget(formTutorialView.image) }}
+        {{ form_errors(formTutorialView.image) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialView.backgroundImage, 'Image de fond') }}
+        {{ form_widget(formTutorialView.backgroundImage) }}
+        {{ form_errors(formTutorialView.backgroundImage) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialView.title, 'Titre') }}
+        {{ form_widget(formTutorialView.title) }}
+        {{ form_errors(formTutorialView.title) }}
+    </div>
+
+    <div>
+        {{ form_label(formTutorialView.country, 'Pays associé') }}
+        {{ form_widget(formTutorialView.country) }}
+        {{ form_errors(formTutorialView.country) }}
+    </div>
+
+    <div>
+        {{ form_widget(formTutorialView.Valider) }}
+    </div>
+
+    {{ form_end(formTutorialView) }}
+
+{% endblock %}

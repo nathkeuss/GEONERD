@@ -1,0 +1,26 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Liste des posts{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <a href="{{ path('create_post') }}">Créer un post</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h3>Titre du post : {{ post.title }}, posté par {{ post.user.username }} à {{  post.datePost|date('d/m/Y H:i') }}</h3>
+            </li>
+            <li>
+                <a href="{{ path('show_post', {'id': post.id}) }}">Afficher le post</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
