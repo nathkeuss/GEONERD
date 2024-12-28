@@ -18,7 +18,7 @@
         <!-- Section contenant la carte -->
         <section class="home-section-map d-none d-lg-block">
             <div class="w-75 m-auto">
-                <object id="map" type="image/svg+xml" data="{{ asset('assets/img_statics/home/world-map.svg') }}" class="img-fluid w-100 h-100"></object>
+                {{ include('public/map.html.twig') }}
             </div>
         </section>
 
