@@ -1,49 +1,62 @@
 {% extends 'public/base.html.twig' %}
 
-{% block title %}Répondre au post{% endblock %}
-
-{% block stylesheets %}
-
-{% endblock %}
-
+{% block title %}Modifier votre réponse{% endblock %}
 
 {% block body %}
+    <h1>Modifier votre réponse</h1>
 
-    <h1>{{ parentPost.title }}</h1>
-    <h2>{{ parentPost.content }}</h2>
-    <h3>{{ parentPost.user.username }}</h3>
+    <h2>Post principal</h2>
+    <div>
+        <h3>{{ parentPost.title }}</h3>
+        <p>{{ parentPost.content }}</p>
+        {% if parentPost.image %}
+            <div>
+                <img src="{{ asset('assets/img_uploads/img_forum/' ~ parentPost.image) }}" alt="Image du post principal">
+            </div>
+        {% endif %}
+        <p>Posté par : {{ parentPost.user.username }}</p>
+    </div>
 
-    <h2>Réponses</h2>
+    <hr>
 
+    <h2>Réponses au post principal</h2>
     {% for reply in replies %}
+        <div>
+            <p>{{ reply.content }}</p>
+            {% if reply.image %}
+                <div>
+                    <img src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}" alt="Image de la réponse">
+                </div>
+            {% endif %}
+            <p>Posté par : {{ reply.user.username }}</p>
 
-        <p>{{ reply.content }}</p>
-        <p>{{ reply.user.username }}</p>
+            {% if reply.user == app.user %}
+                {% if reply.id == updateReplyId %}
+                    <h3>Modifier votre réponse</h3>
+                    {{ form_start(formUpdateReplyView) }}
+                    <div>
+                        {{ form_label(formUpdateReplyView.content) }}
+                        {{ form_widget(formUpdateReplyView.content) }}
+                        {{ form_errors(formUpdateReplyView.content) }}
+                    </div>
 
+                    <div>
+                        {{ form_label(formUpdateReplyView.image) }}
+                        {{ form_widget(formUpdateReplyView.image) }}
+                        {{ form_errors(formUpdateReplyView.image) }}
+                    </div>
+
+                    <div>
+                        {{ form_widget(formUpdateReplyView.Valider) }}
+                    </div>
+                    {{ form_end(formUpdateReplyView) }}
+                {% else %}
+                    <a href="{{ path('update_reply', {'id': reply.id}) }}">Modifier</a>
+                    <a href="{{ path('delete_reply', {'id': reply.id}) }}">Supprimer</a>
+                {% endif %}
+            {% endif %}
+        </div>
     {% endfor %}
 
 
-<h1>Modifie ton message</h1>
-
-    {{ form_start(formUpdateReplyView) }}
-
-    <div>
-        {{ form_label(formUpdateReplyView.content) }}
-        {{ form_widget(formUpdateReplyView.content) }}
-        {{ form_errors(formUpdateReplyView.content) }}
-    </div>
-
-    <div >
-        {{ form_label(formUpdateReplyView.image) }}
-        {{ form_widget(formUpdateReplyView.image) }}
-        {{ form_errors(formUpdateReplyView.image) }}
-    </div>
-
-    <div>
-        {{ form_widget(formUpdateReplyView.Valider) }}
-    </div>
-    {{ form_end(formUpdateReplyView) }}
-
 {% endblock %}
-
-

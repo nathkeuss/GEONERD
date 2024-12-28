@@ -19,6 +19,7 @@
 
         <p>{{ reply.content }}</p>
         <p>{{ reply.user.username }}</p>
+        <img src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}" alt="Image qu'un utilisateur a posté pour répondre à un post">
 
     {% endfor %}
 
