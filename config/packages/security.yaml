@@ -65,9 +65,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # les routes commençant par /tutorial/list nécessitent ROLE_USER
-        - { path: ^/tutorial(?!/login), roles: [ROLE_USER] }
+        #- { path: ^/tutorial(?!/login), roles: [ROLE_USER] }
         # les routes commençant par /user nécessitent le rôle ROLE_ADMIN
-        # - { path: ^/admin(?!/login), roles: [ROLE_ADMIN] }
+        - { path: ^/admin(?!/login), roles: [ROLE_ADMIN] }
 when@test:
     security:
         password_hashers:

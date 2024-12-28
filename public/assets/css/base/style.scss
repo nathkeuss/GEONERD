@@ -1,0 +1,90 @@
+@import '../global/style.scss';
+
+/*HEADER*/
+
+.nav-img-logo {
+  margin-left: 1.8rem;
+  width: 7%;
+
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    width: 10%;
+  }
+}
+
+.nav-a-text {
+  color: white;
+  text-decoration: none;
+  margin-left: 3rem;
+
+  font : {
+    family: "Montserrat";
+    weight: bold;
+    size: 2rem;
+  }
+
+  &:hover {
+    color: #04FF00
+  }
+}
+
+
+.nav-a-connection {
+  width: 12%;
+  text-decoration: none;
+  color: white;
+
+  font: {
+    family: "Montserrat";
+    size: 2rem;
+    weight: bold;
+  }
+
+  &:hover {
+    color: #04FF00;
+  }
+
+  img {
+    margin-right: 0.6rem;
+    width: 2rem;
+    height: auto;
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    margin-right: 2rem;
+  }
+}
+
+
+
+
+/*FOOTER*/
+
+footer {
+  background-color: white;
+  margin-top: 5rem;
+}
+
+.footer-li {
+  list-style-type: none;
+  margin-right: 1.2rem;
+  width: 15%;
+  height: 100%;
+}
+
+
+
+.footer-a {
+  text-decoration: none;
+  color: rgba(32, 32, 42, 1);
+
+  font: {
+    family: "Montserrat";
+    size: 9rem;
+    weight: 900;
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    font-size: 7rem;
+  }
+}
+
