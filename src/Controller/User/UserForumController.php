@@ -18,10 +18,17 @@ class UserForumController extends AbstractController
     #[Route('/forum', name: 'forum')]
     public function listPosts(Request $request, PostForumRepository $postForumRepository)
     {
-        $posts = $postForumRepository->findMainPosts();
+        $search = $request->query->get('search', '');
+
+        if(!empty($search)) {
+            $posts = $postForumRepository->findByTitleOrUsername($search);
+        } else {
+            $posts = $postForumRepository->findMainPosts();
+        }
 
         return $this->render('/public/forum/post/list_posts.html.twig', [
-            'posts' => $posts
+            'posts' => $posts,
+            'search' => $search
         ]);
     }
 

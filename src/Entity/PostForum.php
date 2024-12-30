@@ -25,7 +25,7 @@ class PostForum
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $datePost = null;
 
     #[ORM\ManyToOne(inversedBy: 'replies')]
@@ -43,7 +43,7 @@ class PostForum
     public function __construct()
     {
         $this->replies = new ArrayCollection();
-        $this->datePost = new \DateTime();
+        $this->datePost = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -131,6 +131,11 @@ class PostForum
         return $this->replies;
     }
 
+    public function getRepliesCount(): int
+    {
+        return $this->replies->count();
+    }
+
     public function addReply(self $reply): static
     {
         if (!$this->replies->contains($reply)) {
@@ -152,4 +157,17 @@ class PostForum
 
         return $this;
     }
+
+    public function getLastActivityDate(): \DateTimeInterface
+    {
+        $lastReply = $this->getReplies()->last();
+        $date = $lastReply ? $lastReply->getDatePost() : $this->getDatePost();
+
+        // Retourne un objet \DateTimeInterface
+        return (new \DateTime($date->format('Y-m-d H:i:s'), new \DateTimeZone('UTC')))
+            ->setTimezone(new \DateTimeZone('Europe/Paris'));
+
+
+    }
+
 }

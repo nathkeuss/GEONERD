@@ -13,6 +13,10 @@ body {
   width: 95%;
 }
 
+.w-80 {
+  width: 80%;
+}
+
 /*HEADER*/
 .nav-img-logo {
   margin-left: 1.8rem;

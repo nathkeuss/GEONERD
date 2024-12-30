@@ -1,0 +1,81 @@
+@import '../global/style.scss';
+
+.form-inscription {
+  width: 50%;
+  background-color: #04FF00;
+  border: solid 0.3rem black;
+  box-shadow: rgb(0, 0, 0) -0.5rem 0.3rem;
+  border-radius: 1rem;
+}
+
+.form-h1-inscription {
+  font: {
+    family: "Montserrat";
+    size: 2rem;
+    weight: bold;
+  }
+}
+
+
+.label-inscription {
+  font: {
+    family: "Montserrat";
+    size: 1.3rem;
+    weight: bold;
+  }
+}
+
+.input-inscription {
+  border: none;
+  border: solid 0.3rem rgba(32, 32, 42, 1);
+  background-color: #C4FFC3;
+  border-radius: 4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  font: {
+    family: "Montserrat";
+    size: 1.1rem;
+    weight: bold;
+    opacity: 40%;
+  }
+
+  &:focus {
+    outline: none;
+    transform: scale(1.05);
+  }
+}
+
+.button-inscription {
+  border: none;
+  width: 25%;
+  border: solid 0.2rem rgba(32, 32, 42, 1);
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+  background-color: #fff;
+  border-radius: 4rem;
+
+  font: {
+    family: "Montserrat";
+    size: 1.4rem;
+    weight: bold;
+  }
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.span-to-connection {
+  font: {
+    family: "Montserrat";
+    size: 1rem;
+    weight: bold;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgba(32, 32, 42, 1);
+    text-decoration: underline;
+
+  }
+}
