@@ -4,7 +4,7 @@
 
 {% block stylesheets %}
 
-    <link rel="stylesheet" href="{{ asset('assets/css/forum/post/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/forum/post/list/style.css') }}">
 
 {% endblock %}
 
@@ -20,7 +20,12 @@
                 <button type="submit" class="button-search"><img class="w-100 h-100 img-fluid" src="{{ asset('assets/img_statics/forum/search.png') }}" alt="Image d'une loupe de recherche"></button>
             </form>
 
-            <button class="button-new-topic" onclick="window.location.href='{{ path('create_post') }}';">Nouvelle discussion</button>
+            {% if app.user %}
+                <button class="button-new-topic" onclick="window.location.href='{{ path('create_post') }}';">Nouvelle discussion</button>
+            {% else %}
+                <button class="button-new-topic" onclick="window.location.href='{{ path('public_login') }}';">Nouvelle discussion</button>
+            {% endif %}
+
 
         </div>
 
@@ -43,10 +48,7 @@
                             <div class="data-text col-6">{{ post.title }}</div>
                             <div class="data-text text-start col-2">{{ post.user.username }}</div>
                             <div class="data-text text-center col-2">{{ post.getRepliesCount() }}</div>
-                            <div class="data-text text-center col-2">{{ post.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}
-
-
-                            </div>
+                            <div class="data-text text-center col-2">{{ post.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
                         </div>
                     </a>
 

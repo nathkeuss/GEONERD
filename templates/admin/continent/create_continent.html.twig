@@ -8,20 +8,25 @@
 
 {% block body %}
 
-    <h1>Créer un continent</h1>
+    <main class="container py-5">
+        <h1 class="text-center mb-4">Créer un continent</h1>
 
-    {{ form_start(formContinentView) }}
+        <div class="card bg-dark text-light p-4 shadow-lg">
+            {{ form_start(formContinentView) }}
 
-    <div>
-        {{ form_label(formContinentView.name, 'Nom du continent') }}
-        {{ form_widget(formContinentView.name) }}
-        {{ form_errors(formContinentView.name) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formContinentView.name, 'Nom du continent') }}
+                {{ form_widget(formContinentView.name) }}
+                {{ form_errors(formContinentView.name) }}
+            </div>
 
-    <div>
-        {{ form_widget(formContinentView.Valider) }}
-    </div>
+            <div class="text-center">
+                {{ form_widget(formContinentView.Valider) }}
+            </div>
 
-    {{ form_end(formContinentView) }}
+            {{ form_end(formContinentView) }}
+        </div>
+
+    </main>
 
 {% endblock %}

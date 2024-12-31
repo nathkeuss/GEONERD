@@ -8,33 +8,43 @@
 
 {% block body %}
 
-    <h1>Créer une partie du tutoriel</h1>
+    <main class="container py-5">
 
 
-    {{ form_start(formTutorialPartView) }}
+        <h1 class="text-center mb-4">Créer une partie du tutoriel</h1>
 
-    <div>
-        {{ form_label(formTutorialPartView.image, 'Image associée') }}
-        {{ form_widget(formTutorialPartView.image) }}
-        {{ form_errors(formTutorialPartView.image) }}
-    </div>
+        <div class="card bg-dark text-light p-4 shadow-lg">
 
-    <div>
-        {{ form_label(formTutorialPartView.content, 'Contenu') }}
-        {{ form_widget(formTutorialPartView.content) }}
-        {{ form_errors(formTutorialPartView.content) }}
-    </div>
 
-    <div>
-        {{ form_label(formTutorialPartView.tutorial, 'Tutoriel associé') }}
-        {{ form_widget(formTutorialPartView.tutorial) }}
-        {{ form_errors(formTutorialPartView.tutorial) }}
-    </div>
+            {{ form_start(formTutorialPartView) }}
 
-    <div>
-        {{ form_widget(formTutorialPartView.Valider) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formTutorialPartView.image) }}
+                {{ form_widget(formTutorialPartView.image) }}
+                {{ form_errors(formTutorialPartView.image) }}
+            </div>
 
-    {{ form_end(formTutorialPartView) }}
+            <div class="mb-3">
+                {{ form_label(formTutorialPartView.content) }}
+                {{ form_widget(formTutorialPartView.content) }}
+                {{ form_errors(formTutorialPartView.content) }}
+            </div class="mb-3">
+
+            <div>
+                {{ form_label(formTutorialPartView.tutorial) }}
+                {{ form_widget(formTutorialPartView.tutorial) }}
+                {{ form_errors(formTutorialPartView.tutorial) }}
+            </div>
+
+            <div class="text-center">
+                {{ form_widget(formTutorialPartView.Valider) }}
+            </div>
+
+            {{ form_end(formTutorialPartView) }}
+        </div>
+    </main>
+
+    {% block javascripts %}
+    {% endblock %}
 
 {% endblock %}

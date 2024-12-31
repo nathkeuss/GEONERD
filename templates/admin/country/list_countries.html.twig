@@ -3,35 +3,82 @@
 {% block title %}Liste des pays{% endblock %}
 
 {% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
 
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            background-color: #2a2a2a;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        }
+        .img-fluid {
+            max-height: 150px;
+            border-radius: 8px;
+        }
+        .btn {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            letter-spacing: 1.2px;
+        }
+    </style>
 {% endblock %}
-
 
 {% block body %}
+    <main class="container py-5">
 
-    <form action="{{ path('list_countries') }}" method="get">
-        <input type="text" name="search" placeholder="Rechercher un pays" value="{{ search|default('') }}">
-        <button type="submit">Rechercher</button>
-    </form>
+        <!-- Formulaire de recherche -->
+        <div class="mb-4">
+            <form action="{{ path('list_countries') }}" method="get" class="d-flex">
+                <input type="text" name="search" class="form-control me-2" placeholder="Rechercher un pays" value="{{ search|default('') }}">
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </form>
+        </div>
 
-    {% if search %}
-        <h1>Résultat de recherche pour "{{ search }}"</h1>
-    {% else %}
-        <h1>Liste de tous les pays</h1>
-    {% endif %}
+        <!-- Résultat de recherche ou liste complète -->
+        {% if search %}
+            <h1 class="text-center mb-4">Résultat de recherche pour "{{ search }}"</h1>
+        {% else %}
+            <h1 class="text-center mb-4">Liste de tous les pays</h1>
+        {% endif %}
 
-    <ul>
-        {% for country in countries %}
-            <li>
-                <h3>Nom du pays : {{ country.name }}</h3>
-                <div>
-                    <img src="{{ asset('assets/img_uploads/img_flags/' ~ country.flag) }}" alt="Image du drapeau de {{ country.name }}" style="max-height: 150px;">
-                </div>
-                <a href="{{ path('update_country', {'id': country.id}) }}">Modifier</a>
-                <a href="{{ path('delete_country', {'id': country.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce pays ?')">Supprimer</a>
-            </li>
-        {% endfor %}
-    </ul>
+        <!-- Liste des pays -->
+        {% if countries|length > 0 %}
+            <div class="row g-4">
+                {% for country in countries %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <!-- Titre du pays -->
+                                <h3 class="card-title">{{ country.name }}</h3>
+                                <!-- Drapeau -->
+                                <img src="{{ asset('assets/img_uploads/img_flags/' ~ country.flag) }}" alt="Drapeau de {{ country.name }}" class="img-fluid my-3">
+                                <!-- Boutons Modifier et Supprimer -->
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="{{ path('update_country', {'id': country.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="{{ path('delete_country', {'id': country.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce pays ?')">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center mt-4 text-danger fs-5">Aucun pays trouvé.</p>
+        {% endif %}
 
+    </main>
 {% endblock %}
-

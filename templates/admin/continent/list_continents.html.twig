@@ -3,31 +3,77 @@
 {% block title %}Liste des continents{% endblock %}
 
 {% block stylesheets %}
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f1f1f1;
+            font-size: 1.2rem; /* Taille de texte générale plus grande */
+        }
+        .navbar, footer {
+            background-color: #1e1e1e;
+        }
+        a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0a58ca;
+            text-decoration: underline;
+        }
+        h1 {
+            font-size: 2rem; /* Taille de titre plus grande */
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            font-size: 1rem; /* Boutons légèrement plus grands */
+            padding: 0.6rem 1.2rem;
+        }
+        .form-control {
+            font-size: 1.1rem; /* Champs de texte légèrement agrandis */
+            padding: 0.8rem;
+        }
+        .list-group-item {
+            font-size: 1.1rem; /* Texte dans les éléments de liste agrandi */
+            padding: 1.2rem; /* Augmente l'espacement interne */
+        }
+    </style>
 {% endblock %}
-
 
 {% block body %}
 
-    <form action="{{ path('list_continents') }}" method="get">
-        <input type="text" name="search" placeholder="Rechercher un continent" value="{{ search|default('') }}">
-        <button type="submit">Rechercher</button>
-    </form>
+    <main class="container py-5">
 
-    {% if search %}
-        <h1>Résultat de recherche pour "{{ search }}"</h1>
-    {% else %}
-        <h1>Liste de tous les continents</h1>
-    {% endif %}
+        <div class="mb-5">
+            <form action="{{ path('list_continents') }}" method="get" class="d-flex">
+                <input type="text" name="search" class="form-control me-3" placeholder="Rechercher un continent" value="{{ search|default('') }}">
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </form>
+        </div>
 
-    <ul>
-        {% for continent in continents %}
-            <li>
-                <h3>Nom du continent : {{ continent.name }}</h3>
-                <a href="{{ path('update_continent', {'id': continent.id}) }}">Modifier</a>
-                <a href="{{ path('delete_continent', {'id': continent.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce continent ?')">Supprimer</a>
-            </li>
-        {% endfor %}
-    </ul>
+        {% if search %}
+            <h1 class="text-center">Résultat de recherche pour "{{ search }}"</h1>
+        {% else %}
+            <h1 class="text-center">Liste de tous les continents</h1>
+        {% endif %}
+
+        {% if continents|length > 0 %}
+            <ul class="list-group mt-4">
+                {% for continent in continents %}
+                    <li class="list-group-item bg-dark text-light d-flex justify-content-between align-items-center rounded-3">
+                        <div>
+                            <h3 class="mb-2">{{ continent.name }}</h3>
+                        </div>
+                        <div class="d-flex">
+                            <a href="{{ path('update_continent', {'id': continent.id}) }}" class="btn btn-warning btn-sm me-2">Modifier</a>
+                            <a href="{{ path('delete_continent', {'id': continent.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce continent ?')">Supprimer</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center mt-4">Aucun continent trouvé.</p>
+        {% endif %}
+    </main>
 
 {% endblock %}

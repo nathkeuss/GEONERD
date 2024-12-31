@@ -18,19 +18,29 @@ class TutorialType extends AbstractType
         $builder
             ->add('image', FileType::class, [
                 'mapped' => false,
-                'required' => !$options['is_require']
+                'required' => !$options['is_require'],
+                'label' => 'Image du tutoriel',
+                'attr' => ['class' => 'form-control'],
             ])
             ->add('backgroundImage', FileType::class, [
                 'mapped' => false,
-                'required' => !$options['is_require']
+                'required' => !$options['is_require'],
+                'label' => 'Image de fond',
+                'attr' => ['class' => 'form-control'],
             ])
-            ->add('title')
+            ->add('title', null, [
+                'label' => 'Titre du tutoriel',
+                'attr' => ['class' => 'form-control'],
+            ])
             ->add('country', EntityType::class, [
                 'class' => Country::class,
                 'choice_label' => 'name',
+                'label' => 'Pays associé',
+                'attr' => ['class' => 'form-select'],
             ])
-            ->add('Valider', SubmitType::class)
-        ;
+            ->add('Valider', SubmitType::class, [
+                'attr' => ['class' => 'btn btn-primary mt-3 w-25 fs-3'],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

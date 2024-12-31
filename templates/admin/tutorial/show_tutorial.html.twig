@@ -3,37 +3,85 @@
 {% block title %}Tutoriel {{ tutorial.title }}{% endblock %}
 
 {% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
 
+        .main-image {
+            max-height: 300px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            color: #f1f1f1;
+        }
+
+        .btn {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .tutorial-part img {
+            max-height: 150px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .tutorial-part {
+            margin-bottom: 1.5rem;
+        }
+
+        .action-buttons a {
+            margin-right: 10px;
+        }
+    </style>
 {% endblock %}
-
 
 {% block body %}
+    <main class="container py-5">
 
-    <main>
+        <!-- Tutoriel Principal -->
         <section>
-            <h1>{{ tutorial.title }}</h1>
-            <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorial.backgroundImage) }}" alt="Image du tutoriel {{ tutorial.title }}" style="max-height: 300px;">
+            <h1 class="text-center mb-4">{{ tutorial.title }}</h1>
+            <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorial.backgroundImage) }}" alt="Image du tutoriel {{ tutorial.title }}" class="main-image mb-4">
 
-            <a href="{{ path('update_tutorial', {'id': tutorial.id}) }}">Modifier le tutoriel</a>
-            <a href="{{ path('delete_tutorial', {'id': tutorial.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce tutoriel ?')">Supprimer le tutoriel</a>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ path('update_tutorial', {'id': tutorial.id}) }}" class="btn btn-warning">Modifier le tutoriel</a>
+                <a href="{{ path('delete_tutorial', {'id': tutorial.id}) }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce tutoriel ?')">Supprimer le tutoriel</a>
+            </div>
         </section>
 
-
+        <!-- Parties du Tutoriel -->
         <section>
-            <h2>Parties du tutoriel</h2>
-            <a href="{{ path('create_tutorialpart') }}">Ajouter une partie au tutoriel</a>
+            <h2 class="section-title text-center fs-1 text-success mb-5">Parties du tutoriel</h2>
+            <div class="text-center mb-4">
+                <a href="{{ path('create_tutorialpart') }}" class="btn btn-primary">Ajouter une partie au tutoriel</a>
+            </div>
 
-                {% for tutorialPart in tutorialParts %}
-                    <article>
-                        <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorialPart.image) }}" alt="Image descriptif d'un élément du tutoriel {{ tutorial.title }}" style="max-height: 150px;">
-                        <p>{{ tutorialPart.content|raw }}</p>
-                        <a href="{{ path('update_tutorial_part', {'id': tutorialPart.id}) }}">Modifier</a>
-                        <a href="{{ path('delete_tutorial_part', {'id': tutorialPart.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette partie ?')">Supprimer</a>
-                    </article>
-                {% endfor %}
+            {% for tutorialPart in tutorialParts %}
+                <div class="tutorial-part p-4 border rounded bg-dark">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorialPart.image) }}" alt="Image descriptif d'un élément du tutoriel {{ tutorial.title }}" class="tutorial-part-image">
+                        </div>
+                        <div class="col-md-8">
+                            <p>{{ tutorialPart.content|raw }}</p>
+                            <div class="action-buttons">
+                                <a href="{{ path('update_tutorial_part', {'id': tutorialPart.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                <a href="{{ path('delete_tutorial_part', {'id': tutorialPart.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette partie ?')">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </section>
     </main>
-
 {% endblock %}
-
-

@@ -8,38 +8,44 @@
 
 {% block body %}
 
-    <h1>Créer un tutoriel</h1>
+    <main class="container py-5">
 
-    {{ form_start(formTutorialView) }}
+        <h1 class="text-center mb-4">Créer un tutoriel</h1>
 
-    <div>
-        {{ form_label(formTutorialView.image, 'Image associée') }}
-        {{ form_widget(formTutorialView.image) }}
-        {{ form_errors(formTutorialView.image) }}
-    </div>
+        <div class="card bg-dark text-light p-4 shadow-lg">
 
-    <div>
-        {{ form_label(formTutorialView.backgroundImage, 'Image de fond') }}
-        {{ form_widget(formTutorialView.backgroundImage) }}
-        {{ form_errors(formTutorialView.backgroundImage) }}
-    </div>
+            {{ form_start(formTutorialView) }}
 
-    <div>
-        {{ form_label(formTutorialView.title, 'Titre') }}
-        {{ form_widget(formTutorialView.title) }}
-        {{ form_errors(formTutorialView.title) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formTutorialView.image) }}
+                {{ form_widget(formTutorialView.image) }}
+                {{ form_errors(formTutorialView.image) }}
+            </div>
 
-    <div>
-        {{ form_label(formTutorialView.country, 'Pays associé') }}
-        {{ form_widget(formTutorialView.country) }}
-        {{ form_errors(formTutorialView.country) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formTutorialView.backgroundImage) }}
+                {{ form_widget(formTutorialView.backgroundImage) }}
+                {{ form_errors(formTutorialView.backgroundImage) }}
+            </div>
 
-    <div>
-        {{ form_widget(formTutorialView.Valider) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formTutorialView.title) }}
+                {{ form_widget(formTutorialView.title) }}
+                {{ form_errors(formTutorialView.title) }}
+            </div>
 
-    {{ form_end(formTutorialView) }}
+            <div class="mb-3">
+                {{ form_label(formTutorialView.country) }}
+                {{ form_widget(formTutorialView.country) }}
+                {{ form_errors(formTutorialView.country) }}
+            </div>
+
+            <div class="text-center">
+                {{ form_widget(formTutorialView.Valider) }}
+            </div>
+
+            {{ form_end(formTutorialView) }}
+        </div>
+    </main>
 
 {% endblock %}

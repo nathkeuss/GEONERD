@@ -8,32 +8,38 @@
 
 {% block body %}
 
-    <h1>Ajouter un pays</h1>
+    <main class="container py-5">
 
-    {{ form_start(formCountryView) }}
+        <h1 class="text-center mb-4">Ajouter un pays</h1>
 
-    <div>
-        {{ form_label(formCountryView.name, 'Nom du pays') }}
-        {{ form_widget(formCountryView.name) }}
-        {{ form_errors(formCountryView.name) }}
-    </div>
+        <div class="card bg-dark text-light p-4 shadow-lg">
+            {{ form_start(formCountryView) }}
 
-    <div>
-        {{ form_label(formCountryView.flag, 'Drapeau du pays') }}
-        {{ form_widget(formCountryView.flag) }}
-        {{ form_errors(formCountryView.flag) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formCountryView.name) }}
+                {{ form_widget(formCountryView.name) }}
+                {{ form_errors(formCountryView.name) }}
+            </div>
 
-    <div>
-        {{ form_label(formCountryView.continent, 'Continent associé') }}
-        {{ form_widget(formCountryView.continent) }}
-        {{ form_errors(formCountryView.continent) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formCountryView.flag) }}
+                {{ form_widget(formCountryView.flag) }}
+                {{ form_errors(formCountryView.flag) }}
+            </div>
 
-    <div>
-        {{ form_widget(formCountryView.Valider) }}
-    </div>
+            <div class="mb-3">
+                {{ form_label(formCountryView.continent) }}
+                {{ form_widget(formCountryView.continent) }}
+                {{ form_errors(formCountryView.continent) }}
+            </div>
 
-    {{ form_end(formCountryView) }}
+            <div class="text-center">
+                {{ form_widget(formCountryView.Valider) }}
+            </div>
+
+            {{ form_end(formCountryView) }}
+        </div>
+
+    </main>
 
 {% endblock %}

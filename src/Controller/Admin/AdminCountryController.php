@@ -134,6 +134,7 @@ class AdminCountryController extends AbstractController
         return $this->render('admin/country/update_country.html.twig', [
             'formCountryView' => $formCountryView,
             'currentFlag' => $country->getFlag(),
+            'country' => $country,
         ]);
 
     }
