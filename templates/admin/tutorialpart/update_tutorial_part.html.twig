@@ -9,36 +9,49 @@
 
 {% block body %}
 
-    <div>
-        <p>Image actuel :</p>
-        <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ currentImage) }}" alt="Image descriptif d'un élément du pays {{ tutorialPart.tutorial.title }}" style="max-height: 150px;">
-    </div>
+    <main class="container py-5">
 
-    {{ form_start(formTutorialPartView) }}
+        <div class="mb-5 p-4 text-white  text-center">
+            <p class="fw-bold fs-4">Image actuelle :</p>
+            <img
+                    src="{{ asset('assets/img_uploads/img_tutorials/' ~ currentImage) }}"
+                    alt="Image descriptif d'un élément du pays {{ tutorialPart.tutorial.title }}"
+                    class="img-fluid rounded shadow-lg"
+                    style="max-height: 300px; width: auto;">
+        </div>
 
-    <div>
-        {{ form_label(formTutorialPartView.image, 'Image associée') }}
-        {{ form_widget(formTutorialPartView.image) }}
-        {{ form_errors(formTutorialPartView.image) }}
-    </div>
 
-    <div>
-        {{ form_label(formTutorialPartView.content, 'Contenu') }}
-        {{ form_widget(formTutorialPartView.content) }}
-        {{ form_errors(formTutorialPartView.content) }}
-    </div>
+        <h1 class="text-center mb-4">Modifier une partie du tutoriel</h1>
 
-    <div>
-        {{ form_label(formTutorialPartView.tutorial, 'Tutoriel associé') }}
-        {{ form_widget(formTutorialPartView.tutorial) }}
-        {{ form_errors(formTutorialPartView.tutorial) }}
-    </div>
+        <div class="card bg-dark text-light p-4 shadow-lg">
 
-    <div>
-        {{ form_widget(formTutorialPartView.Valider) }}
-    </div>
+            {{ form_start(formTutorialPartView) }}
 
-    {{ form_end(formTutorialPartView) }}
+            <div class="mb-3">
+                {{ form_label(formTutorialPartView.image) }}
+                {{ form_widget(formTutorialPartView.image) }}
+                {{ form_errors(formTutorialPartView.image) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formTutorialPartView.content) }}
+                {{ form_widget(formTutorialPartView.content) }}
+                {{ form_errors(formTutorialPartView.content) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formTutorialPartView.tutorial) }}
+                {{ form_widget(formTutorialPartView.tutorial) }}
+                {{ form_errors(formTutorialPartView.tutorial) }}
+            </div>
+
+            <div class="text-center">
+                {{ form_widget(formTutorialPartView.Valider) }}
+            </div>
+
+            {{ form_end(formTutorialPartView) }}
+        </div>
+    </main>
 
 {% endblock %}
 

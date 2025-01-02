@@ -1,30 +1,51 @@
 {% extends 'public/base.html.twig' %}
 
-{% block title %}Tutoriel {{ tutorial.title }}{% endblock %}
+{% block title %}Tutoriel - {{ tutorial.title }}{% endblock %}
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/css/tutorial/show/style.scss') }}">
 {% endblock %}
 
 
 {% block body %}
 
     <main>
-        <section>
-            <h1>{{ tutorial.title }}</h1>
-            <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorial.image) }}" alt="Image du tutoriel {{ tutorial.title }}" style="max-height: 300px;">
+        {# img de fond + nom du pays #}
+        <section class="w-100 overflow-hidden section-background-image-title mt-5 mb-5">
+            <div class="w-100 h-100">
+                <img
+                        class="w-100 h-100 img-fluid image-center"
+                        src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorial.backgroundImage) }}"
+                        alt="Image de fond qui montre un paysage du pays {{ tutorial.title }}">
+            </div>
+            <h1 class="position-absolute start-50 translate-middle h1-country-name">{{ tutorial.title }}</h1>
         </section>
 
-        <section>
 
+        {# section parent #}
+        <section class="w-75 m-auto">
+
+            <h1 class="text-center h1-identify">Comment identifier le pays</h1>
+            {# images avec explications #}
             {% for tutorialPart in tutorialParts %}
-                <article>
-                    <img src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorialPart.image) }}" alt="Image descriptif d'un élément du tutoriel {{ tutorial.title }}" style="max-height: 150px;">
-                    <p>{{ tutorialPart.content }}</p>
+                <article class="row w-100 align-items-center article-explain justify-content-between">
+
+                    <div class="col-6">
+                        <img class="img-fluid w-100 h-100" src="{{ asset('assets/img_uploads/img_tutorials/' ~ tutorialPart.image) }}" alt="Image descriptif d'un élément du tutoriel {{ tutorial.title }}">
+                    </div>
+
+                    <div class="col-6">
+                        <p class="image-explain">{{ tutorialPart.content|raw }}</p>
+                    </div>
+
                 </article>
             {% endfor %}
+
         </section>
     </main>
+
+
 
 {% endblock %}
 

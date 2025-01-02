@@ -1,62 +1,180 @@
 {% extends 'public/base.html.twig' %}
 
-{% block title %}Modifier votre réponse{% endblock %}
+{% block title %}Modifie ta réponse{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/forum/post/show/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/forum/reply/update/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+{% endblock %}
 
 {% block body %}
-    <h1>Modifier votre réponse</h1>
 
-    <h2>Post principal</h2>
-    <div>
-        <h3>{{ parentPost.title }}</h3>
-        <p>{{ parentPost.content }}</p>
-        {% if parentPost.image %}
-            <div>
-                <img src="{{ asset('assets/img_uploads/img_forum/' ~ parentPost.image) }}" alt="Image du post principal">
+    <main class="flex-grow-1">
+
+        <section class="w-80 m-auto mt-5">
+
+            {# Titre et boutons Répondre/Liste des sujets #}
+            <div class="row align-items-center div-title-reply p-3 justify-content-between m-0">
+                <h1 class="col-7 post-title">{{ parentPost.title }}</h1>
+                <a class=" col-2 reply-button text-decoration-none text-center"
+                   href="{{ path('reply_post', {'id': parentPost.id}) }}">Répondre</a>
+                <a class="col-2 list-posts-button text-decoration-none text-center" href="{{ path('forum') }}">Liste des
+                    sujets</a>
             </div>
-        {% endif %}
-        <p>Posté par : {{ parentPost.user.username }}</p>
-    </div>
 
-    <hr>
+            {# Post parent #}
+            <div class="div-post-reply mt-5">
+                <div class="w-95 m-auto">
+                    <div class="d-flex pt-3 align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="div-img-profile me-2">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('assets/img_uploads/img_profile/profile.png') }}"
+                                     alt="Image de profil de l'utilisateur">
+                            </div>
+                            <span class="post-user-username">{{ parentPost.user.username }}</span>
+                        </div>
+                        <div>
+                            <span class="post-date">{{ parentPost.getDatePost|date("\\l\\e d/m à H\\hi") }}</span>
+                        </div>
+                    </div>
+                    <hr class="divider-user-message">
 
-    <h2>Réponses au post principal</h2>
-    {% for reply in replies %}
-        <div>
-            <p>{{ reply.content }}</p>
-            {% if reply.image %}
-                <div>
-                    <img src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}" alt="Image de la réponse">
+                    <div class="d-flex justify-content-between row">
+                        <div class="{% if not parentPost.image %}col-12{% else %}col-7{% endif %}">
+                            <p class="post-content">{{ parentPost.content }}</p>
+                        </div>
+                        {% if parentPost.image %}
+                            <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('assets/img_uploads/img_forum/' ~ parentPost.image) }}"
+                                     alt="Image du post principal">
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {% if parentPost.user == app.user %}
+                        <div class="mt-3 d-flex justify-content-end">
+                            <a href="{{ path('update_post', {'id': parentPost.id}) }}"
+                               class="button-update text-decoration-none me-3">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                                Modifier
+                            </a>
+                            <a href="{{ path('delete_post', {'id': parentPost.id}) }}"
+                               class="button-delete text-decoration-none"
+                               onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce post ?')">
+                                <i class="fas fa-trash"></i>
+                                Supprimer
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
-            <p>Posté par : {{ reply.user.username }}</p>
+                <hr class="divider-reply">
 
-            {% if reply.user == app.user %}
-                {% if reply.id == updateReplyId %}
-                    <h3>Modifier votre réponse</h3>
-                    {{ form_start(formUpdateReplyView) }}
-                    <div>
-                        {{ form_label(formUpdateReplyView.content) }}
-                        {{ form_widget(formUpdateReplyView.content) }}
-                        {{ form_errors(formUpdateReplyView.content) }}
-                    </div>
 
-                    <div>
-                        {{ form_label(formUpdateReplyView.image) }}
-                        {{ form_widget(formUpdateReplyView.image) }}
-                        {{ form_errors(formUpdateReplyView.image) }}
-                    </div>
+                {# Formulaire de modification de réponse (si demandé) #}
+                {% if updateReplyId is defined and formUpdateReplyView is defined %}
+                    <div class="w-95 m-auto mb-5">
+                        <h2 class="text-center h1-update-reply">Modifier votre réponse</h2>
 
-                    <div>
-                        {{ form_widget(formUpdateReplyView.Valider) }}
+                        <div class="d-flex pt-3 mb-3 align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="div-img-profile me-2">
+                                    <img class="img-fluid w-100 h-100"
+                                         src="{{ asset('assets/img_uploads/img_profile/profile.png') }}"
+                                         alt="Image de profil de l'utilisateur">
+                                </div>
+                                <span class="post-user-username">{{ currentReply.user.username }}</span>
+                            </div>
+                            <div>
+                                <span class="post-date">{{ currentReply.getDatePost|date("\\l\\e d/m à H\\hi") }}</span>
+                            </div>
+                        </div>
+
+                        {{ form_start(formUpdateReplyView) }}
+                        <div class="w-100">
+                            {{ form_widget(formUpdateReplyView.content) }}
+                            {{ form_errors(formUpdateReplyView.content) }}
+                        </div>
+
+                        <div class="w-25">
+                            {{ form_widget(formUpdateReplyView.image) }}
+                            {{ form_errors(formUpdateReplyView.image) }}
+                        </div>
+
+                        <div class="text-end mt-3">
+                            {{ form_widget(formUpdateReplyView.Publier, {'label': 'Modifier'}) }}
+                        </div>
+                        {{ form_end(formUpdateReplyView) }}
                     </div>
-                    {{ form_end(formUpdateReplyView) }}
-                {% else %}
-                    <a href="{{ path('update_reply', {'id': reply.id}) }}">Modifier</a>
-                    <a href="{{ path('delete_reply', {'id': reply.id}) }}">Supprimer</a>
+                    <hr class="divider-reply">
                 {% endif %}
-            {% endif %}
-        </div>
-    {% endfor %}
 
+                {# Réponses #}
+                {% if replies|length > 0 %}
+                    {% for reply in replies %}
+                        {# vérifie si la réponse est celle en cours de modification #}
+                        {% if not (updateReplyId is defined and reply.id == updateReplyId) %}
+                            <div class="w-95 m-auto {% if loop.last %}mb-3{% endif %}">
+                                <div class="d-flex pt-3 align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="div-img-profile me-2">
+                                            <img class="img-fluid w-100 h-100"
+                                                 src="{{ asset('assets/img_uploads/img_profile/profile.png') }}"
+                                                 alt="Image de profil de l'utilisateur">
+                                        </div>
+                                        <span class="post-user-username">{{ reply.user.username }}</span>
+                                    </div>
+                                    <div>
+                                        <span class="post-date">{{ reply.getDatePost|date("\\l\\e d/m à H\\hi") }}</span>
+                                    </div>
+                                </div>
+                                <hr class="divider-user-message">
+
+                                <div class="d-flex justify-content-between row">
+                                    <div class="{% if not reply.image %}col-12{% else %}col-7{% endif %}">
+                                        <p class="post-content">{{ reply.content }}</p>
+                                    </div>
+
+                                    {% if reply.image %}
+                                        <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                            <img class="img-fluid w-100 h-100"
+                                                 src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}"
+                                                 alt="Image de la réponse">
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                {% if reply.user == app.user %}
+                                    <div class="mt-3 d-flex justify-content-end">
+                                        <a href="{{ path('update_reply', {'id': reply.id}) }}"
+                                           class="button-update text-decoration-none me-3">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                            Modifier
+                                        </a>
+                                        <a href="{{ path('delete_reply', {'id': reply.id}) }}"
+                                           class="button-delete text-decoration-none"
+                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette réponse ?')">
+                                            <i class="fas fa-trash"></i>
+                                            Supprimer
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            {% if not loop.last %}
+                                <hr class="divider-reply">
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <h1 class="no-reply text-center p-2">&#x1F480;&#x1F480;&#x1F480; </h1>
+                {% endif %}
+
+            </div>
+
+        </section>
+
+    </main>
 
 {% endblock %}

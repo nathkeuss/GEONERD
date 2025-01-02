@@ -54,19 +54,9 @@
 
                     <hr class="line">
                 {% endfor %}
-                {#                <ul>
-                    {% for post in posts %}
-                        <li>
-                            <h3>Titre du post : {{ post.title }}, posté par {{ post.user.username }}
-                                à {{ post.datePost|date('d/m/Y H:i') }}</h3>
-                        </li>
-                        <li>
-                            <a href="{{ path('show_post', {'id': post.id}) }}">Afficher le post</a>
-                        </li>
-                    {% endfor %}
-                </ul> #}
 
             </div>
+
         </section>
 
     </main>

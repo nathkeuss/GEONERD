@@ -35,6 +35,7 @@ class UserForumController extends AbstractController
     #[Route('/forum/create-post', name: 'create_post')]
     public function createPost(Request $request, EntityManagerInterface $entityManager, ParameterBagInterface $parameterBagInterface, UniqueFilenameGenerator $uniqueFilenameGenerator)
     {
+
         $forumPost = new PostForum();
 
         $formForumPost = $this->createForm(ForumPostType::class, $forumPost);
@@ -60,11 +61,15 @@ class UserForumController extends AbstractController
 
                 $forumPost->setImage($newFilename);
 
+
             }
 
             $forumPost->setUser($this->getUser());
             $entityManager->persist($forumPost);
             $entityManager->flush();
+
+            return $this->redirectToRoute('show_post', ['id' => $forumPost->getId()]);
+
 
         }
 
@@ -80,6 +85,7 @@ class UserForumController extends AbstractController
     {
         if($postForum->getUser() !== $this->getUser()){
             $this->addFlash('error', "Vous ne pouvez pas modifier ce message.");
+            return $this->redirectToRoute('forum');
         }
 
         $formForumUpdatePost = $this->createForm(ForumPostType::class, $postForum);
@@ -116,13 +122,15 @@ class UserForumController extends AbstractController
 
             $entityManager->persist($postForum);
             $entityManager->flush();
+
+            return $this->redirectToRoute('show_post', ['id' => $postForum->getId()]);
         }
 
         $formForumUpdatePostView = $formForumUpdatePost->createView();
 
         return $this->render('public/forum/post/update_post.html.twig', [
             'formForumUpdatePostView' => $formForumUpdatePostView,
-            'postForum' => $postForum
+            'postForum' => $postForum,
         ]);
 
     }
@@ -266,7 +274,10 @@ class UserForumController extends AbstractController
             $entityManager->persist($reply);
             $entityManager->flush();
 
-            $this->addFlash('success', "Votre réponse a été mise à jour avec succès !");}
+            $this->addFlash('success', "Votre réponse a été mise à jour avec succès !");
+
+            return $this->redirectToRoute('show_post', ['id' => $reply->getParentPost()->getId()]);
+        }
 
         // Préparer les données pour la vue
         $formUpdateReplyView = $formUpdateReply->createView();
@@ -279,6 +290,7 @@ class UserForumController extends AbstractController
             'parentPost' => $parentPost,
             'replies' => $replies, // Ajout des réponses pour la boucle
             'updateReplyId' => $reply->getId(),
+            'currentReply' => $reply
         ]);
     }
 

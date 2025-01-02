@@ -3,35 +3,130 @@
 {% block title %}Liste des posts{% endblock %}
 
 {% block stylesheets %}
-
+    <link rel="stylesheet" href="{{ asset('assets/css/forum/post/show/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 {% endblock %}
 
 
 {% block body %}
 
-    <h1>{{ post.title }}</h1>
-    <h2>{{ post.content }}</h2>
-    <h3>{{ post.user.username }}</h3>
-    <div>
-        <img src="{{ asset('assets/img_uploads/img_forum/' ~ post.image) }}" alt="Image qu'un utilisateur du forum a posté">
-    </div>
+    <main class="flex-grow-1">
 
-        <a href="{{ path('admin_delete_post', {'id': post.id}) }}">Supprimer</a>
+        <section class="w-80 m-auto mt-5">
 
+            {# div avec titre/répondre/liste #}
+            <div class="row align-items-center div-title-reply p-3 justify-content-between m-0">
+                <h1 class="col-7 post-title">{{ post.title }}</h1>
+                <a class="col-2 list-posts-button text-decoration-none text-center" href="{{ path('admin_forum') }}">Liste des
+                    sujets</a>
+            </div>
 
-    <h2>Réponses</h2>
+            {# div post parent et réponses #}
+            <div class="div-post-reply mt-5">
+                {# div img profil/pseudo/date #}
+                <div class="w-95 m-auto">
+                    <div class="d-flex pt-3 align-items-center justify-content-between">
+                        {# div img profil + pseudo #}
+                        <div class="d-flex align-items-center">
+                            <div class="div-img-profile me-2">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('assets/img_uploads/img_profile/profile.png') }}"
+                                     alt="Image de profil de l'utilisateur">
+                            </div>
+                            <span class="post-user-username">{{ post.user.username }}</span>
+                        </div>
+                        {# div date #}
+                        <div>
+                            <span class="post-date">{{ post.getDatePost|date("\\l\\e d/m à H\\hi") }}</span>
+                        </div>
+                    </div>
+                    <hr class="divider-user-message">
 
-    {% for reply in replies %}
+                    {# div content + img #}
+                    <div class="d-flex justify-content-between row">
+                        <div class="{% if not post.image %}col-12{% else %}col-7{% endif %}">
+                            <p class="post-content">{{ post.content }}</p>
+                        </div>
+                        {# Vérifie si une image existe pour le post #}
+                        {% if post.image %}
+                            <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('assets/img_uploads/img_forum/' ~ post.image) }}"
+                                     alt="Image que l'auteur de la discussion a posté">
+                            </div>
+                        {% endif %}
+                    </div>
 
-        <p>{{ reply.content }}</p>
-        <p>{{ reply.user.username }}</p>
-        <div>
-            <img src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}" alt="Image qu'un utilisateur a posté en réponse à un post">
-        </div>
+                        <div class="mt-3 d-flex justify-content-end">
+                            <a href="{{ path('admin_delete_post', {'id': post.id}) }}"
+                               class="button-delete text-decoration-none"
+                               onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce post ?')">
+                                <i class="fas fa-trash"></i>
+                                Supprimer
+                            </a>
+                        </div>
+                </div>
+                <hr class="divider-reply">
 
-            <a href="{{ path('admin_delete_reply', {'id': reply.id}) }}">Supprimer</a>
+                {# réponses #}
+                {% if replies|length > 0 %}
+                    {% for reply in replies %}
+                        <div class="w-95 m-auto {% if loop.last %}mb-3{% endif %}">
+                            <div class="d-flex pt-3 align-items-center justify-content-between">
+                                {# div img profil + pseudo #}
+                                <div class="d-flex align-items-center">
+                                    <div class="div-img-profile me-2">
+                                        <img class="img-fluid w-100 h-100"
+                                             src="{{ asset('assets/img_uploads/img_profile/profile.png') }}"
+                                             alt="Image de profil de l'utilisateur">
+                                    </div>
+                                    <span class="post-user-username">{{ reply.user.username }}</span>
+                                </div>
+                                {# div date #}
+                                <div>
+                                    <span class="post-date">{{ reply.getDatePost|date("\\l\\e d/m à H\\hi") }}</span>
+                                </div>
+                            </div>
+                            <hr class="divider-user-message">
 
-    {% endfor %}
+                            {# div content + img #}
+                            <div class="d-flex justify-content-between row">
+                                <div class="{% if not reply.image %}col-12{% else %}col-7{% endif %}">
+                                    <p class="post-content">{{ reply.content }}</p>
+                                </div>
+
+                                {% if reply.image %}
+                                    <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                        <img class="img-fluid w-100 h-100"
+                                             src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}"
+                                             alt="Image que l'auteur de la discussion a posté">
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                                <div class="mt-3 d-flex justify-content-end">
+                                    <a href="{{ path('admin_delete_reply', {'id': reply.id}) }}"
+                                       class="button-delete text-decoration-none"
+                                       onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce post ?')">
+                                        <i class="fas fa-trash"></i>
+                                        Supprimer
+                                    </a>
+                                </div>
+                        </div>
+                        {% if not loop.last %}
+                            <hr class="divider-reply">
+                        {% endif %}
+                    {% endfor %}
+
+                {% else %}
+                    <h1 class="no-reply text-center p-2">&#x1F480;&#x1F480;&#x1F480; </h1>
+                {% endif %}
+
+            </div>
+
+        </section>
+
+    </main>
 
 
 {% endblock %}

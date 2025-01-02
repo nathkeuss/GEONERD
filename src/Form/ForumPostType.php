@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class ForumPostType extends AbstractType
 {
@@ -20,20 +21,44 @@ class ForumPostType extends AbstractType
         if (!$options['is_reply']) {
             // Ajouter le champ "title" uniquement si ce n'est pas une réponse
             $builder->add('title', TextType::class, [
-                'label' => 'Titre du post',
+                'attr' => [
+                    'placeholder' => 'Titre de la discussion',
+                    'class' => 'title-post py-2 px-2 w-100'
+                ],
             ]);
         }
 
         $builder
             ->add('content', TextareaType::class, [
-                'label' => 'Contenu post forum',
+                'attr' => [
+                    'placeholder' => 'Entrez votre message...',
+                    'class' => 'message-post py-2 px-2 w-100'
+                ],
             ])
             ->add('image', FileType::class, [
-                'label' => 'Image post forum',
                 'mapped' => false,
                 'required' => false,
+                'attr' => [
+                    'class' => 'image-post w-100',
+                    'placeholder' => 'Choisissez une image'
+                ],
+                'constraints' => [
+                    new File([
+                    'maxSize' => '8M',
+                    'mimeTypes' => [
+                        'image/jpeg',
+                        'image/png',
+                        'image/jpg'
+                    ],
+                    'mimeTypesMessage' => 'Choisissez un format jpeg/png/jpg',
+                    ])
+                ]
             ])
-            ->add('Valider', SubmitType::class);
+            ->add('Publier', SubmitType::class, [
+                'attr' => [
+                    'class' => 'button-publish mb-4'
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

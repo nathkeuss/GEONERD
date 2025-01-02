@@ -4,36 +4,46 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/css/forum/post/create/style.css') }}">
+
 {% endblock %}
 
 
 {% block body %}
 
-    <h1>Créer une nouvelle discussion dans le forum</h1>
+    <main>
 
-    {{ form_start(formForumPostView) }}
-    <div>
-        {{ form_label(formForumPostView.title) }}
-        {{ form_widget(formForumPostView.title) }}
-        {{ form_errors(formForumPostView.title) }}
-    </div>
+        <section class="w-50 m-auto mt-5 section-form">
 
-    <div>
-        {{ form_label(formForumPostView.content) }}
-        {{ form_widget(formForumPostView.content) }}
-        {{ form_errors(formForumPostView.content) }}
-    </div>
+            <h1 class="h1-new-discussion text-center">Créer une nouvelle discussion</h1>
 
-    <div >
-        {{ form_label(formForumPostView.image) }}
-        {{ form_widget(formForumPostView.image) }}
-        {{ form_errors(formForumPostView.image) }}
-    </div>
+            <div class="w-95 m-auto">
+                {{ form_start(formForumPostView) }}
+                <div class="w-75">
+                    {{ form_widget(formForumPostView.title) }}
+                    {{ form_errors(formForumPostView.title) }}
+                </div>
 
-    <div>
-        {{ form_widget(formForumPostView.Valider) }}
-    </div>
-    {{ form_end(formForumPostView) }}
+                <div class="w-100">
+                    {{ form_widget(formForumPostView.content) }}
+                    {{ form_errors(formForumPostView.content) }}
+                </div>
+
+                <div class="w-25">
+                    {{ form_widget(formForumPostView.image) }}
+                    {{ form_errors(formForumPostView.image) }}
+                </div>
+
+
+                <div class="text-end">
+                    {{ form_widget(formForumPostView.Publier) }}
+                </div>
+                {{ form_end(formForumPostView) }}
+            </div>
+
+        </section>
+
+    </main>
 
 {% endblock %}
 

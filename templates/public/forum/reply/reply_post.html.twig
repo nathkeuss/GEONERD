@@ -1,49 +1,132 @@
 {% extends 'public/base.html.twig' %}
 
-{% block title %}Répondre au post{% endblock %}
+{% block title %}Répondre à la discussion{% endblock %}
 
 {% block stylesheets %}
-
+    <link rel="stylesheet" href="{{ asset('assets/css/forum/post/show/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/forum/reply/create/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 {% endblock %}
-
 
 {% block body %}
 
-    <h1>{{ parentPost.title }}</h1>
-    <h2>{{ parentPost.content }}</h2>
-    <h3>{{ parentPost.user.username }}</h3>
+    <main class="flex-grow-1">
 
-    <h2>Réponses</h2>
+        <section class="w-80 m-auto mt-5">
 
-    {% for reply in replies %}
+            {# Titre et boutons Répondre/Liste des sujets #}
+            <div class="row align-items-center div-title-reply p-3 justify-content-between m-0">
+                <h1 class="col-7 post-title">{{ parentPost.title }}</h1>
+                <a class="col-2 list-posts-button text-decoration-none text-center" href="{{ path('forum') }}">Liste des
+                    sujets</a>
+            </div>
 
-        <p>{{ reply.content }}</p>
-        <p>{{ reply.user.username }}</p>
-        <img src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}" alt="Image qu'un utilisateur a posté pour répondre à un post">
+            {# Post parent #}
+            <div class="div-post-reply mt-5">
+                <div class="w-95 m-auto">
+                    <div class="d-flex pt-3 align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="div-img-profile me-2">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('assets/img_uploads/img_profile/profile.png') }}"
+                                     alt="Image de profil de l'utilisateur">
+                            </div>
+                            <span class="post-user-username">{{ parentPost.user.username }}</span>
+                        </div>
+                        <div>
+                            <span class="post-date">{{ parentPost.getDatePost|date("\\l\\e d/m à H\\hi") }}</span>
+                        </div>
+                    </div>
+                    <hr class="divider-user-message">
 
-    {% endfor %}
+                    <div class="d-flex justify-content-between row">
+                        <div class="{% if not parentPost.image %}col-12{% else %}col-7{% endif %}">
+                            <p class="post-content">{{ parentPost.content }}</p>
+                        </div>
+                        {% if parentPost.image %}
+                            <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('assets/img_uploads/img_forum/' ~ parentPost.image) }}"
+                                     alt="Image du post principal">
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr class="divider-reply">
 
 
+                {# Formulaire de réponse #}
+                <div class="reply-form-container w-95 m-auto mb-5">
 
-    {{ form_start(formReplyPostView) }}
+                    <h2 class="text-center h1-reply">Ajoutez une réponse</h2>
 
-    <div>
-        {{ form_label(formReplyPostView.content) }}
-        {{ form_widget(formReplyPostView.content) }}
-        {{ form_errors(formReplyPostView.content) }}
-    </div>
+                    {{ form_start(formReplyPostView) }}
 
-    <div >
-        {{ form_label(formReplyPostView.image) }}
-        {{ form_widget(formReplyPostView.image) }}
-        {{ form_errors(formReplyPostView.image) }}
-    </div>
+                    <div class="w-100 mb-3">
+                        {{ form_widget(formReplyPostView.content) }}
+                        {{ form_errors(formReplyPostView.content) }}
+                    </div>
 
-    <div>
-        {{ form_widget(formReplyPostView.Valider) }}
-    </div>
-    {{ form_end(formReplyPostView) }}
+                    <div class="w-25 mb-3">
+                        {{ form_widget(formReplyPostView.image) }}
+                        {{ form_errors(formReplyPostView.image) }}
+                    </div>
+
+                    <div class="text-end">
+                        {{ form_widget(formReplyPostView.Publier, {'label': 'Répondre'}) }}
+                    </div>
+
+                    {{ form_end(formReplyPostView) }}
+
+                </div>
+
+                <hr class="divider-reply">
+
+                {# Réponses existantes #}
+                {% if replies|length > 0 %}
+                    {% for reply in replies %}
+                        <div class="w-95 m-auto {% if loop.last %}mb-3{% endif %}">
+                            <div class="d-flex pt-3 align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="div-img-profile me-2">
+                                        <img class="img-fluid w-100 h-100"
+                                             src="{{ asset('assets/img_uploads/img_profile/profile.png') }}"
+                                             alt="Image de profil de l'utilisateur">
+                                    </div>
+                                    <span class="post-user-username">{{ reply.user.username }}</span>
+                                </div>
+                                <div>
+                                    <span class="post-date">{{ reply.getDatePost|date("\\l\\e d/m à H\\hi") }}</span>
+                                </div>
+                            </div>
+                            <hr class="divider-user-message">
+
+                            <div class="d-flex justify-content-between row">
+                                <div class="{% if not reply.image %}col-12{% else %}col-7{% endif %}">
+                                    <p class="post-content">{{ reply.content }}</p>
+                                </div>
+
+                                {% if reply.image %}
+                                    <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                        <img class="img-fluid w-100 h-100"
+                                             src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}"
+                                             alt="Image de la réponse">
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if not loop.last %}
+                            <hr class="divider-reply">
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <h1 class="no-reply text-center p-2">&#x1F480;&#x1F480;&#x1F480; </h1>
+                {% endif %}
+
+            </div>
+
+        </section>
+
+    </main>
 
 {% endblock %}
-
-
