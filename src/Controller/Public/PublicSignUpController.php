@@ -30,6 +30,10 @@ class PublicSignUpController extends AbstractController
 
             $realPassword = $formSignUp->get('password')->getData();
 
+            if(!$realPassword) {
+                throw new \Exception('Mot de passe obligatoire');
+            }
+
             $passwordHashed = $userPasswordHasher->hashPassword($user, $realPassword);
 
             $user->setPassword($passwordHashed);
@@ -41,6 +45,8 @@ class PublicSignUpController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
+
+            return $this->redirectToRoute('public_login');
         }
 
         $formSignUpView =  $formSignUp->createView();

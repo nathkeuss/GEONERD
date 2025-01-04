@@ -20,6 +20,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank(message: "L'email est obligatoire.")]
+    #[Assert\Email(message: "L'email est invalide.")]
     private ?string $email = null;
 
     /**
@@ -36,6 +38,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 10, unique: true)]
     #[Assert\NotBlank(message: "Le nom d'utilisateur est obligatoire.")]
+    #[Assert\Length(
+        min: 3,
+        max: 10,
+        minMessage: "Le nom d'utilisateur doit contenir plus de 3 caractères.",
+        maxMessage: "Le nom d'utilisateur ne doit pas contenir plus de 10 caractères.",
+    )]
     private ?string $username = null;
 
     /**
@@ -45,6 +53,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $replies;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\File(
+        maxSize: "8M",
+        mimeTypes: "image/png, image/jpeg, image/jpg, image/svg",
+        maxSizeMessage: "La taille maximale de l'image est de 8 Mo",
+        mimeTypesMessage: 'Seules les images jpeg, png, jpg, et svg sont autorisées',
+    )]
     private ?string $profilePicture = null;
 
     public function __construct()

@@ -17,3 +17,18 @@ body {
 .w-80 {
   width: 80%;
 }
+
+.error {
+  color: #d50000;
+  font: {
+    family : 'Montserrat';
+    weight: bold;
+    size: 1rem;
+  }
+}
+
+.error ul {
+  list-style-type: none;
+  text-align: start;
+  padding-right: 5rem;
+}

@@ -19,17 +19,17 @@
 
             <div class="w-95 m-auto">
                 {{ form_start(formForumPostView) }}
-                <div class="w-75">
+                <div class="w-75 error">
                     {{ form_widget(formForumPostView.title) }}
                     {{ form_errors(formForumPostView.title) }}
                 </div>
 
-                <div class="w-100">
+                <div class="w-100 error">
                     {{ form_widget(formForumPostView.content) }}
                     {{ form_errors(formForumPostView.content) }}
                 </div>
 
-                <div class="w-25">
+                <div class="w-25 error">
                     {{ form_widget(formForumPostView.image) }}
                     {{ form_errors(formForumPostView.image) }}
                 </div>

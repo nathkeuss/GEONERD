@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PostForumRepository::class)]
 class PostForum
@@ -17,12 +18,32 @@ class PostForum
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Le titre est obligatoire")]
+    #[Assert\Length(
+        min: 5,
+        max: 20,
+        minMessage: "Le titre doit au moins contenir {{ limit }} caractères.",
+        maxMessage: "Le titre ne peut pas dépasser {{ limit }} caractères."
+    )]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: "Le contenu est obligatoire.")]
+    #[Assert\Length(
+        min: 5,
+        max: 300,
+        minMessage: "Le contenu doit contenir au moins {{ limit }} caractères.",
+        maxMessage: "Le contenu ne doit pas contenir plus de {{ limit }} caractères"
+    )]
     private ?string $content = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\File(
+        maxSize: "8M",
+        mimeTypes: ["image/png", "image/jpeg", "image/jpg", "image/svg"],
+        maxSizeMessage: "L'image ne peut pas dépasser 8 Mo.",
+        mimeTypesMessage: "Seules les images jpg, png, jpeg, svg sont autorisées",
+    )]
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

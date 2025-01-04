@@ -10,6 +10,8 @@ framework:
     #esi: true
     #fragments: true
 
+    error_controller: 'App\Controller\Public\ErrorController::notFound'
+
 when@test:
     framework:
         test: true

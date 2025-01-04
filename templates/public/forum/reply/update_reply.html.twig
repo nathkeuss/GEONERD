@@ -93,12 +93,12 @@
                         </div>
 
                         {{ form_start(formUpdateReplyView) }}
-                        <div class="w-100">
+                        <div class="w-100 error">
                             {{ form_widget(formUpdateReplyView.content) }}
                             {{ form_errors(formUpdateReplyView.content) }}
                         </div>
 
-                        <div class="w-25">
+                        <div class="w-25 error">
                             {{ form_widget(formUpdateReplyView.image) }}
                             {{ form_errors(formUpdateReplyView.image) }}
                         </div>

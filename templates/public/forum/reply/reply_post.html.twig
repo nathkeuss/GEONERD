@@ -62,12 +62,12 @@
 
                     {{ form_start(formReplyPostView) }}
 
-                    <div class="w-100 mb-3">
+                    <div class="w-100 mb-3 error">
                         {{ form_widget(formReplyPostView.content) }}
                         {{ form_errors(formReplyPostView.content) }}
                     </div>
 
-                    <div class="w-25 mb-3">
+                    <div class="w-25 mb-3 error">
                         {{ form_widget(formReplyPostView.image) }}
                         {{ form_errors(formReplyPostView.image) }}
                     </div>
