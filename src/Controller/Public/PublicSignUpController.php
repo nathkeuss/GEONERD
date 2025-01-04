@@ -4,7 +4,6 @@ namespace App\Controller\Public;
 
 use App\Entity\User;
 use App\Form\SignUpType;
-use Cassandra\Type\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,7 +18,11 @@ class PublicSignUpController extends AbstractController
     {
         $user = new User();
 
-        $formSignUp = $this->createForm(SignUpType::class, $user);
+        $formSignUp = $this->createForm(SignUpType::class, $user, [
+            'include_profile_picture' => false,
+            'is_registration' => true,
+            'submit_label' => 'Créer un compte'
+        ]);
 
         $formSignUp->handleRequest($request);
 
@@ -32,6 +35,9 @@ class PublicSignUpController extends AbstractController
             $user->setPassword($passwordHashed);
 
             $user->setRoles(['ROLE_USER']);
+
+            $defaultProfilePicture = 'default-profile-picture.png';
+            $user->setProfilePicture($defaultProfilePicture);
 
             $entityManager->persist($user);
             $entityManager->flush();

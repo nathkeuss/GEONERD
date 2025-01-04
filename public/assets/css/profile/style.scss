@@ -1,0 +1,77 @@
+@import '../global/style.scss';
+
+.section-info {
+  width: 85%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.div-img-logo {
+  width: 8rem;
+  height: 8rem;
+  margin-right: 2rem;
+}
+
+
+.profile-info-email {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 2rem;
+}
+
+.profile-info-username {
+  color: white;
+  font-size: 3rem;
+}
+
+.form-button-update {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: #04FF00;
+  color: black;
+  border: solid 0.2rem rgba(32, 32, 42, 1);
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+
+  font: {
+    family: 'Montserrat';
+    size: 1.5rem;
+    weight: bold;
+  }
+}
+
+.label-profile-info {
+  color: white;
+
+  font : {
+    family: 'Montserrat';
+    size: 1.7rem;
+    weight: bold;
+  }
+}
+
+.input-profile-info {
+  border: none;
+  border: solid 0.1rem transparent;
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+  background-color: white;
+
+  font : {
+    family: 'Montserrat';
+    size: 1.2rem;
+    weight: bold;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 3px #04FF00;
+  }
+}
+
+.line {
+  background-color: white;
+  border: 0;
+  height: 0.2rem;
+  width: 105%;
+  position: relative;
+  left: -2.5%;
+}

@@ -1,0 +1,88 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Bienvenue sur ton profil {{ app.user.username }}{% endblock %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/profile/style.css') }}">
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="container-fluid d-flex justify-content-center align-items-center flex-grow-1">
+
+        <section class="section-info m-auto d-flex flex-column">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="div-img-logo">
+                        {% if app.user.profilePicture %}
+                            <img class="w-100 h-100 rounded-circle img-fluid"
+                                 src="{{ asset('assets/img_uploads/img_profile/' ~ app.user.profilePicture) }}"
+                                 alt="Photo de profil">
+                        {% else %}
+                            <img class="w-100 h-100 rounded-circle img-fluid"
+                                 src="{{ asset('assets/img_uploads/default-profile-picture.png') }}"
+                                 alt="Photo par défaut">
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <h1 class="profile-info-username">{{ app.user.username }}</h1>
+                        <h2 class="profile-info-email">{{ app.user.email }}</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <hr class="line mb-5">
+
+            {{ form_start(formUpdateAccountView, {'attr': {'class': 'w-100'}}) }}
+
+            <div class="row">
+                <div class="col-6">
+                    {{ form_label(formUpdateAccountView.email, 'Adresse email', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
+                    {{ form_widget(formUpdateAccountView.email, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre votre email'}}) }}
+                    {{ form_errors(formUpdateAccountView.email) }}
+                </div>
+
+                <div class="col-6">
+                    {{ form_label(formUpdateAccountView.username, 'Pseudo', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
+                    {{ form_widget(formUpdateAccountView.username, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre votre pseudo'}}) }}
+                    {{ form_errors(formUpdateAccountView.username) }}
+                </div>
+            </div>
+
+            <div class="row mt-4">
+
+                <div class="col-6">
+                    {{ form_label(formUpdateAccountView.password, 'Mot de passe', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
+                    {{ form_widget(formUpdateAccountView.password, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre un nouveau mot de passe si tu veux le modifier'}}) }}
+                    {{ form_errors(formUpdateAccountView.password) }}
+                </div>
+
+                <div class="col-6">
+                    {{ form_label(formUpdateAccountView.profilePicture, 'Photo de profil', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
+                    {{ form_widget(formUpdateAccountView.profilePicture, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre un nouveau mot de passe si tu veux le modifier'}}) }}
+                    {{ form_errors(formUpdateAccountView.profilePicture) }}
+                </div>
+            </div>
+
+            <hr class="line mt-5">
+
+
+            <div class="text-end mt-4">
+                {{ form_widget(formUpdateAccountView.submit, {'attr': {'class': 'form-button-update'}}) }}
+            </div>
+            {{ form_end(formUpdateAccountView) }}
+
+        </section>
+
+    </main>
+
+
+
+{% endblock %}
