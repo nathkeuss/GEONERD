@@ -42,7 +42,7 @@ class PostForum
         maxSize: "8M",
         mimeTypes: ["image/png", "image/jpeg", "image/webp"],
         maxSizeMessage: "L'image ne peut pas dépasser 8 Mo.",
-        mimeTypesMessage: "Seules les images png, jpag, webp, svg sont autorisées",
+        mimeTypesMessage: "Seules les images png, jpeg, et webp sont autorisées",
     )]
     private ?string $image = null;
 
