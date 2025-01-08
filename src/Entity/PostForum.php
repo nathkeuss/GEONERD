@@ -40,7 +40,7 @@ class PostForum
     #[ORM\Column(length: 255, nullable: true)]
     #[Assert\File(
         maxSize: "8M",
-        mimeTypes: ["image/png", "image/jpeg", "image/jpg", "image/svg"],
+        mimeTypes: ["image/png", "image/jpeg", "image/webp"],
         maxSizeMessage: "L'image ne peut pas dépasser 8 Mo.",
         mimeTypesMessage: "Seules les images jpg, png, jpeg, svg sont autorisées",
     )]
