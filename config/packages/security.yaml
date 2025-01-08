@@ -64,7 +64,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # les routes commençant par /tutorial/list nécessitent ROLE_USER
+        # les routes commençant par /forum/create-post nécessitent ROLE_USER
         - { path: ^/forum/create-post(?!/login), roles: [ROLE_USER] }
         # les routes commençant par /user nécessitent le rôle ROLE_ADMIN
         - { path: ^/admin(?!/login), roles: [ROLE_ADMIN] }
