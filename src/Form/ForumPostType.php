@@ -47,9 +47,9 @@ class ForumPostType extends AbstractType
                     new File([
                     'maxSize' => '8M',
                     'mimeTypes' => [
-                        'image/jpeg',
                         'image/png',
-                        'image/jpg'
+                        'image/jpeg',
+                        'image/webp'
                     ],
                     'mimeTypesMessage' => 'Choisissez un format jpeg/png/jpg',
                     ])
