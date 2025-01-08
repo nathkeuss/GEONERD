@@ -32,7 +32,8 @@ class ForumPostType extends AbstractType
             ->add('content', TextareaType::class, [
                 'attr' => [
                     'placeholder' => 'Entrez votre message...',
-                    'class' => 'message-post py-2 px-2 w-100'
+                    'class' => 'message-post py-2 px-2 w-100',
+                    'required' => true
                 ],
             ])
             ->add('image', FileType::class, [
