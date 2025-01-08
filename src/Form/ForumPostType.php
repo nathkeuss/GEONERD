@@ -51,7 +51,7 @@ class ForumPostType extends AbstractType
                         'image/jpeg',
                         'image/webp'
                     ],
-                    'mimeTypesMessage' => 'Choisissez un format jpeg/png/jpg',
+                    'mimeTypesMessage' => 'Choisissez un format png/jpeg/webp',
                     ])
                 ]
             ])
