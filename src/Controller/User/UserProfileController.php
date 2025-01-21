@@ -48,7 +48,7 @@ class UserProfileController extends AbstractController
 
                 $userProfilePicture->move($imgDir, $newFilename);
 
-                if($user->getProfilePicture()){
+                if($user->getProfilePicture() && $user->getProfilePicture() !== 'default-profile.png'){
                     $oldFile = $imgDir . '/' . $user->getProfilePicture();
                     if(file_exists($oldFile)){
                         unlink($oldFile);

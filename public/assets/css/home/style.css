@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*GLOBAL*/
 * {
   margin: 0;
@@ -36,6 +35,13 @@ body {
   margin-inline: auto;
 }
 
+.mobile-message {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .home-h1 {
   margin-bottom: -2.5rem;
   color: white;
@@ -62,8 +68,15 @@ body {
   height: 80vh;
   gap: 1.8rem;
 }
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .home-div-grid {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+  }
+}
 
-/* Liens dans la grille */
+/* liens dans la grille */
 .home-a-nav {
   display: flex;
   align-items: flex-end;
@@ -88,6 +101,7 @@ body {
 
 /* QUIZ  */
 .home-a-nav:nth-of-type(2) {
+  position: relative;
   grid-row: 2/3;
   grid-column: 1/2;
 }
@@ -98,7 +112,7 @@ body {
   grid-column: 2/3;
 }
 
-/* Texte */
+/* QUIZ/FORUM text */
 .home-a-p {
   padding-left: 6.25rem;
   z-index: 2000;
@@ -107,10 +121,33 @@ body {
   font-size: 6rem;
   font-weight: 900;
 }
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .home-a-p {
+    font-size: 8rem;
+  }
+}
 
-/* Taille spéciale pour le texte du premier lien (TUTO) */
+.soon {
+  color: red;
+  z-index: 2000;
+  font-family: "Montserrat";
+  font-size: 3rem;
+  font-weight: 900;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .soon {
+    font-size: 5rem;
+  }
+}
+
+/* TUTO text */
 .home-a-nav:first-of-type .home-a-p {
   font-size: 10rem;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .home-a-nav:first-of-type .home-a-p {
+    font-size: 8rem;
+  }
 }
 
 /* Figures dans les liens */
@@ -118,29 +155,50 @@ body {
   position: absolute;
 }
 
-/* Figure dans TUTO */
+/* img dans TUTO */
 .home-a-nav:first-of-type .home-img {
   transform: rotate(-30deg);
   width: 40%;
   top: -10%;
   right: 10%;
 }
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .home-a-nav:first-of-type .home-img {
+    top: 0%;
+    width: 60%;
+  }
+}
 
-/* Figure dans QUIZ */
+/* img dans QUIZ */
 .home-a-nav:nth-of-type(2) .home-img {
   transform: rotate(-20deg);
   width: 45%;
   top: 3%;
-  right: 10%;
+  right: -5%;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .home-a-nav:nth-of-type(2) .home-img {
+    width: 35%;
+    top: 10%;
+    right: 5%;
+  }
 }
 
-/* Figure dans FORUM */
+/* img dans FORUM */
 .home-a-nav:nth-of-type(3) .home-img {
   transform: rotate(5deg);
   width: 55%;
   top: -5%;
   right: 15%;
   z-index: 1000;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .home-a-nav:nth-of-type(3) .home-img {
+    transform: rotate(-10deg);
+    width: 35%;
+    top: -10%;
+    right: -2%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

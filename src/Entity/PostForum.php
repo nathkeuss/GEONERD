@@ -18,13 +18,13 @@ class PostForum
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Le titre est obligatoire")]
+ /*   #[Assert\NotBlank(message: "Le titre est obligatoire")]
     #[Assert\Length(
         min: 5,
         max: 20,
         minMessage: "Le titre doit au moins contenir {{ limit }} caractères.",
         maxMessage: "Le titre ne peut pas dépasser {{ limit }} caractères."
-    )]
+    )]*/
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]

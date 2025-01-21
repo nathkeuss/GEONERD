@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block body %}
+    <h1>{{ user.username }}</h1>
+    <p>{{ user.email }}</p>
+
+    {% if user.profilePicture %}
+        <img src="{{ asset('assets/img_uploads/img_profile/' ~ user.profilePicture) }}" alt="Image de profil de {{ user.username }}" class="img-fluid rounded-circle">
+    {% else %}
+        <img src="{{ asset('assets/img_statics/img_profile/default.png') }}" alt="Image de profil par défaut" class="img-fluid rounded-circle">
+    {% endif %}
+{% endblock %}

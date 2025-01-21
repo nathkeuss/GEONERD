@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
 
@@ -30,7 +31,7 @@ class SignUpType extends AbstractType
                 'required' => $options['is_registration'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password'
+                        'message' => 'Entre un mot de passe'
                     ]),
                     new Regex([
                         'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
@@ -43,6 +44,14 @@ class SignUpType extends AbstractType
                  'required' => false,
                  'mapped' => false,
                  'label' => 'Photo de profil',
+                 'constraints' => [
+                     new File([
+                         'maxSize' => '8M',
+                         'mimeTypes' => ['image/png', 'image/jpeg', 'image/jpg', 'image/svg'],
+                         'maxSizeMessage' => 'La taille maximale de l\'image est de 8 Mo',
+                         'mimeTypesMessage' => 'Seules les images jpeg, png, jpg et svg sont autorisées',
+                     ])
+                 ]
              ]);
          }
 

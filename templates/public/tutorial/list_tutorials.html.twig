@@ -14,8 +14,8 @@
     <main>
         <div class="w-75 m-auto d-flex align-items-center justify-content-between mt-5">
 
-            <form class="d-flex div-search" action="{{ path('public_list_tutorials') }}" method="get">
-                <input class="input-search text-start" type="text" name="search" placeholder="Rechercher un pays"
+            <form class="d-flex col-lg-4 col m-lg-auto" action="{{ path('public_list_tutorials') }}" method="get">
+                <input class="input-search text-start w-100" type="text" name="search" placeholder="Rechercher un pays"
                        value="{{ search|default('') }}">
                 <button type="submit" class="button-search"><img class="w-100 h-100 img-fluid"
                                                                  src="{{ asset('assets/img_statics/forum/search.png') }}"
@@ -36,7 +36,7 @@
             {% for tutorial in tutorials %}
 
                 <a href="{{ path('public_show_tutorial', {'id': tutorial.id}) }}"
-                   class="container-country col-3 m-1 mb-5 h-100 p-0">
+                   class="container-country col-lg-3 col-5 m-1 mb-5 h-100 p-0">
                     <h2 class="country-name">{{ tutorial.title }}</h2>
                     <div class="w-100 h-100 container-flag">
                         <img class="img-fluid w-100 h-100"

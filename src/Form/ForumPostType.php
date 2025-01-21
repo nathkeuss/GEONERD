@@ -13,6 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ForumPostType extends AbstractType
 {
@@ -24,6 +26,17 @@ class ForumPostType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Titre de la discussion',
                     'class' => 'title-post py-2 px-2 w-100'
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le titre est obligatoire',
+                    ]),
+                    new Length([
+                        'min' => 5,
+                        'max' => 255,
+                        'minMessage' => 'Le titre doit au moins contenir {{ limit }} caractères.',
+                        'maxMessage' => 'Le titre ne peut pas dépasser {{ limit }} caractères.'
+                    ]),
                 ],
             ]);
         }
@@ -45,13 +58,13 @@ class ForumPostType extends AbstractType
                 ],
                 'constraints' => [
                     new File([
-                    'maxSize' => '8M',
-                    'mimeTypes' => [
-                        'image/png',
-                        'image/jpeg',
-                        'image/webp'
-                    ],
-                    'mimeTypesMessage' => 'Choisissez un format png/jpeg/webp',
+                        'maxSize' => '8M',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/webp'
+                        ],
+                        'mimeTypesMessage' => 'Choisissez un format png/jpeg/webp',
                     ])
                 ]
             ])

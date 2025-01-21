@@ -53,17 +53,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $replies;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\File(
+/*    #[Assert\File(
         maxSize: "8M",
         mimeTypes: "image/png, image/jpeg, image/jpg, image/svg",
         maxSizeMessage: "La taille maximale de l'image est de 8 Mo",
         mimeTypesMessage: 'Seules les images jpeg, png, jpg, et svg sont autorisées',
-    )]
+    )]*/
     private ?string $profilePicture = null;
 
     public function __construct()
     {
         $this->replies = new ArrayCollection();
+
     }
 
     public function getId(): ?int

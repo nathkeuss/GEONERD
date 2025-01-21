@@ -40,7 +40,7 @@ class PublicSignUpController extends AbstractController
 
             $user->setRoles(['ROLE_USER']);
 
-            $defaultProfilePicture = 'default-profile-picture.png';
+            $defaultProfilePicture = 'default-profile.png';
             $user->setProfilePicture($defaultProfilePicture);
 
             $entityManager->persist($user);
