@@ -57,7 +57,7 @@
                             </div>
                             <span>{{ app.user.username }}</span>
                         </div>
-                        <div class="custom-dropdown position-absolute ms-5" id="profile-dropdown" style="display:none;">
+                        <div class="custom-dropdown position-absolute ms-3" id="profile-dropdown" style="display:none;">
                             <a class="custom-dropdown-item d-flex mb-2" href="{{ path('profile', {'id': app.user.id}) }}">Mon compte</a>
                             <hr style="color: white">
                             <a class="custom-dropdown-item" href="{{ path('user_logout') }}">Déconnexion</a>
