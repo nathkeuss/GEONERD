@@ -61,6 +61,7 @@ body {
 .nav-a-connection {
   text-decoration: none;
   color: white;
+  cursor: pointer;
   font-family: "Montserrat";
   font-size: 2rem;
   font-weight: bold;
@@ -77,6 +78,31 @@ body {
   .nav-a-connection {
     margin-right: 2rem;
   }
+}
+
+.custom-dropdown {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: solid 1px #5D5D5D;
+  background-color: rgb(32, 32, 42);
+  z-index: 50000;
+}
+
+.custom-dropdown-item {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+.custom-dropdown-item:hover {
+  background-color: rgb(52, 52, 62);
+  box-shadow: 0 0 10px rgba(52, 52, 62, 0.8);
+}
+
+.custom-dropdown-item:nth-of-type(2) {
+  color: #ff0000;
 }
 
 /*FOOTER*/
