@@ -30,6 +30,7 @@ body {
   padding-right: 5rem;
 }
 
+/*VARIABLES*/
 .form-connection {
   background-color: #04FF00;
   border: solid 0.3rem black;
@@ -50,7 +51,6 @@ body {
 }
 
 .input-connection {
-  border: none;
   border: solid 0.3rem rgb(32, 32, 42);
   background-color: #C4FFC3;
   border-radius: 4rem;
@@ -87,7 +87,6 @@ body {
   font-weight: bold;
 }
 .span-to-inscription a {
-  text-decoration: none;
   color: rgb(32, 32, 42);
   text-decoration: underline;
 }
