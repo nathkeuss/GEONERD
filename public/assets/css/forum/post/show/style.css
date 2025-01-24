@@ -45,7 +45,6 @@ body {
 
 .reply-button {
   color: black;
-  border: none;
   background-color: #ffffff;
   border-radius: 4rem;
   padding: 0.2rem;
@@ -54,6 +53,11 @@ body {
   font-family: "Montserrat";
   font-size: 1.4rem;
   font-weight: bold;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .reply-button {
+    font-size: 1.3rem;
+  }
 }
 
 .list-posts-button {

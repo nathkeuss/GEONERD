@@ -2,13 +2,126 @@
 
 {% block title %}Profil de {{ user.username }}{% endblock %}
 
-{% block body %}
-    <h1>{{ user.username }}</h1>
-    <p>{{ user.email }}</p>
+{% block stylesheets %}
+    <style>
+        .show-user {
+            text-decoration: none;
+        }
 
-    {% if user.profilePicture %}
-        <img src="{{ asset('assets/img_uploads/img_profile/' ~ user.profilePicture) }}" alt="Image de profil de {{ user.username }}" class="img-fluid rounded-circle">
-    {% else %}
-        <img src="{{ asset('assets/img_statics/img_profile/default.png') }}" alt="Image de profil par défaut" class="img-fluid rounded-circle">
-    {% endif %}
+        .user {
+            padding: 1rem;
+            background-color: #2a2a2a;
+            border-radius: 1rem;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+
+            &:nth-of-type(2) {
+                color: rgba(255, 255, 255, 0.49);
+                font-size: 2rem;
+            }
+        }
+
+        .div-img-profile {
+            width: 6rem;
+            height: 6rem;
+        }
+
+        .button-delete {
+            text-decoration: none;
+            font-family: 'Montserrat';
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: #ff0000;
+            border: solid 1px #ff0000;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            border-radius: 1rem;
+            transition: ease background-color 0.2s, ease color 0.2s;
+
+            &:hover {
+                color: #20202A;
+                background-color: #ff0000;
+            }
+        }
+
+        .div-img-user-post {
+            border-radius: 1rem;
+        }
+
+        .user-message {
+            background-color: #2a2a2a;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .post-title {
+            font-family: 'Montserrat';
+            font-size: 2rem;
+        }
+
+        .post-content {
+            font-family: 'Montserrat';
+            font-size: 1.5rem;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="user d-flex w-75 m-auto mb-4 justify-content-between align-items-center mt-5">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="div-img-profile me-3">
+                        <img src="{{ asset('assets/img_uploads/img_profile/' ~ user.profilePicture) }}"
+                             alt="Image de {{ user.username }}"
+                             class="img-fluid rounded-circle w-100 h-100">
+                    </div>
+                    <div>
+                        <h1 class="me-3">{{ user.username }}</h1>
+                        <h1 class="me-3">{{ user.email }}</h1>
+                    </div>
+                </div>
+            <a class="button-delete ms-5" href="{{ path('admin_delete_user', {'id': user.id}) }}">Supprimer</a>
+        </div>
+
+        <h1 class="text-center">Liste des messages de {{ user.username }}</h1>
+
+        {% if posts is empty %}
+            <div class="w-75 text-center text-danger fs-5 m-auto mt-5">
+                <p>Cet utilisateur n'a posté aucun message</p>
+            </div>
+        {% else %}
+            {% for post in posts %}
+                <div class="user-message w-75 m-auto mt-5 mb-5">
+                    <div class="d-flex">
+                        <div>
+                            <h1 class="post-title mb-4">{{ post.title }}</h1>
+                            <h2 class="post-content">{{ post.content }}</h2>
+                        </div>
+                        {% if post.image %}
+                            <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('assets/img_uploads/img_forum/' ~ post.image) }}"
+                                     alt="Image que l'auteur de la discussion a posté">
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a href="{{ path('admin_delete_user_post', {'id': post.id}) }}"
+                           class="button-delete text-decoration-none"
+                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce post ?')">
+                            <i class="fas fa-trash"></i>
+                            Supprimer
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
+    </main>
 {% endblock %}

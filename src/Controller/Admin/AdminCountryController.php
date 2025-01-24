@@ -49,6 +49,7 @@ class AdminCountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Pays bien ajouté!');
+            return $this->redirectToRoute('list_countries');
         }
 
 
@@ -127,6 +128,7 @@ class AdminCountryController extends AbstractController
 
             return $this->redirectToRoute('list_countries');
             $this->addFlash('success', 'Pays bien modifié!');
+            return $this->redirectToRoute('list_countries');
         }
 
         $formCountryView = $formCountry->createView();

@@ -4,7 +4,7 @@
   padding: 2rem;
   color: white;
   font: {
-    family: 'Montserrat';
+    family: $font-family;
     weight: bold;
     size: 2.5rem;
   }
@@ -21,7 +21,7 @@
   border-radius: 1rem;
   color: rgba(255, 255, 255, 0.75);
   font: {
-    family: 'Montserrat';
+    family: $font-family;
     weight: normal;
     size: 1.5rem;
   }
@@ -38,7 +38,7 @@
   border-radius: 1rem;
   color: rgba(255, 255, 255, 0.75);
   font: {
-    family: 'Montserrat';
+    family: $font-family;
     weight: normal;
     size: 1.5rem;
   }
@@ -49,7 +49,7 @@
 
 .image-post {
   font: {
-    family: 'Montserrat';
+    family: $font-family;
     weight: 400;
     size: 1rem;
   }
@@ -69,7 +69,7 @@
 
 .button-publish {
   font: {
-    family: 'Montserrat';
+    family: $font-family;
     weight: 400;
     size: 1.5rem;
   }

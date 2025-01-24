@@ -9,7 +9,7 @@
 
 .form-h1-inscription {
   font: {
-    family: "Montserrat";
+    family: $font-family;
     size: 2rem;
     weight: bold;
   }
@@ -18,7 +18,7 @@
 
 .label-inscription {
   font: {
-    family: "Montserrat";
+    family: $font-family;
     size: 1.3rem;
     weight: bold;
   }
@@ -32,7 +32,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   font: {
-    family: "Montserrat";
+    family: $font-family;
     size: 1.1rem;
     weight: bold;
     opacity: 40%;
@@ -53,7 +53,7 @@
   border-radius: 4rem;
 
   font: {
-    family: "Montserrat";
+    family: $font-family;
     size: 1.4rem;
     weight: bold;
   }
@@ -66,7 +66,7 @@
 
 .span-to-connection {
   font: {
-    family: "Montserrat";
+    family: $font-family;
     size: 1rem;
     weight: bold;
   }

@@ -51,6 +51,7 @@ body {
 }
 
 .input-connection {
+  border: none;
   border: solid 0.3rem rgb(32, 32, 42);
   background-color: #C4FFC3;
   border-radius: 4rem;

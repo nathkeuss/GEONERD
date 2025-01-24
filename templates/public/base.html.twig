@@ -2,9 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Site pour apprendre la géographie et principalement pour le jeu geoguessr. Contient multiples tutoriels et un forum.">
+    <meta name="keywords" content="geoguessr, fr, français, apprendre geoguessr">
+    <meta name="author" content="Nathan JULIO - GEONERD">
+    <link rel="icon" href="{{ asset('assets/img_statics/logo_site.ico') }}" type="image/ico">
     <title>{% block title %}Accueil GEONERD{% endblock %}</title>
-    <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -21,7 +23,7 @@
 
 <header>
 
-    <nav class="navbar navbar-expand-sm container-fluid w-95">
+    <nav class="nav navbar navbar-expand-sm container-fluid w-100 ps-5 pe-5">
         <!-- Logo -->
         <a class="nav-img-logo navbar-brand m-0" href="{{ path('home') }}">
             <img class="w-100 h-100" src="{{ asset('assets/img_statics/base/logo_site.png') }}"
@@ -39,16 +41,16 @@
                         {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-a-text" href="{{ path('public_list_tutorials') }}">TUTO</a>
+                        <a class="nav-a-text d-block" href="{{ path('public_list_tutorials') }}">TUTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-a-text" href="{{ path('forum') }}">FORUM</a>
+                        <a class="nav-a-text d-block" href="{{ path('forum') }}">FORUM</a>
                     </li>
                 </div>
 
                 <!-- Connexion/Dropdown -->
                 {% if app.user %}
-                    <li class="nav-item">
+                    <li class="nav-item d-flex flex-column align-items-center">
                         <div class="nav-a-connection d-flex align-items-center text-decoration-none" id="profile-menu">
                             <div class="div-img-profile me-3">
                                 <img src="{{ asset('assets/img_uploads/img_profile/' ~ app.user.profilePicture) }}"
@@ -57,7 +59,7 @@
                             </div>
                             <span>{{ app.user.username }}</span>
                         </div>
-                        <div class="custom-dropdown position-absolute ms-3" id="profile-dropdown" style="display:none;">
+                        <div class="custom-dropdown position-absolute" id="profile-dropdown">
                             <a class="custom-dropdown-item d-flex mb-2" href="{{ path('profile', {'id': app.user.id}) }}">Mon compte</a>
                             <hr style="color: white">
                             <a class="custom-dropdown-item" href="{{ path('user_logout') }}">Déconnexion</a>

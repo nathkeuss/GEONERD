@@ -26,6 +26,7 @@ class AdminContinentController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Continent bien ajouté!');
+            return $this->redirectToRoute('list_continents');
 
         }
 
@@ -68,6 +69,7 @@ class AdminContinentController extends AbstractController
 
             return $this->redirectToRoute('list_continents');
             $this->addFlash('success', 'Continent bien modifié!');
+            return $this->redirectToRoute('list_continents');
         }
 
         $formContinentView = $formContinent->createView();
@@ -87,7 +89,7 @@ class AdminContinentController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success', 'Continent bien supprimé!');
-        return $this->redirectToRoute('list_continent');
+        return $this->redirectToRoute('list_continents');
     }
 
 }

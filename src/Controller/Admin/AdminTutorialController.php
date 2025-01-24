@@ -54,6 +54,7 @@ class AdminTutorialController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Tutoriel bien ajouté!');
+            return $this->redirectToRoute('list_tutorials');
         }
 
         $formTutorialView = $formTutorial->createView();
@@ -129,6 +130,7 @@ class AdminTutorialController extends AbstractController
 
             return $this->redirectToRoute('list_tutorials');
             $this->addFlash('success', 'Tutoriel bien modifié!');
+            return $this->redirectToRoute('list_tutorials');
         }
 
         $formTutorialView = $formTutorial->createView();

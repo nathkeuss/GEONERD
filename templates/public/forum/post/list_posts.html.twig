@@ -44,7 +44,7 @@
                 {% for post in posts %}
 
                     <a class="text-decoration-none show-post" href="{{ path('show_post', {'id': post.id}) }}">
-                        <div class="forum-row row">
+                        <div class="forum-row row align-items-center">
                             <div class="data-text col-6">{{ post.title }}</div>
                             <div class="data-text text-start col-2">{{ post.user.username }}</div>
                             <div class="data-text text-center col-2">{{ post.getRepliesCount() }}</div>

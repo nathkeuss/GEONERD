@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ asset('assets/img_statics/logo_site.ico') }}" type="image/ico">
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -16,6 +17,7 @@
             background-color: #121212;
             color: #f1f1f1;
         }
+
         .navbar {
             background-color: #1e1e1e;
         }
@@ -28,23 +30,28 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="text-decoration-none text-success" href="{{ path('admin_dashboard') }}"><h3>Dashboard Admin</h3></a>
+            <a class="text-decoration-none text-success" href="{{ path('admin_dashboard') }}"><h3>Dashboard Admin</h3>
+            </a>
             <div class="collapse navbar-collapse p-2" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <!-- Menu déroulant pour Continent -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="continentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="continentDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             Continent
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="continentDropdown">
-                            <li><a class="dropdown-item" href="{{ path('list_continents') }}">Liste des continents</a></li>
-                            <li><a class="dropdown-item" href="{{ path('create_continent') }}">Ajouter un continent</a></li>
+                            <li><a class="dropdown-item" href="{{ path('list_continents') }}">Liste des continents</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ path('create_continent') }}">Ajouter un continent</a>
+                            </li>
                         </ul>
                     </li>
 
                     <!-- Menu déroulant pour Pays -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="countryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="countryDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             Pays
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="countryDropdown">
@@ -55,13 +62,17 @@
 
                     <!-- Menu déroulant pour Tutoriels -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="tutorialDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             Tutoriels
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="tutorialDropdown">
-                            <li><a class="dropdown-item" href="{{ path('list_tutorials') }}">Liste des tutoriels</a></li>
-                            <li><a class="dropdown-item" href="{{ path('create_tutorial') }}">Ajouter un tutoriel</a></li>
-                            <li><a class="dropdown-item" href="{{ path('create_tutorialpart') }}">Ajouter une partie de tutoriel</a></li>
+                            <li><a class="dropdown-item" href="{{ path('list_tutorials') }}">Liste des tutoriels</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ path('create_tutorial') }}">Ajouter un tutoriel</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{{ path('create_tutorialpart') }}">Ajouter une partie de
+                                    tutoriel</a></li>
                         </ul>
                     </li>
 
@@ -84,7 +95,11 @@
         </div>
     </nav>
 </header>
-
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success text-center" role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
 {% block body %}{% endblock %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
