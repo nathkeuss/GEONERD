@@ -1,4 +1,8 @@
 /*GLOBAL*/
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +11,17 @@
 
 body {
   background-color: rgb(32, 32, 42);
+}
+
+span, p {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
 }
 
 .w-95 {
@@ -51,7 +66,6 @@ body {
 }
 
 .input-connection {
-  border: none;
   border: solid 0.3rem rgb(32, 32, 42);
   background-color: #C4FFC3;
   border-radius: 4rem;
@@ -59,7 +73,6 @@ body {
   font-family: "Montserrat";
   font-size: 1.1rem;
   font-weight: bold;
-  font-opacity: 40%;
 }
 .input-connection:focus {
   outline: none;
@@ -67,28 +80,29 @@ body {
 }
 
 .button-connection {
-  border: none;
+  color: #20202a;
   width: 25%;
   border: solid 0.2rem rgb(32, 32, 42);
   box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
-  background-color: #fff;
+  background-color: white;
   border-radius: 4rem;
   font-family: "Montserrat";
   font-size: 1.4rem;
   font-weight: bold;
 }
 .button-connection:hover {
-  background-color: black;
+  background-color: #20202a;
   color: white;
 }
 
 .span-to-inscription {
+  color: #20202a;
   font-family: "Montserrat";
   font-size: 1rem;
   font-weight: bold;
 }
 .span-to-inscription a {
-  color: rgb(32, 32, 42);
+  color: #20202a;
   text-decoration: underline;
 }
 

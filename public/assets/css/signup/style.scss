@@ -1,7 +1,7 @@
 @import '../global/style.scss';
 
 .form-inscription {
-  background-color: #04FF00;
+  background-color: $background-accent-color;
   border: solid 0.3rem black;
   box-shadow: rgb(0, 0, 0) -0.5rem 0.3rem;
   border-radius: 1rem;
@@ -25,8 +25,7 @@
 }
 
 .input-inscription {
-  border: none;
-  border: solid 0.3rem rgba(32, 32, 42, 1);
+  border: solid 0.3rem $background-dark-color;
   background-color: #C4FFC3;
   border-radius: 4rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -35,7 +34,6 @@
     family: $font-family;
     size: 1.1rem;
     weight: bold;
-    opacity: 40%;
   }
 
   &:focus {
@@ -45,9 +43,8 @@
 }
 
 .button-inscription {
-  border: none;
   width: 25%;
-  border: solid 0.2rem rgba(32, 32, 42, 1);
+  border: solid 0.2rem $background-dark-color;
   box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
   background-color: #fff;
   border-radius: 4rem;
@@ -59,12 +56,13 @@
   }
 
   &:hover {
-    background-color: black;
-    color: white;
+    background-color: $background-dark-color;
+    color: $text-light-color;
   }
 }
 
 .span-to-connection {
+  color: $text-dark-color;
   font: {
     family: $font-family;
     size: 1rem;
@@ -73,7 +71,7 @@
 
   a {
     text-decoration: none;
-    color: rgba(32, 32, 42, 1);
+    color: $text-dark-color;
     text-decoration: underline;
 
   }

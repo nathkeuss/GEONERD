@@ -48,6 +48,7 @@ class AdminTutorialPartController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Partie du tutoriel bien ajoutée!');
+            return $this->redirectToRoute('list_tutorials');
         }
 
         $formTutorialPartView = $formTutorialPart->createView();
@@ -127,6 +128,6 @@ class AdminTutorialPartController extends AbstractController
         $entityManager->remove($tutorialPart);
         $entityManager->flush();
 
-        return $this->redirectToRoute('show_tutorial');
+        return $this->redirectToRoute('list_tutorials');
     }
 }

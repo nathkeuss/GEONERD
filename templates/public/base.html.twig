@@ -57,7 +57,7 @@
                                      alt="Image de profil de {{ app.user.username }}"
                                      class="img-fluid rounded-circle w-100 h-100">
                             </div>
-                            <span>{{ app.user.username }}</span>
+                            <span class="user-username">{{ app.user.username }}</span>
                         </div>
                         <div class="custom-dropdown position-absolute" id="profile-dropdown">
                             <a class="custom-dropdown-item d-flex mb-2" href="{{ path('profile', {'id': app.user.id}) }}">Mon compte</a>
@@ -90,7 +90,7 @@
 
     <nav>
         <ul class="d-flex align-items-center m-0">
-            <li class="footer-li"><a class="footer-a" href="{{ path('home') }}">GEONERD</a></li>
+            <li class="footer-li"><a class="footer-a" href="#top" }}">GEONERD</a></li>
             <li class="footer-li offset-7 offset-lg-8"><a class="footer-a" href="https://discord.gg/2FYmuFb9kZ"
                                                           target="_blank"><img class="w-100 h-100"
                                                                                src="{{ asset('assets/img_statics/base/logo_discord.svg') }}"

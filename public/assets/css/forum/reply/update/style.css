@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /*GLOBAL*/
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +12,17 @@
 
 body {
   background-color: rgb(32, 32, 42);
+}
+
+span, p {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
 }
 
 .w-95 {
@@ -66,7 +81,7 @@ body {
   transition: ease background-color 0.2s, ease color 0.2s;
 }
 .image-post:hover {
-  color: #20202A;
+  color: #20202a;
   background-color: #04FF00;
 }
 
@@ -82,7 +97,7 @@ body {
   transition: ease background-color 0.2s, ease color 0.2s;
 }
 .button-publish:hover {
-  color: #20202A;
+  color: #20202a;
   background-color: #4da8da;
 }
 

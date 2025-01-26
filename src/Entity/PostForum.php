@@ -31,7 +31,7 @@ class PostForum
     #[Assert\NotBlank(message: "Le contenu est obligatoire.")]
     #[Assert\Length(
         min: 5,
-        max: 300,
+        max: 1200,
         minMessage: "Le contenu doit contenir au moins {{ limit }} caractères.",
         maxMessage: "Le contenu ne doit pas contenir plus de {{ limit }} caractères"
     )]

@@ -1,5 +1,9 @@
 /*GLOBAL*/
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +12,20 @@
 
 body {
   background-color: rgba(32, 32, 42, 1);
+}
+
+span, p {
+  color: white;
+  font : {
+    family: 'Montserrat';
+    size: 1.5rem;
+
+  }
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
 }
 
 .w-95 {
@@ -35,4 +53,11 @@ body {
 
 /*VARIABLES*/
 
-$font-family: 'Montserrat',
+$font-family: 'Montserrat';
+$background-dark-color: #20202AFF;
+$background-light-color: white;
+$background-accent-color: #04FF00;
+$text-light-color: white;
+$text-dark-color: #20202AFF;
+$text-accent-color: #04FF00;
+

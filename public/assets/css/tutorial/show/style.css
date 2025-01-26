@@ -1,4 +1,8 @@
 /*GLOBAL*/
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +11,17 @@
 
 body {
   background-color: rgb(32, 32, 42);
+}
+
+span, p {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
 }
 
 .w-95 {
@@ -72,9 +87,10 @@ body {
   margin-bottom: 5rem;
 }
 
-.image-explain {
-  color: white !important;
-  font: normal 2rem "Montserrat" !important;
-}
+/*.image-explain {
+  color: $text-light-color !important;
+  font: normal 2rem $font-family !important;
+
+}*/
 
 /*# sourceMappingURL=style.css.map */

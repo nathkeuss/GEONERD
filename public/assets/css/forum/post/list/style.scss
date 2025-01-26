@@ -5,7 +5,7 @@
 }
 
 .head-text {
-  color: #04FF00;
+  color: $text-accent-color;
   padding-bottom: 1rem;
   padding-left: 2rem;
 
@@ -21,7 +21,7 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 1.5rem;
-  color: white;
+  color: $text-light-color;
 
   font : {
     family: $font-family;
@@ -42,7 +42,7 @@
   border: none;
   border-top-left-radius: 4rem;
   border-bottom-left-radius: 4rem;
-  background-color: white;
+  background-color: $background-light-color;
   padding: 0.7rem;
   text-align: center;
 
@@ -65,10 +65,10 @@
 }
 
 .button-new-topic {
-  background-color: #ffffff;
+  background-color: $background-light-color;
   border-radius: 4rem;
   padding: 1rem;
-  border: solid 0.2rem rgba(32, 32, 42, 1);
+  border: solid 0.2rem $background-dark-color;
   box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
 
   font: {

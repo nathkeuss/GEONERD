@@ -2,7 +2,7 @@
 
 .choice-country {
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: $text-light-color;
   font: {
     family: $font-family;
     size: 2.5rem;
@@ -40,7 +40,7 @@
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
+  color: $text-light-color;
   font: {
     family: $font-family;
     size: 2.5rem;

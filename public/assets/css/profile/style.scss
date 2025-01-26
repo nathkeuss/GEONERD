@@ -19,17 +19,16 @@
 }
 
 .profile-info-username {
-  color: white;
+  color: $text-light-color;
   font-size: 3rem;
 }
 
 .form-button-update {
-  border: none;
   border-radius: 1rem;
   padding: 0.5rem;
-  background-color: #04FF00;
+  background-color: $background-accent-color;
   color: black;
-  border: solid 0.2rem rgba(32, 32, 42, 1);
+  border: solid 0.2rem $background-dark-color;
   box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
 
   font: {
@@ -40,7 +39,7 @@
 }
 
 .label-profile-info {
-  color: white;
+  color: $text-light-color;
 
   font : {
     family: $font-family;
@@ -50,11 +49,10 @@
 }
 
 .input-profile-info {
-  border: none;
   border: solid 0.1rem transparent;
   border-radius: 0.9rem;
   padding: 0.9rem;
-  background-color: white;
+  background-color: $background-light-color;
 
   font : {
     family: $font-family;
@@ -63,12 +61,12 @@
   }
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 3px #04FF00;
+    box-shadow: inset 0 0 0 3px $background-accent-color;
   }
 }
 
 .line {
-  background-color: white;
+  background-color: $background-light-color;
   border: 0;
   height: 0.2rem;
   width: 105%;
