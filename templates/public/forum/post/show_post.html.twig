@@ -45,12 +45,12 @@
 
                     {# div content + img #}
                     <div class="d-flex justify-content-between row mt-5 mb-5">
-                        <div class="{% if not post.image %}col-12{% else %}col-7{% endif %}">
+                        <div class="{% if not post.image %}col-lg-12{% else %}col-lg-7{% endif %}">
                             <p class="post-content">{{ post.content }}</p>
                         </div>
                         {# Vérifie si une image existe pour le post #}
                         {% if post.image %}
-                            <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                            <div class="overflow-hidden div-img-user-post col-12 col-lg-5 p-0 m-0">
                                 <img class="img-fluid w-100 h-100"
                                      src="{{ asset('assets/img_uploads/img_forum/' ~ post.image) }}"
                                      alt="Image que l'auteur de la discussion a posté">
@@ -99,12 +99,12 @@
 
                             {# div content + img #}
                             <div class="d-flex justify-content-between row mt-5 mb-5">
-                                <div class="{% if not reply.image %}col-12{% else %}col-7{% endif %}">
+                                <div class="{% if not reply.image %}col-lg-12{% else %}col-lg-7{% endif %}">
                                     <p class="post-content">{{ reply.content }}</p>
                                 </div>
 
                                 {% if reply.image %}
-                                    <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                    <div class="overflow-hidden div-img-user-post col-12 col-lg-5 p-0 m-0">
                                         <img class="img-fluid w-100 h-100"
                                              src="{{ asset('assets/img_uploads/img_forum/' ~ reply.image) }}"
                                              alt="Image que l'auteur de la discussion a posté">

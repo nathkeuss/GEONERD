@@ -70,7 +70,9 @@ ul {
 
 .h1-country-name {
   color: white;
-  font: bold 5rem "Montserrat";
+  font-family: "$font-family";
+  font-size: 8rem;
+  font-weight: bold;
   text-shadow: 1px 1px 10px black, 0 0 10px #000000, 0 0 10px #000000;
   z-index: 2;
   top: 80%;

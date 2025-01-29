@@ -18,6 +18,7 @@
   box-shadow: rgba(0, 0, 0, 0.307) -0.5rem 0.3rem;
   z-index: 1000;
   transition: transform 0.5s;
+  margin: 3rem;
 
   &::after {
     content: "";
@@ -32,7 +33,12 @@
   &:hover {
     transform: scale(1.1);
   }
-}
+
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    margin: 1rem;
+  }
+
+  }
 
 .country-name {
   z-index: 2000;
