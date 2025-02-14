@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/nathkeuss/GEONERD/compare/v0.1.2...v0.1.3) (2025-02-14)
+
+
+### Features
+
+* **auth/security:** add authentication user and admin. Configure firewalls security.yaml ([48bb624](https://github.com/nathkeuss/GEONERD/commit/48bb62420fea9351fc388fe8b1692e24cd133327))
+
 ### [0.1.2](https://github.com/nathkeuss/GEONERD/compare/v0.1.1...v0.1.2) (2025-02-14)
 
 
