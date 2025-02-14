@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/nathkeuss/GEONERD/compare/v0.1.3...v0.1.4) (2025-02-14)
+
+
+### Features
+
+* **entities relations:** add relations between entities ([b0031e4](https://github.com/nathkeuss/GEONERD/commit/b0031e497cd3afce471955873e7316e861aca6a7))
+
 ### [0.1.3](https://github.com/nathkeuss/GEONERD/compare/v0.1.2...v0.1.3) (2025-02-14)
 
 
