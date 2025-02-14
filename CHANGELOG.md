@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/nathkeuss/GEONERD/compare/v0.1.1...v0.1.2) (2025-02-14)
+
+
+### Features
+
+* **home-page:** add HomeController and template for home page ([8769cc6](https://github.com/nathkeuss/GEONERD/commit/8769cc632d4ec9c8f5a52c4614336687dda331bd))
+
 ### 0.1.1 (2025-02-13)
 
 
