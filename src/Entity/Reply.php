@@ -20,10 +20,10 @@ class Reply
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\ManyToOne(inversedBy: 'replies')]
+    #[ORM\ManyToOne(inversedBy: 'reply')]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'replies')]
+    #[ORM\ManyToOne(inversedBy: 'reply')]
     private ?Topic $topic = null;
 
     public function getId(): ?int

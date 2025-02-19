@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContinentController extends AbstractController
 {
-    #[Route('/admin/continent/create', name: 'create_continent')]
+    #[Route('/admin/continent/create', name: 'create_continent', methods: ['GET', 'POST'])]
     public function createContinent(Request $request, EntityManagerInterface $entityManager)
     {
         $continent = new Continent();
@@ -37,7 +37,7 @@ class ContinentController extends AbstractController
 
     }
 
-    #[Route('/admin/continent/list', name: 'admin_list_continents')]
+    #[Route('/admin/continent/list', name: 'admin_list_continents', methods: ['GET'])]
     public function listContinent(Request $request, ContinentRepository $continentRepository) {
 
         $continents = $continentRepository->findAll();
@@ -48,7 +48,7 @@ class ContinentController extends AbstractController
 
     }
 
-    #[Route('/admin/continent/update/{id}', name: 'update_continent')]
+    #[Route('/admin/continent/update/{id}', name: 'update_continent', methods: ['GET', 'POST'])]
     public function updateContinent(int $id, Request $request, EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
         $continent = $continentRepository->find($id);
 
@@ -71,7 +71,7 @@ class ContinentController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/continent/delete/{id}', name: 'delete_continent')]
+    #[Route('/admin/continent/delete/{id}', name: 'delete_continent', methods: ['POST'])]
     public function deleteContinent(int $id,EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
         $continent = $continentRepository->find($id);
 

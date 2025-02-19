@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Ajouter un pays{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="container py-5">
+
+        <h1 class="text-center mb-4">Ajouter un pays</h1>
+
+        <div class="card bg-dark text-light p-4 shadow-lg">
+            {{ form_start(formCountryView) }}
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.name) }}
+                {{ form_widget(formCountryView.name) }}
+                {{ form_errors(formCountryView.name) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.flag) }}
+                {{ form_widget(formCountryView.flag) }}
+                {{ form_errors(formCountryView.flag) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.banner) }}
+                {{ form_widget(formCountryView.banner) }}
+                {{ form_errors(formCountryView.banner) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.continent) }}
+                {{ form_widget(formCountryView.continent) }}
+                {{ form_errors(formCountryView.continent) }}
+            </div>
+
+            <div class="text-center">
+                {{ form_widget(formCountryView.submit) }}
+            </div>
+
+            {{ form_end(formCountryView) }}
+        </div>
+
+    </main>
+
+{% endblock %}

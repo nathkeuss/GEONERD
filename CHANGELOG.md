@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/nathkeuss/GEONERD/compare/v0.1.13...v0.1.14) (2025-02-19)
+
+
+### Features
+
+* **country:** add delete functionality for country ([59206d4](https://github.com/nathkeuss/GEONERD/commit/59206d4a2ab2620741aad6a2e031c76334aec68e))
+
+### [0.1.13](https://github.com/nathkeuss/GEONERD/compare/v0.1.12...v0.1.13) (2025-02-19)
+
+
+### Features
+
+* **country:** add show functionality for country ([b69fff4](https://github.com/nathkeuss/GEONERD/commit/b69fff4a7f78500c47a1ba61124b92b3810b2faf))
+
+### [0.1.12](https://github.com/nathkeuss/GEONERD/compare/v0.1.11...v0.1.12) (2025-02-19)
+
+
+### Features
+
+* **country:** add update functionality for country ([0091530](https://github.com/nathkeuss/GEONERD/commit/00915307ab3adb0f0b08e141b903d9042d240c44))
+
+### [0.1.11](https://github.com/nathkeuss/GEONERD/compare/v0.1.10...v0.1.11) (2025-02-19)
+
+
+### Features
+
+* **country:** add read functionality for country ([41d486e](https://github.com/nathkeuss/GEONERD/commit/41d486e516665d926fc5e3865a05c2e7eefb7a89))
+
+### [0.1.10](https://github.com/nathkeuss/GEONERD/compare/v0.1.9...v0.1.10) (2025-02-19)
+
+
+### Features
+
+* **country:** add create functionality for country ([0f7936a](https://github.com/nathkeuss/GEONERD/commit/0f7936a9b1d0e7a63d2fa05e50dadf7478a77aa4))
+
 ### [0.1.9](https://github.com/nathkeuss/GEONERD/compare/v0.1.8...v0.1.9) (2025-02-19)
 
 
