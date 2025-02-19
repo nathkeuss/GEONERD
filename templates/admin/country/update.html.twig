@@ -1,0 +1,58 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier le pays{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="container py-5">
+        <h1 class="text-center mb-4">Modifier le pays</h1>
+        <div class="form-container mx-auto">
+
+            <div class="mb-4 text-center">
+                <p class="mb-2 fs-3">Drapeau actuel :</p>
+                <img src="{{ asset('assets/img/uploads/country/flags/' ~ currentFlag) }}" alt="Drapeau du pays {{ country.name }}" class="img-fluid">
+                <p class="mb-2 fs-3">Bannière actuelle :</p>
+                <img src="{{ asset('assets/img/uploads/country/banners/' ~ currentBanner) }}" alt="Bannière du pays {{ country.name }}" class="img-fluid">
+            </div>
+
+            {{ form_start(formCountryView) }}
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.name) }}
+                {{ form_widget(formCountryView.name) }}
+                {{ form_errors(formCountryView.name) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.flag) }}
+                {{ form_widget(formCountryView.flag) }}
+                {{ form_errors(formCountryView.flag) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.banner) }}
+                {{ form_widget(formCountryView.banner) }}
+                {{ form_errors(formCountryView.banner) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(formCountryView.continent) }}
+                {{ form_widget(formCountryView.continent) }}
+                {{ form_errors(formCountryView.continent) }}
+            </div>
+
+            <div class="text-center">
+                {{ form_widget(formCountryView.submit) }}
+            </div>
+
+            {{ form_end(formCountryView) }}
+
+        </div>
+    </main>
+
+{% endblock %}
