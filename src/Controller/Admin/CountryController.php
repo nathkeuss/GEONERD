@@ -86,6 +86,16 @@ class CountryController extends AbstractController
         ]);
     }
 
+    #[Route('/admin/country/show/{id}', name: 'show_country', methods: ['GET'])]
+    public function showCountry(int $id, CountryRepository $countryRepository)
+    {
+        $country = $countryRepository->find($id);
+
+        return $this->render('admin/country/show.html.twig', [
+            'country' => $country
+        ]);
+    }
+
     #[Route('/admin/country/update/{id}', name: 'update_country', methods: ['GET', 'POST'])]
     public function updateCountry(int                     $id,
                                   Request                 $request,
