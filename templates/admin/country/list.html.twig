@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des pays{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="container py-5">
+
+        <!-- Liste des pays -->
+        {% if countries|length > 0 %}
+            <div class="row g-4">
+                {% for country in countries %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+
+                                <h3 class="card-title">{{ country.name }}</h3>
+
+                                <img src="{{ asset('assets/img/uploads/country/flags/' ~ country.flag) }}" alt="Drapeau de {{ country.name }}" class="img-fluid my-3">
+                                <img src="{{ asset('assets/img/uploads/country/banners/' ~ country.banner) }}" alt="Bannière de {{ country.name }}" class="img-fluid my-3">
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center mt-4 text-danger fs-5">Aucun pays trouvé.</p>
+        {% endif %}
+
+    </main>
+
+{% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Country;
 use App\Form\CountryType;
+use App\Repository\CountryRepository;
 use App\Service\UniqueFilenameGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CountryController extends AbstractController
 {
-    #[Route('/admin/country/create', name: 'country_create')]
+    #[Route('/admin/country/create', name: 'country_create', methods: ['GET', 'POST'])]
     public function createCountry(Request $request,
                                   EntityManagerInterface $entityManager,
                                   ParameterBagInterface $parameterBag,
@@ -72,6 +73,16 @@ class CountryController extends AbstractController
 
         return $this->render('admin/country/create.html.twig', [
             'formCountryView' => $formCountryView
+        ]);
+    }
+
+    #[Route('/admin/country/list', name: 'admin_list_countries', methods: ['GET'])]
+    public function listCountries(Request $request, CountryRepository $countryRepository)
+    {
+        $countries = $countryRepository->findAll();
+
+        return $this->render('admin/country/list.html.twig', [
+            'countries' => $countries
         ]);
     }
 
