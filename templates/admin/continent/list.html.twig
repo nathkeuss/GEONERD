@@ -11,7 +11,7 @@
 
     <main class="container py-5">
 
-        <a href="{{ path('create_continent') }}" class="btn btn-primary btn-sm me-2">Ajouter un continent</a>
+        <a href="{{ path('continent_create') }}" class="btn btn-primary btn-sm me-2">Ajouter un continent</a>
 
         {% if continents|length > 0 %}
             <ul class="list-group mt-4">
@@ -21,8 +21,8 @@
                             <h3 class="mb-2">{{ continent.name }}</h3>
                         </div>
                         <div class="d-flex">
-                            <a href="{{ path('update_continent', {'id': continent.id}) }}" class="btn btn-warning btn-sm me-2">Modifier</a>
-                            <a href="{{ path('delete_continent', {'id': continent.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce continent ?')">Supprimer</a>
+                            <a href="{{ path('continent_update', {'id': continent.id}) }}" class="btn btn-warning btn-sm me-2">Modifier</a>
+                            <a href="{{ path('continent_delete', {'id': continent.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce continent ?')">Supprimer</a>
                         </div>
                     </li>
                 {% endfor %}

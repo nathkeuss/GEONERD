@@ -66,7 +66,7 @@ class CountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le pays a bien été ajouté');
-            return $this->redirectToRoute('admin_list_countries');
+            return $this->redirectToRoute('admin_country_list');
         }
 
         $formCountryView = $formCountry->createView();
@@ -76,7 +76,7 @@ class CountryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/country/list', name: 'admin_list_countries', methods: ['GET'])]
+    #[Route('/admin/country/list', name: 'admin_country_list', methods: ['GET'])]
     public function listCountries(Request $request, CountryRepository $countryRepository)
     {
         $countries = $countryRepository->findAll();
@@ -86,7 +86,7 @@ class CountryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/country/show/{id}', name: 'show_country', methods: ['GET'])]
+    #[Route('/admin/country/show/{id}', name: 'country_show', methods: ['GET'])]
     public function showCountry(int $id, CountryRepository $countryRepository)
     {
         $country = $countryRepository->find($id);
@@ -96,7 +96,7 @@ class CountryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/country/update/{id}', name: 'update_country', methods: ['GET', 'POST'])]
+    #[Route('/admin/country/update/{id}', name: 'country_update', methods: ['GET', 'POST'])]
     public function updateCountry(int                     $id,
                                   Request                 $request,
                                   EntityManagerInterface  $entityManager,
@@ -167,7 +167,7 @@ class CountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le pays a bien été modifié');
-            return $this->redirectToRoute('admin_list_countries');
+            return $this->redirectToRoute('admin_country_list');
         }
 
         $formCountryView = $formCountry->createView();
@@ -181,7 +181,7 @@ class CountryController extends AbstractController
 
     }
 
-    #[Route('/admin/country/delete/{id}', name: 'delete_country', methods: ['GET'])]
+    #[Route('/admin/country/delete/{id}', name: 'country_delete', methods: ['GET'])]
     public function deleteCountry(int $id, EntityManagerInterface $entityManager, CountryRepository $countryRepository, ParameterBagInterface $parameterBag)
     {
         $country = $countryRepository->find($id);
@@ -209,7 +209,7 @@ class CountryController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success', 'Le pays a bien été supprimé');
-        return $this->redirectToRoute('admin_list_countries');
+        return $this->redirectToRoute('admin_country_list');
     }
 
 }

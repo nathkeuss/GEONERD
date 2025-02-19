@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContinentController extends AbstractController
 {
-    #[Route('/admin/continent/create', name: 'create_continent', methods: ['GET', 'POST'])]
+    #[Route('/admin/continent/create', name: 'continent_create', methods: ['GET', 'POST'])]
     public function createContinent(Request $request, EntityManagerInterface $entityManager)
     {
         $continent = new Continent();
@@ -26,7 +26,7 @@ class ContinentController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Continent bien ajouté!');
-            return $this->redirectToRoute('admin_list_continents');
+            return $this->redirectToRoute('admin_continent_list');
         }
 
         $formContinentView = $formContinent->createView();
@@ -37,7 +37,7 @@ class ContinentController extends AbstractController
 
     }
 
-    #[Route('/admin/continent/list', name: 'admin_list_continents', methods: ['GET'])]
+    #[Route('/admin/continent/list', name: 'admin_continent_list', methods: ['GET'])]
     public function listContinent(Request $request, ContinentRepository $continentRepository) {
 
         $continents = $continentRepository->findAll();
@@ -48,7 +48,7 @@ class ContinentController extends AbstractController
 
     }
 
-    #[Route('/admin/continent/update/{id}', name: 'update_continent', methods: ['GET', 'POST'])]
+    #[Route('/admin/continent/update/{id}', name: 'continent_update', methods: ['GET', 'POST'])]
     public function updateContinent(int $id, Request $request, EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
         $continent = $continentRepository->find($id);
 
@@ -61,7 +61,7 @@ class ContinentController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Continent bien modifié!');
-            return $this->redirectToRoute('admin_list_continents');
+            return $this->redirectToRoute('admin_continent_list');
         }
 
         $formContinentView = $formContinent->createView();
@@ -71,7 +71,7 @@ class ContinentController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/continent/delete/{id}', name: 'delete_continent', methods: ['POST'])]
+    #[Route('/admin/continent/delete/{id}', name: 'continent_delete', methods: ['POST'])]
     public function deleteContinent(int $id,EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
         $continent = $continentRepository->find($id);
 
@@ -79,7 +79,7 @@ class ContinentController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success', 'Continent bien supprimé!');
-        return $this->redirectToRoute('admin_list_continents');
+        return $this->redirectToRoute('admin_continent_list');
     }
 
 
