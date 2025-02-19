@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Continent;
 use App\Form\ContinentType;
+use App\Repository\ContinentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,13 +26,24 @@ class ContinentController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Continent bien ajouté!');
-            return $this->redirectToRoute('dashboard_admin');
+            return $this->redirectToRoute('admin_list_continents');
         }
 
         $formContinentView = $formContinent->createView();
 
         return $this->render('admin/continent/create.html.twig', [
             'formContinentView' => $formContinentView
+        ]);
+
+    }
+
+    #[Route('/admin/continent/list', name: 'admin_list_continents')]
+    public function listContinent(Request $request, ContinentRepository $continentRepository) {
+
+        $continents = $continentRepository->findAll();
+
+        return $this->render('admin/continent/list.html.twig', [
+            'continents' => $continents
         ]);
 
     }

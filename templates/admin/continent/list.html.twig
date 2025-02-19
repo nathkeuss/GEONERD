@@ -1,0 +1,29 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des continents{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="container py-5">
+
+        {% if continents|length > 0 %}
+            <ul class="list-group mt-4">
+                {% for continent in continents %}
+                    <li class="list-group-item bg-dark text-light d-flex justify-content-between align-items-center rounded-3">
+                        <div>
+                            <h3 class="mb-2">{{ continent.name }}</h3>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-center mt-4">Aucun continent trouvé.</p>
+        {% endif %}
+    </main>
+
+{% endblock %}
