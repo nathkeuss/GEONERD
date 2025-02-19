@@ -66,7 +66,7 @@ class CountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le pays a bien été ajouté');
-            return $this->redirectToRoute('dashboard_admin');
+            return $this->redirectToRoute('admin_list_countries');
         }
 
         $formCountryView = $formCountry->createView();
@@ -179,6 +179,37 @@ class CountryController extends AbstractController
             'country' => $country
         ]);
 
+    }
+
+    #[Route('/admin/country/delete/{id}', name: 'delete_country', methods: ['GET'])]
+    public function deleteCountry(int $id, EntityManagerInterface $entityManager, CountryRepository $countryRepository, ParameterBagInterface $parameterBag)
+    {
+        $country = $countryRepository->find($id);
+
+        $projectDir = $parameterBag->get('kernel.project_dir');
+
+        $imgDirFlag = $projectDir . '/public/assets/img/uploads/country/flags';
+        $imgDirBanner = $projectDir . '/public/assets/img/uploads/country/banners';
+
+        if ($country->getFlag()) {
+            $oldFileFlag = $imgDirFlag . '/' . $country->getFlag();
+            if (file_exists($oldFileFlag)) {
+                unlink($oldFileFlag);
+            }
+        }
+
+        if ($country->getBanner()) {
+            $oldFileBanner = $imgDirBanner . '/' . $country->getBanner();
+            if (file_exists($oldFileBanner)) {
+                unlink($oldFileBanner);
+            }
+        }
+
+        $entityManager->remove($country);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Le pays a bien été supprimé');
+        return $this->redirectToRoute('admin_list_countries');
     }
 
 }

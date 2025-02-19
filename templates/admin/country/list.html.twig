@@ -11,6 +11,9 @@
 
     <main class="container py-5">
 
+        <a href="{{ path('country_create') }}" class="btn btn-primary btn-sm me-2">Ajouter un pays</a>
+
+
         <!-- Liste des pays -->
         {% if countries|length > 0 %}
             <div class="row g-4">
@@ -21,12 +24,18 @@
 
                                 <h3 class="card-title">{{ country.name }}</h3>
 
-                                <img src="{{ asset('assets/img/uploads/country/flags/' ~ country.flag) }}" alt="Drapeau de {{ country.name }}" class="img-fluid my-3">
-                                <img src="{{ asset('assets/img/uploads/country/banners/' ~ country.banner) }}" alt="Bannière de {{ country.name }}" class="img-fluid my-3">
+                                <img src="{{ asset('assets/img/uploads/country/flags/' ~ country.flag) }}"
+                                     alt="Drapeau de {{ country.name }}" class="img-fluid my-3">
+                                <img src="{{ asset('assets/img/uploads/country/banners/' ~ country.banner) }}"
+                                     alt="Bannière de {{ country.name }}" class="img-fluid my-3">
 
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ path('update_country', {'id': country.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
-                                    <a href="{{ path('show_country', {'id': country.id}) }}" class="btn btn-primary btn-sm">Voir</a>
+                                    <a href="{{ path('update_country', {'id': country.id}) }}"
+                                       class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="{{ path('show_country', {'id': country.id}) }}"
+                                       class="btn btn-primary btn-sm">Voir</a>
+                                    <a href="{{ path('delete_country', {'id': country.id}) }}"
+                                       class="btn btn-danger btn-sm">Supprimer</a>
                                 </div>
                             </div>
                         </div>
