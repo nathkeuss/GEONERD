@@ -71,5 +71,16 @@ class ContinentController extends AbstractController
         ]);
     }
 
+    #[Route('/admin/continent/delete/{id}', name: 'delete_continent')]
+    public function deleteContinent(int $id,EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
+        $continent = $continentRepository->find($id);
+
+        $entityManager->remove($continent);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Continent bien supprimé!');
+        return $this->redirectToRoute('admin_list_continents');
+    }
+
 
 }
