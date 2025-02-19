@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/nathkeuss/GEONERD/compare/v0.1.10...v0.1.11) (2025-02-19)
+
+
+### Features
+
+* **country:** add read functionality for country ([41d486e](https://github.com/nathkeuss/GEONERD/commit/41d486e516665d926fc5e3865a05c2e7eefb7a89))
+
 ### [0.1.10](https://github.com/nathkeuss/GEONERD/compare/v0.1.9...v0.1.10) (2025-02-19)
 
 
