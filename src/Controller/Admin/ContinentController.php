@@ -48,5 +48,28 @@ class ContinentController extends AbstractController
 
     }
 
+    #[Route('/admin/continent/update/{id}', name: 'update_continent')]
+    public function updateContinent(int $id, Request $request, EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
+        $continent = $continentRepository->find($id);
+
+        $formContinent = $this->createForm(ContinentType::class, $continent);
+
+        $formContinent->handleRequest($request);
+
+        if ($formContinent->isSubmitted() && $formContinent->isValid()) {
+            $entityManager->persist($continent);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Continent bien modifié!');
+            return $this->redirectToRoute('admin_list_continents');
+        }
+
+        $formContinentView = $formContinent->createView();
+
+        return $this->render('admin/continent/update.html.twig', [
+            'formContinentView' => $formContinentView
+        ]);
+    }
+
 
 }

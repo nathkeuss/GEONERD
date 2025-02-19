@@ -1,0 +1,32 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier le continent{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="container py-5">
+        <h1 class="text-center mb-4">Modifier le continent</h1>
+
+        <div class="card bg-dark text-light p-4 shadow-lg">
+            {{ form_start(formContinentView) }}
+
+            <div class="mb-3">
+                {{ form_label(formContinentView.name) }}
+                {{ form_widget(formContinentView.name) }}
+                {{ form_errors(formContinentView.name) }}
+            </div>
+
+            <div class="text-center">
+                {{ form_widget(formContinentView.submit) }}
+            </div>
+
+            {{ form_end(formContinentView) }}
+        </div>
+    </main>
+
+{% endblock %}
