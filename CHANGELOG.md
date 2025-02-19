@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/nathkeuss/GEONERD/compare/v0.1.13...v0.1.14) (2025-02-19)
+
+
+### Features
+
+* **country:** add delete functionality for country ([59206d4](https://github.com/nathkeuss/GEONERD/commit/59206d4a2ab2620741aad6a2e031c76334aec68e))
+
 ### [0.1.13](https://github.com/nathkeuss/GEONERD/compare/v0.1.12...v0.1.13) (2025-02-19)
 
 
