@@ -47,7 +47,7 @@ DirectoryIndex index.php
     # to the start page because your Apache does not expose the REDIRECT_STATUS
     # environment variable, you have 2 choices:
     # - disable this feature by commenting the following 2 lines or
-    # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
+    # - use Apache >= 2.3.9 and replace all L flag by END flag and remove the
     #   following RewriteCond (best solution)
     RewriteCond %{ENV:REDIRECT_STATUS} =""
     RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=308,L]

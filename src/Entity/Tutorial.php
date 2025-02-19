@@ -20,7 +20,7 @@ class Tutorial
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'tutorials')]
+    #[ORM\ManyToOne(inversedBy: 'tutorial')]
     private ?Country $country = null;
 
     public function getId(): ?int
