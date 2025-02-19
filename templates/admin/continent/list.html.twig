@@ -11,6 +11,8 @@
 
     <main class="container py-5">
 
+        <a href="{{ path('create_continent') }}" class="btn btn-primary btn-sm me-2">Ajouter un continent</a>
+
         {% if continents|length > 0 %}
             <ul class="list-group mt-4">
                 {% for continent in continents %}
