@@ -30,11 +30,11 @@
                                      alt="Bannière de {{ country.name }}" class="img-fluid my-3">
 
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ path('country_update', {'id': country.id}) }}"
+                                    <a href="{{ path('country_update', {'slug': country.slug}) }}"
                                        class="btn btn-warning btn-sm">Modifier</a>
-                                    <a href="{{ path('country_show', {'id': country.id}) }}"
+                                    <a href="{{ path('country_show', {'slug': country.slug}) }}"
                                        class="btn btn-primary btn-sm">Voir</a>
-                                    <a href="{{ path('country_delete', {'id': country.id}) }}"
+                                    <a href="{{ path('country_delete', {'slug': country.slug}) }}"
                                        class="btn btn-danger btn-sm">Supprimer</a>
                                 </div>
                             </div>

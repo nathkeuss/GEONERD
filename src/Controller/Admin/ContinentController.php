@@ -9,11 +9,12 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class ContinentController extends AbstractController
 {
     #[Route('/admin/continent/create', name: 'continent_create', methods: ['GET', 'POST'])]
-    public function createContinent(Request $request, EntityManagerInterface $entityManager)
+    public function createContinent(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger)
     {
         $continent = new Continent();
 
@@ -22,6 +23,9 @@ class ContinentController extends AbstractController
         $formContinent->handleRequest($request);
 
         if ($formContinent->isSubmitted() && $formContinent->isValid()) {
+
+            $continent->setSlugFromName($slugger);
+
             $entityManager->persist($continent);
             $entityManager->flush();
 
@@ -48,15 +52,23 @@ class ContinentController extends AbstractController
 
     }
 
-    #[Route('/admin/continent/update/{id}', name: 'continent_update', methods: ['GET', 'POST'])]
-    public function updateContinent(int $id, Request $request, EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
-        $continent = $continentRepository->find($id);
+    #[Route('/admin/continent/update/{slug}', name: 'continent_update', methods: ['GET', 'POST'])]
+    public function updateContinent(string $slug,
+                                    Request $request,
+                                    EntityManagerInterface $entityManager,
+                                    ContinentRepository $continentRepository,
+                                    SluggerInterface $slugger)
+    {
+        $continent = $continentRepository->findOneBy(['slug' => $slug]);
 
         $formContinent = $this->createForm(ContinentType::class, $continent);
 
         $formContinent->handleRequest($request);
 
         if ($formContinent->isSubmitted() && $formContinent->isValid()) {
+
+            $continent->setSlugFromName($slugger);
+
             $entityManager->persist($continent);
             $entityManager->flush();
 
@@ -71,9 +83,13 @@ class ContinentController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/continent/delete/{id}', name: 'continent_delete', methods: ['POST'])]
-    public function deleteContinent(int $id,EntityManagerInterface $entityManager, ContinentRepository $continentRepository) {
-        $continent = $continentRepository->find($id);
+    #[Route('/admin/continent/delete/{slug}', name: 'continent_delete', methods: ['GET', 'POST'])]
+    public function deleteContinent(string $slug,
+                                    EntityManagerInterface $entityManager,
+                                    ContinentRepository $continentRepository,
+                                    SluggerInterface $slugger)
+    {
+        $continent = $continentRepository->findOneBy(['slug' => $slug]);
 
         $entityManager->remove($continent);
         $entityManager->flush();
