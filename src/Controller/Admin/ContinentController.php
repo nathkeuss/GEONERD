@@ -83,7 +83,7 @@ class ContinentController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/continent/delete/{slug}', name: 'continent_delete', methods: ['POST'])]
+    #[Route('/admin/continent/delete/{slug}', name: 'continent_delete', methods: ['GET', 'POST'])]
     public function deleteContinent(string $slug,
                                     EntityManagerInterface $entityManager,
                                     ContinentRepository $continentRepository,

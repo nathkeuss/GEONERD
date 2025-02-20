@@ -6,8 +6,11 @@ use App\Repository\CountryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[ORM\Entity(repositoryClass: CountryRepository::class)]
+#[UniqueEntity(fields: ['slug'])]
 class Country
 {
     #[ORM\Id]
@@ -30,6 +33,9 @@ class Country
 
     #[ORM\OneToMany(mappedBy: 'country', targetEntity: Tutorial::class)]
     private Collection $tutorials;
+
+    #[ORM\Column(length: 255, unique: true, nullable: false)]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -117,5 +123,22 @@ class Country
         }
 
         return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function setSlugFromName(SluggerInterface $slugger): void
+    {
+        $this->slug = strtolower($slugger->slug($this->name));
     }
 }
