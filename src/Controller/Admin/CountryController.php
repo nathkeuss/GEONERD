@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Country;
 use App\Form\CountryType;
+use App\Repository\ContinentRepository;
 use App\Repository\CountryRepository;
 use App\Service\UniqueFilenameGenerator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,14 +16,20 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class CountryController extends AbstractController
 {
-    #[Route('/admin/country/create', name: 'country_create', methods: ['GET', 'POST'])]
-    public function createCountry(Request                 $request,
+    #[Route('/admin/continent/{slug}/country/create', name: 'country_create', methods: ['GET', 'POST'])]
+    public function createCountry(string                  $slug,
+                                  Request                 $request,
                                   EntityManagerInterface  $entityManager,
                                   ParameterBagInterface   $parameterBag,
                                   UniqueFilenameGenerator $uniqueFilenameGenerator,
-                                  SluggerInterface        $slugger)
+                                  SluggerInterface        $slugger,
+                                  ContinentRepository     $continentRepository)
     {
+
+        $continent = $continentRepository->findOneBy(['slug' => $slug]);
+
         $country = new Country();
+        $country->setContinent($continent);
 
         $formCountry = $this->createForm(CountryType::class, $country, [
             'is_require' => false
@@ -71,46 +78,46 @@ class CountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le pays a bien été ajouté');
-            return $this->redirectToRoute('admin_country_list');
+            return $this->redirectToRoute('continent_show', ['slug' => $slug]);
         }
 
         $formCountryView = $formCountry->createView();
 
         return $this->render('admin/country/create.html.twig', [
-            'formCountryView' => $formCountryView
+            'formCountryView' => $formCountryView,
+            'continent' => $continent
+
         ]);
     }
 
-    #[Route('/admin/country/list', name: 'admin_country_list', methods: ['GET'])]
-    public function listCountries(Request $request, CountryRepository $countryRepository)
+    #[Route('/admin/continent/{continentSlug}/country/show/{slug}', name: 'country_show', methods: ['GET'])]
+    public function showCountry(string              $continentSlug,
+                                string              $slug,
+                                ContinentRepository $continentRepository,
+                                CountryRepository   $countryRepository)
     {
-        $countries = $countryRepository->findAll();
-
-        return $this->render('admin/country/list.html.twig', [
-            'countries' => $countries
-        ]);
-    }
-
-    #[Route('/admin/country/show/{slug}', name: 'country_show', methods: ['GET'])]
-    public function showCountry(string $slug, CountryRepository $countryRepository)
-    {
+        $continent = $continentRepository->findOneBy(['slug' => $continentSlug]);
         $country = $countryRepository->findOneBy(['slug' => $slug]);
 
         return $this->render('admin/country/show.html.twig', [
-            'country' => $country
+            'country' => $country,
+            'continent' => $continent
         ]);
     }
 
-    #[Route('/admin/country/update/{slug}', name: 'country_update', methods: ['GET', 'POST'])]
-    public function updateCountry(string                     $slug,
+    #[Route('/admin/continent/{continentSlug}/country/update/{slug}', name: 'country_update', methods: ['GET', 'POST'])]
+    public function updateCountry(string                  $continentSlug,
+                                  string                  $slug,
                                   Request                 $request,
                                   EntityManagerInterface  $entityManager,
                                   CountryRepository       $countryRepository,
+                                  ContinentRepository     $continentRepository,
                                   UniqueFilenameGenerator $uniqueFilenameGenerator,
                                   ParameterBagInterface   $parameterBag,
                                   SluggerInterface        $slugger
     )
     {
+        $continent = $continentRepository->findOneBy(['slug' => $continentSlug]);
         $country = $countryRepository->findOneBy(['slug' => $slug]);
 
         $formCountry = $this->createForm(CountryType::class, $country, [
@@ -122,6 +129,7 @@ class CountryController extends AbstractController
         if ($formCountry->isSubmitted() && $formCountry->isValid()) {
 
             $country->setSlugFromName($slugger);
+            $country->setContinent($continent);
 
             $countryFlag = $formCountry->get('flag')->getData();
             $countryBanner = $formCountry->get('banner')->getData();
@@ -176,7 +184,7 @@ class CountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le pays a bien été modifié');
-            return $this->redirectToRoute('admin_country_list');
+            return $this->redirectToRoute('continent_show', ['slug' => $continentSlug]);
         }
 
         $formCountryView = $formCountry->createView();
@@ -185,18 +193,21 @@ class CountryController extends AbstractController
             'formCountryView' => $formCountryView,
             'currentFlag' => $country->getFlag(),
             'currentBanner' => $country->getBanner(),
-            'country' => $country
+            'country' => $country,
+            'continent' => $continent
         ]);
 
     }
 
-    #[Route('/admin/country/delete/{slug}', name: 'country_delete', methods: ['GET', 'POST'])]
-    public function deleteCountry(string $slug,
+    #[Route('/admin/continent/{continentSlug}/country/delete/{slug}', name: 'country_delete', methods: ['GET', 'POST'])]
+    public function deleteCountry(string                 $continentSlug,
+                                  string                 $slug,
                                   EntityManagerInterface $entityManager,
-                                  CountryRepository $countryRepository,
-                                  SluggerInterface $slugger,
-                                  ParameterBagInterface $parameterBag)
+                                  ContinentRepository    $continentRepository,
+                                  CountryRepository      $countryRepository,
+                                  ParameterBagInterface  $parameterBag)
     {
+        $continent = $continentRepository->findOneBy(['slug' => $continentSlug]);
         $country = $countryRepository->findOneBy(['slug' => $slug]);
 
         $projectDir = $parameterBag->get('kernel.project_dir');
@@ -222,7 +233,7 @@ class CountryController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success', 'Le pays a bien été supprimé');
-        return $this->redirectToRoute('admin_country_list');
+        return $this->redirectToRoute('continent_show', ['slug' => $continentSlug]);
     }
 
 }

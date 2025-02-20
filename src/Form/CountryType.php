@@ -46,17 +46,6 @@ class CountryType extends AbstractType
                     'class' => 'form-label'
                 ]
             ])
-            ->add('continent', EntityType::class, [
-                'class' => Continent::class,
-                'choice_label' => 'name',
-                'attr' => [
-                    'class' => 'form-select'
-                ],
-                'label' => 'Continent',
-                'label_attr' => [
-                    'class' => 'form-label'
-                ]
-            ])
             ->add('submit', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-primary mt-3 w-25 fs-3'

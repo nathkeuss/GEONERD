@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Continent;
 use App\Form\ContinentType;
 use App\Repository\ContinentRepository;
+use App\Repository\CountryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,6 +49,19 @@ class ContinentController extends AbstractController
 
         return $this->render('admin/continent/list.html.twig', [
             'continents' => $continents
+        ]);
+
+    }
+
+    #[Route('/admin/continent/show/{slug}', name: 'continent_show', methods: ['GET'])]
+    public function showContinent(string $slug, ContinentRepository $continentRepository, CountryRepository $countryRepository) {
+
+        $continent = $continentRepository->findOneBy(['slug' => $slug]);
+        $countries = $countryRepository->findBy(['continent' => $continent]);
+
+        return $this->render('admin/continent/show.html.twig', [
+            'continent' => $continent,
+            'countries' => $countries
         ]);
 
     }
