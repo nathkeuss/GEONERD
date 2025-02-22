@@ -6,10 +6,12 @@ use App\Entity\Country;
 use App\Form\CountryType;
 use App\Repository\ContinentRepository;
 use App\Repository\CountryRepository;
+use App\Service\ImageUploader;
 use App\Service\UniqueFilenameGenerator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -17,13 +19,12 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class CountryController extends AbstractController
 {
     #[Route('/admin/continent/{slug}/country/create', name: 'country_create', methods: ['GET', 'POST'])]
-    public function createCountry(string                  $slug,
-                                  Request                 $request,
-                                  EntityManagerInterface  $entityManager,
-                                  ParameterBagInterface   $parameterBag,
-                                  UniqueFilenameGenerator $uniqueFilenameGenerator,
-                                  SluggerInterface        $slugger,
-                                  ContinentRepository     $continentRepository)
+    public function createCountry(string                 $slug,
+                                  Request                $request,
+                                  EntityManagerInterface $entityManager,
+                                  ImageUploader          $imageUploader,
+                                  SluggerInterface       $slugger,
+                                  ContinentRepository    $continentRepository)
     {
 
         $continent = $continentRepository->findOneBy(['slug' => $slug]);
@@ -45,32 +46,12 @@ class CountryController extends AbstractController
             $countryBanner = $formCountry->get('banner')->getData();
 
             if ($countryFlag) {
-                $imageOriginalName = $countryFlag->getClientOriginalName();
-                $imageExtension = $countryFlag->guessExtension();
-
-                $imageNewFilename = $uniqueFilenameGenerator->generateUniqueFilename($imageOriginalName, $imageExtension);
-
-                $projectDir = $parameterBag->get('kernel.project_dir');
-
-                $imgDir = $projectDir . '/public/assets/img/uploads/country/flags';
-
-                $countryFlag->move($imgDir, $imageNewFilename);
-
+                $imageNewFilename = $imageUploader->uploadImage($countryFlag, 'country/flags');
                 $country->setFlag($imageNewFilename);
             }
 
             if ($countryBanner) {
-                $imageOriginalName = $countryBanner->getClientOriginalName();
-                $imageExtension = $countryBanner->guessExtension();
-
-                $imageNewFilename = $uniqueFilenameGenerator->generateUniqueFilename($imageOriginalName, $imageExtension);
-
-                $projectDir = $parameterBag->get('kernel.project_dir');
-
-                $imgDir = $projectDir . '/public/assets/img/uploads/country/banners';
-
-                $countryBanner->move($imgDir, $imageNewFilename);
-
+                $imageNewFilename = $imageUploader->uploadImage($countryBanner, 'country/banners');
                 $country->setBanner($imageNewFilename);
             }
 
@@ -112,8 +93,7 @@ class CountryController extends AbstractController
                                   EntityManagerInterface  $entityManager,
                                   CountryRepository       $countryRepository,
                                   ContinentRepository     $continentRepository,
-                                  UniqueFilenameGenerator $uniqueFilenameGenerator,
-                                  ParameterBagInterface   $parameterBag,
+                                  ImageUploader           $imageUploader,
                                   SluggerInterface        $slugger
     )
     {
@@ -135,50 +115,17 @@ class CountryController extends AbstractController
             $countryBanner = $formCountry->get('banner')->getData();
 
             if ($countryFlag) {
-                $imageOriginalName = $countryFlag->getClientOriginalName();
-                $imageExtension = $countryFlag->guessExtension();
-                $imageNewFilename = $uniqueFilenameGenerator->generateUniqueFilename($imageOriginalName, $imageExtension);
-
-                $projectDir = $parameterBag->get('kernel.project_dir');
-
-                $imgDir = $projectDir . '/public/assets/img/uploads/country/flags';
-
-                $countryFlag->move($imgDir, $imageNewFilename);
-
-                if ($country->getFlag()) {
-                    $oldFile = $imgDir . '/' . $country->getFlag();
-                    if (file_exists($oldFile)) {
-                        unlink($oldFile);
-                    }
-                }
-
-                $country->setFlag($imageNewFilename);
-            } else {
-                $country->setFlag($country->getFlag());
+                $imageUploader->removeImage('country/flags', $country->getFlag());
+                $newFilename = $imageUploader->uploadImage($countryFlag, 'country/flags');
+                $country->setFlag($newFilename);
             }
 
             if ($countryBanner) {
-                $imageOriginalName = $countryBanner->getClientOriginalName();
-                $imageExtension = $countryBanner->guessExtension();
-                $imageNewFilename = $uniqueFilenameGenerator->generateUniqueFilename($imageOriginalName, $imageExtension);
-
-                $projectDir = $parameterBag->get('kernel.project_dir');
-
-                $imgDir = $projectDir . '/public/assets/img/uploads/country/banners';
-
-                $countryBanner->move($imgDir, $imageNewFilename);
-
-                if ($country->getBanner()) {
-                    $oldFile = $imgDir . '/' . $country->getBanner();
-                    if (file_exists($oldFile)) {
-                        unlink($oldFile);
-                    }
-                }
-
-                $country->setBanner($imageNewFilename);
-            } else {
-                $country->setBanner($country->getBanner());
+                $imageUploader->removeImage('country/banners', $country->getBanner());
+                $newFilename = $imageUploader->uploadImage($countryBanner, 'country/banners');
+                $country->setBanner($newFilename);
             }
+
 
             $entityManager->persist($country);
             $entityManager->flush();
@@ -205,29 +152,13 @@ class CountryController extends AbstractController
                                   EntityManagerInterface $entityManager,
                                   ContinentRepository    $continentRepository,
                                   CountryRepository      $countryRepository,
-                                  ParameterBagInterface  $parameterBag)
+                                  ImageUploader          $imageUploader,)
     {
         $continent = $continentRepository->findOneBy(['slug' => $continentSlug]);
         $country = $countryRepository->findOneBy(['slug' => $slug]);
 
-        $projectDir = $parameterBag->get('kernel.project_dir');
-
-        $imgDirFlag = $projectDir . '/public/assets/img/uploads/country/flags';
-        $imgDirBanner = $projectDir . '/public/assets/img/uploads/country/banners';
-
-        if ($country->getFlag()) {
-            $oldFileFlag = $imgDirFlag . '/' . $country->getFlag();
-            if (file_exists($oldFileFlag)) {
-                unlink($oldFileFlag);
-            }
-        }
-
-        if ($country->getBanner()) {
-            $oldFileBanner = $imgDirBanner . '/' . $country->getBanner();
-            if (file_exists($oldFileBanner)) {
-                unlink($oldFileBanner);
-            }
-        }
+        $imageUploader->removeImage('country/flags', $country->getFlag());
+        $imageUploader->removeImage('country/banners', $country->getBanner());
 
         $entityManager->remove($country);
         $entityManager->flush();
