@@ -16,6 +16,7 @@
     {% for tutorial in tutorials %}
         <img src="{{ asset('assets/img/uploads/country/tutorials/' ~ tutorial.image) }}" alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
         <p>{{ tutorial.description }}</p>
+        <a href="{{ path('tutorial_update', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}">Modifier le tutoriel</a>
     {% endfor %}
 
 {% endblock %}
