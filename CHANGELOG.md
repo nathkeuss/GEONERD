@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/nathkeuss/GEONERD/compare/v0.1.22...v0.1.23) (2025-02-26)
+
+
+### Features
+
+* **tutorial:** add delete functionality for tutorial ([89116c7](https://github.com/nathkeuss/GEONERD/commit/89116c74123427365110d5182b8b2c21c8ed6d53))
+
+### [0.1.22](https://github.com/nathkeuss/GEONERD/compare/v0.1.21...v0.1.22) (2025-02-26)
+
+
+### Features
+
+* **tutorial:** add update functionality for tutorial ([d12135e](https://github.com/nathkeuss/GEONERD/commit/d12135e4a346be5298fe6e17c816d4140a79e913))
+
+### [0.1.21](https://github.com/nathkeuss/GEONERD/compare/v0.1.20...v0.1.21) (2025-02-26)
+
+
+### Features
+
+* **tutorial:** add read functionality for tutorial ([b977cbc](https://github.com/nathkeuss/GEONERD/commit/b977cbcc21692680b99fff8c2d6c65e2d5440dca))
+
+### [0.1.20](https://github.com/nathkeuss/GEONERD/compare/v0.1.19...v0.1.20) (2025-02-26)
+
+
+### Features
+
+* **tutorial:** add create functionality for tutorial ([5693aa3](https://github.com/nathkeuss/GEONERD/commit/5693aa36a3222ef8957ace7f4035e1f938932f8f))
+
 ### [0.1.19](https://github.com/nathkeuss/GEONERD/compare/v0.1.18...v0.1.19) (2025-02-22)
 
 ### [0.1.18](https://github.com/nathkeuss/GEONERD/compare/v0.1.17...v0.1.18) (2025-02-20)
