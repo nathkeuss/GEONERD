@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/nathkeuss/GEONERD/compare/v0.1.22...v0.1.23) (2025-02-26)
+
+
+### Features
+
+* **tutorial:** add delete functionality for tutorial ([89116c7](https://github.com/nathkeuss/GEONERD/commit/89116c74123427365110d5182b8b2c21c8ed6d53))
+
 ### [0.1.22](https://github.com/nathkeuss/GEONERD/compare/v0.1.21...v0.1.22) (2025-02-26)
 
 
