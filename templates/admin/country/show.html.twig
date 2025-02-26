@@ -9,6 +9,6 @@
 
 {% block body %}
 
-    <h1>oe voilà le tuto de la france</h1>
+    <a href="{{ path('tutorial_create', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}">Ajouter une partie de tutoriel {{ country.name }}</a>
 
 {% endblock %}
