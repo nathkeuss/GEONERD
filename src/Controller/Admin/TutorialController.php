@@ -121,4 +121,30 @@ class TutorialController extends AbstractController
 
     }
 
+    #[Route('/admin/continent/{slugContinent}/country/{slugCountry}/tutorial/delete/{id}', name: 'tutorial_delete', methods: ['GET', 'POST'])]
+    public function deleteTutorial(int                    $id,
+                                   string                 $slugContinent,
+                                   string                 $slugCountry,
+                                   EntityManagerInterface $entityManager,
+                                   ImageUploader          $imageUploader,
+                                   ContinentRepository    $continentRepository,
+                                   CountryRepository      $countryRepository,
+                                   TutorialRepository     $tutorialRepository)
+    {
+        $continent = $continentRepository->findOneBy(['slug' => $slugContinent]);
+        $country = $countryRepository->findOneBy(['slug' => $slugCountry]);
+        $tutorial = $tutorialRepository->find($id);
+
+        $imageUploader->removeImage('country/tutorials', $tutorial->getImage());
+
+        $entityManager->remove($tutorial);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Le tutoriel a bien été supprimé');
+        return $this->redirectToRoute('country_show', [
+            'slugContinent' => $slugContinent,
+            'slug' => $slugCountry
+        ]);
+    }
+
 }

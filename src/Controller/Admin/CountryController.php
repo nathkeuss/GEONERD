@@ -154,7 +154,7 @@ class CountryController extends AbstractController
                                   EntityManagerInterface $entityManager,
                                   ContinentRepository    $continentRepository,
                                   CountryRepository      $countryRepository,
-                                  ImageUploader          $imageUploader,)
+                                  ImageUploader          $imageUploader)
     {
         $continent = $continentRepository->findOneBy(['slug' => $slugContinent]);
         $country = $countryRepository->findOneBy(['slug' => $slug]);
