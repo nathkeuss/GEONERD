@@ -53,10 +53,12 @@ class ContinentController extends AbstractController
 
     }
 
-    #[Route('/admin/continent/show/{slug}', name: 'continent_show', methods: ['GET'])]
-    public function showContinent(string $slug, ContinentRepository $continentRepository, CountryRepository $countryRepository) {
+    #[Route('/admin/continent/show/{slugContinent}', name: 'continent_show', methods: ['GET'])]
+    public function showContinent(string $slugContinent,
+                                  ContinentRepository $continentRepository,
+                                  CountryRepository $countryRepository) {
 
-        $continent = $continentRepository->findOneBy(['slug' => $slug]);
+        $continent = $continentRepository->findOneBy(['slug' => $slugContinent]);
         $countries = $countryRepository->findBy(['continent' => $continent]);
 
         return $this->render('admin/continent/show.html.twig', [
@@ -66,14 +68,14 @@ class ContinentController extends AbstractController
 
     }
 
-    #[Route('/admin/continent/update/{slug}', name: 'continent_update', methods: ['GET', 'POST'])]
-    public function updateContinent(string $slug,
+    #[Route('/admin/continent/update/{slugContinent}', name: 'continent_update', methods: ['GET', 'POST'])]
+    public function updateContinent(string $slugContinent,
                                     Request $request,
                                     EntityManagerInterface $entityManager,
                                     ContinentRepository $continentRepository,
                                     SluggerInterface $slugger)
     {
-        $continent = $continentRepository->findOneBy(['slug' => $slug]);
+        $continent = $continentRepository->findOneBy(['slug' => $slugContinent]);
 
         $formContinent = $this->createForm(ContinentType::class, $continent);
 
@@ -97,13 +99,12 @@ class ContinentController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/continent/delete/{slug}', name: 'continent_delete', methods: ['GET', 'POST'])]
-    public function deleteContinent(string $slug,
+    #[Route('/admin/continent/delete/{slugContinent}', name: 'continent_delete', methods: ['GET', 'POST'])]
+    public function deleteContinent(string $slugContinent,
                                     EntityManagerInterface $entityManager,
-                                    ContinentRepository $continentRepository,
-                                    SluggerInterface $slugger)
+                                    ContinentRepository $continentRepository)
     {
-        $continent = $continentRepository->findOneBy(['slug' => $slug]);
+        $continent = $continentRepository->findOneBy(['slug' => $slugContinent]);
 
         $entityManager->remove($continent);
         $entityManager->flush();

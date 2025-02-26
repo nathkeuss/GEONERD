@@ -11,7 +11,7 @@
 
     <main class="container py-5">
 
-        <a href="{{ path('country_create', {'slug': continent.slug}) }}" class="btn btn-primary btn-sm me-2">Ajouter un
+        <a href="{{ path('country_create', {'slugContinent': continent.slug}) }}" class="btn btn-primary btn-sm me-2">Ajouter un
             pays</a>
 
 
@@ -34,13 +34,13 @@
 
                                 <div class="d-flex justify-content-center gap-2">
 
-                                    <a href="{{ path('country_update', {'slugContinent': continent.slug, 'slug': country.slug}) }}"
+                                    <a href="{{ path('country_update', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}"
                                        class="btn btn-warning btn-sm">Modifier</a>
 
-                                    <a href="{{ path('country_show', {'slugContinent': continent.slug, 'slug': country.slug}) }}"
+                                    <a href="{{ path('country_show', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}"
                                        class="btn btn-primary btn-sm">Voir</a>
 
-                                    <a href="{{ path('country_delete', {'slugContinent': continent.slug, 'slug': country.slug}) }}"
+                                    <a href="{{ path('country_delete', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}"
                                        class="btn btn-danger btn-sm">Supprimer</a>
 
                                 </div>

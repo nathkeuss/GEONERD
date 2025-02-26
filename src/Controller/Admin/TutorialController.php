@@ -55,7 +55,7 @@ class TutorialController extends AbstractController
             $this->addFlash('success', 'Le tutoriel a bien été ajouté');
             return $this->redirectToRoute('country_show', [
                 'slugContinent' => $slugContinent,
-                'slug' => $slugCountry
+                'slugCountry' => $slugCountry
             ]);
         }
 
@@ -105,7 +105,7 @@ class TutorialController extends AbstractController
             $this->addFlash('success', 'Le tutoriel a bien été modifié');
             return $this->redirectToRoute('country_show', [
                 'slugContinent' => $slugContinent,
-                'slug' => $slugCountry
+                'slugCountry' => $slugCountry
             ]);
         }
 
@@ -143,7 +143,7 @@ class TutorialController extends AbstractController
         $this->addFlash('success', 'Le tutoriel a bien été supprimé');
         return $this->redirectToRoute('country_show', [
             'slugContinent' => $slugContinent,
-            'slug' => $slugCountry
+            'slugCountry' => $slugCountry
         ]);
     }
 
