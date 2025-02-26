@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/nathkeuss/GEONERD/compare/v0.1.21...v0.1.22) (2025-02-26)
+
+
+### Features
+
+* **tutorial:** add update functionality for tutorial ([d12135e](https://github.com/nathkeuss/GEONERD/commit/d12135e4a346be5298fe6e17c816d4140a79e913))
+
 ### [0.1.21](https://github.com/nathkeuss/GEONERD/compare/v0.1.20...v0.1.21) (2025-02-26)
 
 
