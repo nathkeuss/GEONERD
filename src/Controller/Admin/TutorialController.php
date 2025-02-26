@@ -42,7 +42,7 @@ class TutorialController extends AbstractController
             $tutorialDescription = $formTutorial->get('description')->getData();
 
             if ($tutorialImage) {
-                $imageNewFilename = $imageUploader->uploadImage($tutorialImage, 'tutorial/images');
+                $imageNewFilename = $imageUploader->uploadImage($tutorialImage, 'country/tutorials');
                 $tutorial->setImage($imageNewFilename);
             }
 
@@ -65,6 +65,7 @@ class TutorialController extends AbstractController
             'continent' => $continent,
             'country' => $country
         ]);
+
 
 
     }

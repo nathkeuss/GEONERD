@@ -9,6 +9,13 @@
 
 {% block body %}
 
-    <a href="{{ path('tutorial_create', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}">Ajouter une partie de tutoriel {{ country.name }}</a>
+
+    <a href="{{ path('tutorial_create', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}">Ajouter une
+        partie de tutoriel {{ country.name }}</a>
+
+    {% for tutorial in tutorials %}
+        <img src="{{ asset('assets/img/uploads/country/tutorials/' ~ tutorial.image) }}" alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
+        <p>{{ tutorial.description }}</p>
+    {% endfor %}
 
 {% endblock %}

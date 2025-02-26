@@ -6,6 +6,7 @@ use App\Entity\Country;
 use App\Form\CountryType;
 use App\Repository\ContinentRepository;
 use App\Repository\CountryRepository;
+use App\Repository\TutorialRepository;
 use App\Service\ImageUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -72,26 +73,30 @@ class CountryController extends AbstractController
     public function showCountry(string              $slugContinent,
                                 string              $slug,
                                 ContinentRepository $continentRepository,
-                                CountryRepository   $countryRepository)
+                                CountryRepository   $countryRepository,
+                                TutorialRepository  $tutorialRepository)
     {
+
         $continent = $continentRepository->findOneBy(['slug' => $slugContinent]);
         $country = $countryRepository->findOneBy(['slug' => $slug]);
+        $tutorials = $tutorialRepository->findBy(['country' => $country]);
 
         return $this->render('admin/country/show.html.twig', [
             'country' => $country,
-            'continent' => $continent
+            'continent' => $continent,
+            'tutorials' => $tutorials
         ]);
     }
 
     #[Route('/admin/continent/{slugContinent}/country/update/{slug}', name: 'country_update', methods: ['GET', 'POST'])]
-    public function updateCountry(string                  $slugContinent,
-                                  string                  $slug,
-                                  Request                 $request,
-                                  EntityManagerInterface  $entityManager,
-                                  CountryRepository       $countryRepository,
-                                  ContinentRepository     $continentRepository,
-                                  ImageUploader           $imageUploader,
-                                  SluggerInterface        $slugger
+    public function updateCountry(string                 $slugContinent,
+                                  string                 $slug,
+                                  Request                $request,
+                                  EntityManagerInterface $entityManager,
+                                  CountryRepository      $countryRepository,
+                                  ContinentRepository    $continentRepository,
+                                  ImageUploader          $imageUploader,
+                                  SluggerInterface       $slugger
     )
     {
         $continent = $continentRepository->findOneBy(['slug' => $slugContinent]);
