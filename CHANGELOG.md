@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.28](https://github.com/nathkeuss/GEONERD/compare/v0.1.27...v0.1.28) (2025-03-07)
+
+
+### Features
+
+* **country:** add functionality to display tutorial for selected country ([794f347](https://github.com/nathkeuss/GEONERD/commit/794f347a0c3dd6a77e6cfa9abf32c66eb964971d))
+
 ### [0.1.27](https://github.com/nathkeuss/GEONERD/compare/v0.1.26...v0.1.27) (2025-03-07)
 
 
