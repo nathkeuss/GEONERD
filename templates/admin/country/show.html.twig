@@ -3,28 +3,46 @@
 {% block title %}Tutoriel : {{ country.name }}{% endblock %}
 
 {% block stylesheets %}
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 {% endblock %}
-
 
 {% block body %}
 
+    <a href="{{ path('continent_show', {'slugContinent': continent.slug}) }}" class="btn btn-secondary mb-3">
+        &larr; Retour à la liste des pays
+    </a>
 
-    <a href="{{ path('tutorial_create', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}">Ajouter une
-        partie de tutoriel {{ country.name }}</a>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="text-primary">Tutoriels pour {{ country.name }}</h2>
+            <a href="{{ path('tutorial_create', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}" class="btn btn-success">
+                Ajouter un tutoriel
+            </a>
+        </div>
 
-    {% if tutorials|length > 0 %}
-        {% for tutorial in tutorials %}
-            <img src="{{ asset('uploads/country/tutorials/' ~ tutorial.image) }}"
-                 alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
-            <p>{{ tutorial.description }}</p>
-            <a href="{{ path('tutorial_update', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}">Modifier
-                cette partie</a>
-            <a href="{{ path('tutorial_delete', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}">Supprimer
-                cette partie</a>
-        {% endfor %}
-    {% else %}
-        <p class="text-center mt-4 text-danger fs-5">Aucun tutoriel trouvé.</p>
-    {% endif %}
-
+        {% if tutorials|length > 0 %}
+            <div class="row">
+                {% for tutorial in tutorials %}
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="{{ asset('uploads/country/tutorials/' ~ tutorial.image) }}"
+                                 class="card-img-top"
+                                 alt="Image du tutoriel {{ country.name }}">
+                            <div class="card-body">
+                                <p class="card-text">{{ tutorial.description }}</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="{{ path('tutorial_update', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}"
+                                       class="btn btn-primary btn-sm">Modifier</a>
+                                    <a href="{{ path('tutorial_delete', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}"
+                                       class="btn btn-danger btn-sm">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center mt-4 text-danger fs-5">Aucun tutoriel trouvé.</p>
+        {% endif %}
+    </div>
 {% endblock %}

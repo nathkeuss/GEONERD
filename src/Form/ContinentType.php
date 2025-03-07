@@ -24,8 +24,9 @@ class ContinentType extends AbstractType
                 'label' => 'Nom du continent',
             ])
             ->add('submit', SubmitType::class, [
+                'label' => 'Valider',
                 'attr' => [
-                    'class' => 'btn btn-primary w-25 fs-3'
+                    'class' => 'btn btn-primary w-25 fs-5'
                 ]
             ])
         ;

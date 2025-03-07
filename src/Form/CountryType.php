@@ -47,8 +47,9 @@ class CountryType extends AbstractType
                 ]
             ])
             ->add('submit', SubmitType::class, [
+                'label' => 'Valider',
                 'attr' => [
-                    'class' => 'btn btn-primary mt-3 w-25 fs-3'
+                    'class' => 'btn btn-primary mt-3 w-25 fs-5'
                 ]
             ])
         ;

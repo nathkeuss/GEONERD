@@ -3,37 +3,36 @@
 {% block title %}Liste des pays d'{{ continent.name }}{% endblock %}
 
 {% block stylesheets %}
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 {% endblock %}
 
-
 {% block body %}
-
     <main class="container py-5">
 
-        <a href="{{ path('country_create', {'slugContinent': continent.slug}) }}" class="btn btn-primary btn-sm me-2">Ajouter un
-            pays</a>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <a href="{{ path('admin_continent_list') }}" class="btn btn-secondary">
+                &larr; Retour à la liste des continents
+            </a>
+            <a href="{{ path('country_create', {'slugContinent': continent.slug}) }}" class="btn btn-primary">
+                Ajouter un pays
+            </a>
+        </div>
 
-
-        <!-- Liste des pays -->
         {% if countries|length > 0 %}
             <div class="row g-4">
                 {% for country in countries %}
                     <div class="col-md-6 col-lg-4">
-
-                        <div class="card h-100">
-
+                        <div class="card h-100 shadow-sm">
                             <div class="card-body text-center">
-
-                                <h3 class="card-title">{{ country.name }}</h3>
+                                <h5 class="card-title text-primary">{{ country.name }}</h5>
 
                                 <img src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
-                                     alt="Drapeau de {{ country.name }}" class="img-fluid my-3">
+                                     alt="Drapeau de {{ country.name }}" class="img-fluid my-2 rounded">
+
                                 <img src="{{ asset('uploads/country/banners/' ~ country.banner) }}"
-                                     alt="Bannière de {{ country.name }}" class="img-fluid my-3">
+                                     alt="Bannière de {{ country.name }}" class="img-fluid my-2 rounded">
 
-                                <div class="d-flex justify-content-center gap-2">
-
+                                <div class="d-flex justify-content-center gap-2 mt-3">
                                     <a href="{{ path('country_update', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}"
                                        class="btn btn-warning btn-sm">Modifier</a>
 
@@ -42,13 +41,9 @@
 
                                     <a href="{{ path('country_delete', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}"
                                        class="btn btn-danger btn-sm">Supprimer</a>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
                 {% endfor %}
             </div>
@@ -57,5 +52,4 @@
         {% endif %}
 
     </main>
-
 {% endblock %}

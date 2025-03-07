@@ -13,12 +13,28 @@
         <h1 class="text-center mb-4">Modifier le pays</h1>
         <div class="form-container mx-auto">
 
-            <div class="mb-4 text-center">
-                <p class="mb-2 fs-3">Drapeau actuel :</p>
-                <img src="{{ asset('assets/img/uploads/country/flags/' ~ currentFlag) }}" alt="Drapeau du pays {{ country.name }}" class="img-fluid">
-                <p class="mb-2 fs-3">Bannière actuelle :</p>
-                <img src="{{ asset('assets/img/uploads/country/banners/' ~ currentBanner) }}" alt="Bannière du pays {{ country.name }}" class="img-fluid">
+            <div class="container my-4">
+                <div class="text-center">
+                    <p class="mb-2 fs-3 fw-bold">Drapeau actuel :</p>
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ asset('uploads/country/flags/' ~ currentFlag) }}"
+                             alt="Drapeau du pays {{ country.name }}"
+                             class="img-fluid border rounded shadow"
+                             style="max-width: 300px;">
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <p class="mb-2 fs-3 fw-bold">Bannière actuelle :</p>
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ asset('uploads/country/banners/' ~ currentBanner) }}"
+                             alt="Bannière du pays {{ country.name }}"
+                             class="img-fluid border rounded shadow"
+                             style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
             </div>
+
 
             {{ form_start(formCountryView) }}
 

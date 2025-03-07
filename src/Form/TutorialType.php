@@ -40,9 +40,9 @@ class TutorialType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary fs-5'
                 ],
-                'label' => 'Ajouter'
+                'label' => 'Valider'
             ]);
     }
 
