@@ -1,0 +1,41 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Répondre au topic{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main>
+
+        <section class="col-10 col-lg-6 m-auto mt-5 section-form">
+
+            <h1 class="h1-new-discussion text-center">Répondre au topic</h1>
+
+            <div class="w-95 m-auto">
+                {{ form_start(formReplyView) }}
+
+                <div class="w-100 error">
+                    {{ form_widget(formReplyView.content) }}
+                    {{ form_errors(formReplyView.content) }}
+                </div>
+
+                <div class="w-25 error">
+                    {{ form_widget(formReplyView.image) }}
+                    {{ form_errors(formReplyView.image) }}
+                </div>
+
+                <div class="text-end">
+                    {{ form_widget(formReplyView.submit) }}
+                </div>
+                {{ form_end(formReplyView) }}
+            </div>
+
+        </section>
+
+    </main>
+
+{% endblock %}
