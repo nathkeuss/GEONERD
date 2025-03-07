@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.34](https://github.com/nathkeuss/GEONERD/compare/v0.1.33...v0.1.34) (2025-03-07)
+
+
+### Features
+
+* **topic:** add functionality to delete topic ([9552eea](https://github.com/nathkeuss/GEONERD/commit/9552eea78c467ca57d2134533ff813db92c1f59d))
+
+### [0.1.33](https://github.com/nathkeuss/GEONERD/compare/v0.1.32...v0.1.33) (2025-03-07)
+
+
+### Features
+
+* **topic:** add update functionality ([587f5eb](https://github.com/nathkeuss/GEONERD/commit/587f5eb07351c4e1b32e01ec70637f316562b167))
+
+### [0.1.32](https://github.com/nathkeuss/GEONERD/compare/v0.1.31...v0.1.32) (2025-03-07)
+
+
+### Features
+
+* **topic:** allow users to view a selected topic ([9035f5e](https://github.com/nathkeuss/GEONERD/commit/9035f5ea78903689226b2a66cf451232f182d074))
+
+### [0.1.31](https://github.com/nathkeuss/GEONERD/compare/v0.1.30...v0.1.31) (2025-03-07)
+
+
+### Features
+
+* **topic:** add functionality to see list of topics ([8c3772d](https://github.com/nathkeuss/GEONERD/commit/8c3772d25d62cf9d9d57d6d24bd8977f1b4ef261))
+
+### [0.1.30](https://github.com/nathkeuss/GEONERD/compare/v0.1.29...v0.1.30) (2025-03-07)
+
+
+### Features
+
+* **topic:** add functionality to create a new topic ([8d30e78](https://github.com/nathkeuss/GEONERD/commit/8d30e78478898f3871f394a3ea7656f6e566a5b2))
+
 ### [0.1.29](https://github.com/nathkeuss/GEONERD/compare/v0.1.28...v0.1.29) (2025-03-07)
 
 

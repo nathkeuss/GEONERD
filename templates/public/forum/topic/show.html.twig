@@ -1,0 +1,20 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Topic{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h1>{{ topic.title }}</h1>
+    <p>{{ topic.content }}</p>
+    <p>Créé par {{ topic.user.username }}</p>
+    <img src="{{ asset('uploads/forum/topics/' ~ topic.image) }}" alt="Image du topic">
+    {% if topic.user == app.user %}
+        <a href="{{ path('topic_update', {'id': topic.id}) }}">Modifier</a>
+        <a href="{{ path('topic_delete', {'id': topic.id}) }}">Supprimer</a>
+    {% endif %}
+{% endblock %}

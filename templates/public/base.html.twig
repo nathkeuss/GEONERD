@@ -32,6 +32,12 @@
 
     <h1>Ceci est le header</h1>
     <a href="{{ path('country_list') }}">Liste des pays</a>
+    <a href="{{ path('topic_list') }}">Forum</a>
+    {% if app.user %}
+        <a href="{{ path('logout_user') }}">Se déconnecter</a>
+    {% else %}
+        <a href="{{ path('login_user') }}">Se connecter</a>
+    {% endif %}
 
 </header>
 

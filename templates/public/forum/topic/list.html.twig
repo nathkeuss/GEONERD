@@ -1,0 +1,27 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Liste des topics{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h1>Liste des topics</h1>
+
+    {% if app.user %}
+        <a href="{{ path('topic_create') }}">Créer un topic</a>
+    {% endif %}
+
+    {% for topic in topics %}
+        <h2>{{ topic.title }}</h2>
+        <p>{{ topic.content }}</p>
+        <p>Créé par {{ topic.user.username }}</p>
+        <a href="{{ path('topic_show', {'id': topic.id}) }}">Voir le topic</a>
+    {% endfor %}
+
+
+
+{% endblock %}
