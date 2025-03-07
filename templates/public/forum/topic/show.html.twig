@@ -24,6 +24,10 @@
         <p class="text-danger">{{ reply.content }}</p>
         <p>Créé par {{ reply.user.username }}</p>
         <img src="{{ asset('uploads/forum/replies/' ~ reply.image) }}" alt="Image de la réponse">
+        {% if reply.user == app.user %}
+            <a href="{{ path('reply_update', {'id': topic.id, 'replyId': reply.id}) }}">Modifier</a>
+            <a href="{{ path('reply_delete', {'id': topic.id, 'replyId': reply.id}) }}">Supprimer</a>
+        {% endif %}
     {% endfor %}
 
 {% endblock %}
