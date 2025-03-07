@@ -15,6 +15,7 @@
         <h2>{{ topic.title }}</h2>
         <p>{{ topic.content }}</p>
         <p>Créé par {{ topic.user.username }}</p>
+        <a href="{{ path('topic_show', {'id': topic.id}) }}">Voir le topic</a>
     {% endfor %}
 
 {% endblock %}
