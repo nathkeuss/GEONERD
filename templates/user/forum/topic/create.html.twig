@@ -1,0 +1,46 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Créer un nouveau topic{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main>
+
+        <section class="col-10 col-lg-6 m-auto mt-5 section-form">
+
+            <h1 class="h1-new-discussion text-center">Créer un nouveau topic</h1>
+
+            <div class="w-95 m-auto">
+                {{ form_start(formTopicView) }}
+                <div class="w-75 error">
+                    {{ form_widget(formTopicView.title) }}
+                    {{ form_errors(formTopicView.title) }}
+                </div>
+
+                <div class="w-100 error">
+                    {{ form_widget(formTopicView.content) }}
+                    {{ form_errors(formTopicView.content) }}
+                </div>
+
+                <div class="w-25 error">
+                    {{ form_widget(formTopicView.image) }}
+                    {{ form_errors(formTopicView.image) }}
+                </div>
+
+
+                <div class="text-end">
+                    {{ form_widget(formTopicView.submit) }}
+                </div>
+                {{ form_end(formTopicView) }}
+            </div>
+
+        </section>
+
+    </main>
+
+{% endblock %}
