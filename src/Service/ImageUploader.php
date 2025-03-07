@@ -25,7 +25,7 @@ class ImageUploader
 
         $projectDir = $this->parameterBag->get('kernel.project_dir');
 
-        $imgDir = $projectDir . '/public/assets/img/uploads/' . $subDirectory;
+        $imgDir = $projectDir . '/public/uploads/' . $subDirectory;
 
         $image->move($imgDir, $imageNewFilename);
 
@@ -39,7 +39,7 @@ class ImageUploader
         }
 
         $projectDir = $this->parameterBag->get('kernel.project_dir');
-        $filePath = $projectDir . '/public/assets/img/uploads/' . $subDirectory . '/' . $filename;
+        $filePath = $projectDir . '/public/uploads/' . $subDirectory . '/' . $filename;
 
         if (file_exists($filePath)) {
             unlink($filePath);

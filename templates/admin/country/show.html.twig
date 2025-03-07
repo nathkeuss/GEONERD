@@ -14,12 +14,15 @@
         partie de tutoriel {{ country.name }}</a>
 
     {% if tutorials|length > 0 %}
-    {% for tutorial in tutorials %}
-        <img src="{{ asset('assets/img/uploads/country/tutorials/' ~ tutorial.image) }}" alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
-        <p>{{ tutorial.description }}</p>
-        <a href="{{ path('tutorial_update', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}">Modifier cette partie</a>
-        <a href="{{ path('tutorial_delete', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}">Supprimer cette partie</a>
-    {% endfor %}
+        {% for tutorial in tutorials %}
+            <img src="{{ asset('uploads/country/tutorials/' ~ tutorial.image) }}"
+                 alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
+            <p>{{ tutorial.description }}</p>
+            <a href="{{ path('tutorial_update', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}">Modifier
+                cette partie</a>
+            <a href="{{ path('tutorial_delete', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}">Supprimer
+                cette partie</a>
+        {% endfor %}
     {% else %}
         <p class="text-center mt-4 text-danger fs-5">Aucun tutoriel trouvé.</p>
     {% endif %}
