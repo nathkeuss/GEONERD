@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.30](https://github.com/nathkeuss/GEONERD/compare/v0.1.29...v0.1.30) (2025-03-07)
+
+
+### Features
+
+* **topic:** add functionality to create a new topic ([8d30e78](https://github.com/nathkeuss/GEONERD/commit/8d30e78478898f3871f394a3ea7656f6e566a5b2))
+
 ### [0.1.29](https://github.com/nathkeuss/GEONERD/compare/v0.1.28...v0.1.29) (2025-03-07)
 
 
