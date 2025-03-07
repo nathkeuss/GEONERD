@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.27](https://github.com/nathkeuss/GEONERD/compare/v0.1.26...v0.1.27) (2025-03-07)
+
+
+### Features
+
+* **countries:** add* functionality to list all countries ([1c7f066](https://github.com/nathkeuss/GEONERD/commit/1c7f0667bd0463630224d866aa7a8ee60676f38a))
+
 ### [0.1.26](https://github.com/nathkeuss/GEONERD/compare/v0.1.25...v0.1.26) (2025-03-07)
 
 
