@@ -12,7 +12,7 @@
     <main>
         <h1>Liste des pays</h1>
         {% for country in countries %}
-            <a class="country" href="#">
+            <a class="country" href="{{ path('country_show', {'slugCountry': country.slug}) }}">
                 <h2>{{ country.name }}</h2>
                 <img src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
                      alt="Drapeau de {{ country.name }}" class="img-fluid my-2 rounded">

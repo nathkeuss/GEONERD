@@ -1,0 +1,24 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Tutoriel pour {{ country.name }}{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div>
+        <img src="{{ asset('uploads/country/banners/' ~ country.banner) }}" alt="Bannière du pays {{ country.name }}">
+    </div>
+
+    <h1>{{ country.name }}</h1>
+    {% for tutorial in tutorials %}
+        <img src="{{ asset('uploads/country/tutorials/' ~ tutorial.image) }}"
+             class="card-img-top"
+             alt="Image du tutoriel {{ country.name }}">
+        <p>{{ tutorial.description }}</p>
+    {% endfor %}
+
+{% endblock %}
