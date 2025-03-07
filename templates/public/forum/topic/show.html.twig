@@ -13,5 +13,7 @@
     <p>{{ topic.content }}</p>
     <p>Créé par {{ topic.user.username }}</p>
     <img src="{{ asset('uploads/forum/topics/' ~ topic.image) }}" alt="Image du topic">
-
+    {% if topic.user == app.user %}
+        <a href="{{ path('topic_update', {'id': topic.id}) }}">Modifier</a>
+    {% endif %}
 {% endblock %}
