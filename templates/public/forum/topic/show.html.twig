@@ -15,5 +15,6 @@
     <img src="{{ asset('uploads/forum/topics/' ~ topic.image) }}" alt="Image du topic">
     {% if topic.user == app.user %}
         <a href="{{ path('topic_update', {'id': topic.id}) }}">Modifier</a>
+        <a href="{{ path('topic_delete', {'id': topic.id}) }}">Supprimer</a>
     {% endif %}
 {% endblock %}

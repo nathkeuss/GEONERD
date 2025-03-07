@@ -42,6 +42,7 @@ class TopicController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le topic a bien été créé');
+            return $this->redirectToRoute('topic_show', ['id' => $topic->getId()]);
 
         }
 
@@ -116,6 +117,28 @@ class TopicController extends AbstractController
         return $this->render('user/forum/topic/update.html.twig', [
             'formTopicView' => $formTopicView
         ]);
+
+    }
+
+    #[Route('/forum/topic/delete/{id}', name: 'topic_delete', methods: ['GET'])]
+    public function deleteTopic(int $id,
+                                EntityManagerInterface $entityManager,
+                                TopicRepository $topicRepository,
+                                ImageUploader $imageUploader)
+    {
+        $topic = $topicRepository->find($id);
+
+        if ($topic->getUser() !== $this->getUser()) {
+            return $this->redirectToRoute('topic_list');
+        }
+
+        $imageUploader->removeImage('forum/topics', $topic->getImage());
+
+        $entityManager->remove($topic);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Le topic a bien été supprimé');
+        return $this->redirectToRoute('topic_list');
 
     }
 
