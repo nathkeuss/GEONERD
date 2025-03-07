@@ -4,6 +4,7 @@ namespace App\Controller\User\Forum;
 
 use App\Entity\Topic;
 use App\Form\TopicType;
+use App\Repository\ReplyRepository;
 use App\Repository\TopicRepository;
 use App\Service\ImageUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -67,12 +68,16 @@ class TopicController extends AbstractController
     }
 
     #[Route('/forum/topic/show/{id}', name: 'topic_show', methods: ['GET'])]
-    public function showTopic(int $id, TopicRepository $topicRepository)
+    public function showTopic(int             $id,
+                              TopicRepository $topicRepository,
+                              ReplyRepository $replyRepository)
     {
         $topic = $topicRepository->find($id);
+        $replies = $replyRepository->findBy(['topic' => $topic]);
 
         return $this->render('public/forum/topic/show.html.twig', [
-            'topic' => $topic
+            'topic' => $topic,
+            'replies' => $replies
         ]);
 
     }
@@ -121,10 +126,10 @@ class TopicController extends AbstractController
     }
 
     #[Route('/forum/topic/delete/{id}', name: 'topic_delete', methods: ['GET'])]
-    public function deleteTopic(int $id,
+    public function deleteTopic(int                    $id,
                                 EntityManagerInterface $entityManager,
-                                TopicRepository $topicRepository,
-                                ImageUploader $imageUploader)
+                                TopicRepository        $topicRepository,
+                                ImageUploader          $imageUploader)
     {
         $topic = $topicRepository->find($id);
 
