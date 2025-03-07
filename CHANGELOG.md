@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.36](https://github.com/nathkeuss/GEONERD/compare/v0.1.35...v0.1.36) (2025-03-07)
+
+
+### Features
+
+* **reply:** add update and delete functionality ([2fa2e54](https://github.com/nathkeuss/GEONERD/commit/2fa2e548fe70b2068893d93af4cc56dc86ed2ce8))
+
 ### [0.1.35](https://github.com/nathkeuss/GEONERD/compare/v0.1.34...v0.1.35) (2025-03-07)
 
 
