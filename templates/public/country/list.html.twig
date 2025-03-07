@@ -10,9 +10,15 @@
 {% block body %}
 
     <main>
+        <h1>Liste des continents</h1>
+        {% for continent in continents %}
+            <a class="continent" href="{{ path('continent_show', {'slugContinent': continent.slug}) }}">
+                <h2>{{ continent.name }}</h2>
+            </a>
+        {% endfor %}
         <h1>Liste des pays</h1>
         {% for country in countries %}
-            <a class="country" href="{{ path('country_show', {'slugCountry': country.slug}) }}">
+            <a class="country" href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}">
                 <h2>{{ country.name }}</h2>
                 <img src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
                      alt="Drapeau de {{ country.name }}" class="img-fluid my-2 rounded">

@@ -1,0 +1,27 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Liste des pays pour le continent {{ continent.name }}{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main>
+        <h1>Liste des pays pour le continent {{ continent.name }}</h1>
+        {% for country in countries %}
+            <a class="country" href="{{ path('country_show', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}">
+                <h2>{{ country.name }}</h2>
+                <img src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
+                     alt="Drapeau de {{ country.name }}" class="img-fluid my-2 rounded">
+            </a>
+        {% endfor %}
+    </main>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
