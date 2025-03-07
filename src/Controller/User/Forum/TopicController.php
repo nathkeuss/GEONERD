@@ -4,6 +4,7 @@ namespace App\Controller\User\Forum;
 
 use App\Entity\Topic;
 use App\Form\TopicType;
+use App\Repository\TopicRepository;
 use App\Service\ImageUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,6 +37,7 @@ class TopicController extends AbstractController
                 $topic->setImage($imageNewFilename);
             }
 
+            $topic->setUser($this->getUser());
             $entityManager->persist($topic);
             $entityManager->flush();
 
@@ -49,7 +51,16 @@ class TopicController extends AbstractController
             'formTopicView' => $formTopicView
         ]);
 
+    }
 
+    #[Route('/forum/topic/list', name: 'topic_list', methods: ['GET'])]
+    public function listTopic(TopicRepository $topicRepository) {
+
+        $topics = $topicRepository->findAll();
+
+        return $this->render('public/forum/topic/list.html.twig', [
+            'topics' => $topics
+        ]);
 
     }
 
