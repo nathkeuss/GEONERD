@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.37](https://github.com/nathkeuss/GEONERD/compare/v0.1.36...v0.1.37) (2025-03-10)
+
+
+### Features
+
+* crud reply ([4c1c15d](https://github.com/nathkeuss/GEONERD/commit/4c1c15d90876e5e7827b7af1f7b4695596475fd1))
+* **topic-reply:** add date property to Topic nd Reply entities ([5135ecb](https://github.com/nathkeuss/GEONERD/commit/5135ecb109a46b555a6408eab9eba7241c02d785))
+
 ### [0.1.36](https://github.com/nathkeuss/GEONERD/compare/v0.1.35...v0.1.36) (2025-03-07)
 
 
