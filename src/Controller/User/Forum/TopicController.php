@@ -129,12 +129,19 @@ class TopicController extends AbstractController
     public function deleteTopic(int                    $id,
                                 EntityManagerInterface $entityManager,
                                 TopicRepository        $topicRepository,
+                                ReplyRepository        $replyRepository,
                                 ImageUploader          $imageUploader)
     {
         $topic = $topicRepository->find($id);
 
         if ($topic->getUser() !== $this->getUser()) {
             return $this->redirectToRoute('topic_list');
+        }
+
+        $replies = $replyRepository->findBy(['topic' => $topic]);
+        foreach ($replies as $reply) {
+            $imageUploader->removeImage('forum/replies', $reply->getImage());
+            $entityManager->remove($reply);
         }
 
         $imageUploader->removeImage('forum/topics', $topic->getImage());

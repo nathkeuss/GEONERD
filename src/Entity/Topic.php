@@ -28,7 +28,7 @@ class Topic
     #[ORM\ManyToOne(inversedBy: 'topic')]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Reply::class)]
+    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Reply::class, cascade: ['remove'], orphanRemoval: true)]
     private Collection $replies;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
