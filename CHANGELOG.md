@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.39](https://github.com/nathkeuss/GEONERD/compare/v0.1.38...v0.1.39) (2025-03-10)
+
+
+### Bug Fixes
+
+* **topic-delete:** ensure replies and images are properly removed ([ed7bf63](https://github.com/nathkeuss/GEONERD/commit/ed7bf63daf0e4a0149600f19f343bd38dad33475))
+
 ### [0.1.38](https://github.com/nathkeuss/GEONERD/compare/v0.1.37...v0.1.38) (2025-03-10)
 
 ### [0.1.37](https://github.com/nathkeuss/GEONERD/compare/v0.1.36...v0.1.37) (2025-03-10)
