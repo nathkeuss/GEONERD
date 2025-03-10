@@ -28,12 +28,16 @@ class Topic
     #[ORM\ManyToOne(inversedBy: 'topic')]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Reply::class)]
+    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Reply::class, cascade: ['remove'], orphanRemoval: true)]
     private Collection $replies;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
 
     public function __construct()
     {
         $this->replies = new ArrayCollection();
+        $this->date = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -97,6 +101,11 @@ class Topic
         return $this->replies;
     }
 
+    public function getRepliesCount(): int
+    {
+        return $this->replies->count();
+    }
+
     public function addReply(Reply $reply): static
     {
         if (!$this->replies->contains($reply)) {
@@ -117,5 +126,25 @@ class Topic
         }
 
         return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): static
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getLastActivityDate(): \DateTimeInterface {
+        $lastReply = $this->getReplies()->last();
+        $date = $lastReply ? $lastReply->getDate() : $this->getDate();
+
+        return (new \DateTime($date->format('Y-m-d H:i:s'), new \DateTimeZone('UTC')))
+            ->setTimezone(new \DateTimeZone('Europe/Paris'));
     }
 }
