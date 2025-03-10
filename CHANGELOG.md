@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.41](https://github.com/nathkeuss/GEONERD/compare/v0.1.40...v0.1.41) (2025-03-10)
+
+
+### Features
+
+* **profile:** add profile picture property to user entity ([9a6297f](https://github.com/nathkeuss/GEONERD/commit/9a6297f79af23dea77e802cff6fc33916c9091c9))
+
 ### [0.1.40](https://github.com/nathkeuss/GEONERD/compare/v0.1.39...v0.1.40) (2025-03-10)
 
 
