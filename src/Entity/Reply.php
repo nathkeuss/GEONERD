@@ -26,6 +26,14 @@ class Reply
     #[ORM\ManyToOne(inversedBy: 'reply')]
     private ?Topic $topic = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $date = null;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +83,18 @@ class Reply
     public function setTopic(?Topic $topic): static
     {
         $this->topic = $topic;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): static
+    {
+        $this->date = $date;
 
         return $this;
     }

@@ -17,6 +17,8 @@
 
     {% for topic in topics %}
         <h2>{{ topic.title }}</h2>
+        <h3>{{ topic.getLastActivityDate|date('\\l\\e d/m à H\\hi') }}</h3>
+        <h3>{{ topic.getRepliesCount() }}</h3>
         <p>{{ topic.content }}</p>
         <p>Créé par {{ topic.user.username }}</p>
         <a href="{{ path('topic_show', {'id': topic.id}) }}">Voir le topic</a>
