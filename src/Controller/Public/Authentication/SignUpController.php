@@ -3,7 +3,7 @@
 namespace App\Controller\Public\Authentication;
 
 use App\Entity\User;
-use App\Form\SignUpType;
+use App\Form\Public\SignUpType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

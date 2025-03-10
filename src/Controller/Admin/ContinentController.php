@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Continent;
-use App\Form\ContinentType;
+use App\Form\Admin\ContinentType;
 use App\Repository\ContinentRepository;
 use App\Repository\CountryRepository;
 use Doctrine\ORM\EntityManagerInterface;

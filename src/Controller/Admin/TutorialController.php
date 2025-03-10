@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Tutorial;
-use App\Form\TutorialType;
+use App\Form\Admin\TutorialType;
 use App\Repository\ContinentRepository;
 use App\Repository\CountryRepository;
 use App\Repository\TutorialRepository;

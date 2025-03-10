@@ -3,7 +3,7 @@
 namespace App\Controller\User\Forum;
 
 use App\Entity\Topic;
-use App\Form\TopicType;
+use App\Form\User\Forum\TopicType;
 use App\Repository\ReplyRepository;
 use App\Repository\TopicRepository;
 use App\Service\ImageUploader;
