@@ -35,6 +35,7 @@
     <a href="{{ path('topic_list') }}">Forum</a>
     {% if app.user %}
         <a href="{{ path('logout_user') }}">Se déconnecter</a>
+        <h3>{{ app.user.username }}</h3>
     {% else %}
         <a href="{{ path('login_user') }}">Se connecter</a>
     {% endif %}
