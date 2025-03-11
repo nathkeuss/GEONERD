@@ -1,0 +1,46 @@
+{% extends 'public/base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+
+{% block body %}
+
+    <h2>{{ app.user.username }}</h2>
+    <h2>{{ app.user.email }}</h2>
+    <img src="{{ asset('uploads/user/profile_pictures/' ~ app.user.profilePicture) }}" alt="Photo de profil de {{ app.user.username }}">
+
+    <main>
+        <div>
+            {{ form_start(formProfileView) }}
+
+            <div>
+                {{ form_label(formProfileView.username) }}
+                {{ form_widget(formProfileView.username) }}
+                {{ form_errors(formProfileView.username) }}
+            </div>
+
+            <div>
+                {{ form_label(formProfileView.password) }}
+                {{ form_widget(formProfileView.password) }}
+                {{ form_errors(formProfileView.password) }}
+            </div>
+
+            <div>
+                {{ form_label(formProfileView.profile_picture) }}
+                {{ form_widget(formProfileView.profile_picture) }}
+                {{ form_errors(formProfileView.profile_picture) }}
+            </div>
+
+            <div>
+                {{ form_widget(formProfileView.submit) }}
+            </div>
+
+            {{ form_end(formProfileView) }}
+        </div>
+    </main>
+
+{% endblock %}

@@ -30,10 +30,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
 /*    #[Assert\NotBlank(message: "Le mot de passe ne peut pas être vide.")]*/
-    #[Assert\Regex(
+/*    #[Assert\Regex(
         pattern: "/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/",
         message: "Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial."
-    )]
+    )]*/
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
@@ -93,7 +93,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUsername(): string
     {
-        return (string)$this->email;
+        return (string)$this->username;
     }
 
     /**
