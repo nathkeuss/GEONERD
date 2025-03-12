@@ -39,6 +39,7 @@ security:
         user:
             lazy: true
             provider: app_user_provider
+            user_checker: App\Security\UserChecker
 
             form_login:
                 login_path: login_user

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.43](https://github.com/nathkeuss/GEONERD/compare/v0.1.42...v0.1.43) (2025-03-12)
+
+
+### Features
+
+* **user-profile:** add soft delete for user accounts ([7fee92d](https://github.com/nathkeuss/GEONERD/commit/7fee92d5bb436a5d6e42623dcd4c95bdfdfaa110))
+
+### [0.1.42](https://github.com/nathkeuss/GEONERD/compare/v0.1.41...v0.1.42) (2025-03-11)
+
+
+### Features
+
+* **user-profile:** add functionality for users to update their account information ([231c100](https://github.com/nathkeuss/GEONERD/commit/231c100758d78fa5a6963cd53eee48d7ee4eaefa))
+
+### [0.1.41](https://github.com/nathkeuss/GEONERD/compare/v0.1.40...v0.1.41) (2025-03-10)
+
+
+### Features
+
+* **profile:** add profile picture property to user entity ([9a6297f](https://github.com/nathkeuss/GEONERD/commit/9a6297f79af23dea77e802cff6fc33916c9091c9))
+
 ### [0.1.40](https://github.com/nathkeuss/GEONERD/compare/v0.1.39...v0.1.40) (2025-03-10)
 
 

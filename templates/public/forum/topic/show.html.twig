@@ -14,7 +14,7 @@
     <h1>{{ topic.title }}</h1>
     <p>{{ topic.content }}</p>
     <h2>{{ topic.date|date('\\l\\e d/m à H\\hi') }}</h2>
-    <p>Créé par {{ topic.user.username }}</p>
+    <p>Créé par {{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</p>
     <img src="{{ asset('uploads/forum/topics/' ~ topic.image) }}" alt="Image du topic">
     {% if topic.user == app.user %}
         <a href="{{ path('topic_update', {'id': topic.id}) }}">Modifier</a>
@@ -23,7 +23,7 @@
 
     {% for reply in replies %}
         <p class="text-danger">{{ reply.content }}</p>
-        <p>Créé par {{ reply.user.username }}</p>
+        <p>Créé par {{ reply.user.isDeleted ? 'Utilisateur supprimé' : reply.user.username }}</p>
         <h2>{{ reply.date|date('\\l\\e d/m à H\\hi') }}</h2>
         {% if reply.image %}
             <img src="{{ asset('uploads/forum/replies/' ~ reply.image) }}" alt="Image de la réponse">
