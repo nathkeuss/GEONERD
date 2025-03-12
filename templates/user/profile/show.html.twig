@@ -12,7 +12,7 @@
     <h2>{{ app.user.username }}</h2>
     <h2>{{ app.user.email }}</h2>
     <img src="{{ asset('uploads/user/profile_pictures/' ~ app.user.profilePicture) }}" alt="Photo de profil de {{ app.user.username }}">
-
+    <a href="{{ path('user_profile_delete', {'id': app.user.id}) }}">Supprimer mon compte</a>
     <main>
         <div>
             {{ form_start(formProfileView) }}
