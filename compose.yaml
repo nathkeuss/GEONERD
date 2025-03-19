@@ -9,15 +9,14 @@ services:
       - ./public:/var/www/html/public:cached
     depends_on:
       - db
+    env_file:
+      - .env.local
 
   db:
     image: mysql:8
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: geonerd
-      MYSQL_USER: geonerd_user
-      MYSQL_PASSWORD: password
+    env_file:
+      - .env.local
     ports:
       - "3306:3306"
 
