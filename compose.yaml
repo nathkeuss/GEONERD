@@ -1,0 +1,33 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+      - ./public:/var/www/html/public:cached
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: geonerd
+      MYSQL_USER: geonerd_user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - db
