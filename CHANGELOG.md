@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.44](https://github.com/nathkeuss/GEONERD/compare/v0.1.43...v0.1.44) (2025-03-19)
+
+
+### Features
+
+* **user-profile:** allow users to update thieur profile and soft delete their account ([0de9f60](https://github.com/nathkeuss/GEONERD/commit/0de9f60ca83ede1120d45b721147748d62ecda2d))
+
 ### [0.1.43](https://github.com/nathkeuss/GEONERD/compare/v0.1.42...v0.1.43) (2025-03-12)
 
 
