@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.46](https://github.com/nathkeuss/GEONERD/compare/v0.1.45...v0.1.46) (2025-03-24)
+
+
+### Features
+
+* **search-bar:** add a search bar functionality to find a specific country ([a49a938](https://github.com/nathkeuss/GEONERD/commit/a49a938983b6a28b5a5945de73a05f86d4c27d03))
+
 ### [0.1.45](https://github.com/nathkeuss/GEONERD/compare/v0.1.44...v0.1.45) (2025-03-19)
 
 ### [0.1.44](https://github.com/nathkeuss/GEONERD/compare/v0.1.43...v0.1.44) (2025-03-19)
