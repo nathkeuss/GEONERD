@@ -5,8 +5,9 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - .:/var/www/html
+      - ./src:/var/www/html/src:cached
       - ./public:/var/www/html/public:cached
+      - ./templates:/var/www/html/templates:cached
     depends_on:
       - db
     env_file:

@@ -16,9 +16,7 @@ COPY . .
 COPY ./apache-config.conf /etc/apache2/sites-available/000-default.conf
 
 # installe Composer et les dépendances Symfony
-RUN apt-get update && apt-get install -y unzip curl \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-progress
+RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-progress
 
 # donne les permissions correctes
 RUN chown -R www-data:www-data /var/www/html

@@ -16,9 +16,21 @@
                 <h2>{{ continent.name }}</h2>
             </a>
         {% endfor %}
-        <h1>Liste des pays</h1>
+
+        <form>
+            <input type="text" name="search" placeholder="Rechercher un pays" value="{{ search|default('') }}">
+            <button type="submit"></button>
+        </form>
+
+        {% if search %}
+            <h2>Résultats de la recherche pour "{{ search }}"</h2>
+        {% else %}
+            <h2>Choisis un pays</h2>
+        {% endif %}
+
         {% for country in countries %}
-            <a class="country" href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}">
+            <a class="country"
+               href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}">
                 <h2>{{ country.name }}</h2>
                 <img src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
                      alt="Drapeau de {{ country.name }}" class="img-fluid my-2 rounded">
