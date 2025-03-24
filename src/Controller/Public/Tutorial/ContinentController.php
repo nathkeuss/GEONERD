@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Public;
+namespace App\Controller\Public\Tutorial;
 
 use App\Repository\ContinentRepository;
 use App\Repository\CountryRepository;

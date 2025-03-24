@@ -9,7 +9,16 @@
 
 {% block body %}
 
+    <form>
+        <input type="text" name="search" placeholder="Rechercher un pays" value="{{ search|default('') }}">
+        <button type="submit"></button>
+    </form>
+
+    {% if search %}
+    <h2>Résultats de la recherche pour "{{ search }}"</h2>
+    {% else %}
     <h1>Liste des topics</h1>
+    {% endif %}
 
     {% if app.user %}
         <a href="{{ path('topic_create') }}">Créer un topic</a>

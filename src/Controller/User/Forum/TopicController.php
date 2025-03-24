@@ -55,33 +55,6 @@ class TopicController extends AbstractController
 
     }
 
-    #[Route('/forum/topic/list', name: 'topic_list', methods: ['GET'])]
-    public function listTopics(TopicRepository $topicRepository)
-    {
-
-        $topics = $topicRepository->findAll();
-
-        return $this->render('public/forum/topic/list.html.twig', [
-            'topics' => $topics
-        ]);
-
-    }
-
-    #[Route('/forum/topic/show/{id}', name: 'topic_show', methods: ['GET'])]
-    public function showTopic(int             $id,
-                              TopicRepository $topicRepository,
-                              ReplyRepository $replyRepository)
-    {
-        $topic = $topicRepository->find($id);
-        $replies = $replyRepository->findBy(['topic' => $topic]);
-
-        return $this->render('public/forum/topic/show.html.twig', [
-            'topic' => $topic,
-            'replies' => $replies
-        ]);
-
-    }
-
     #[Route('/forum/topic/update/{id}', name: 'topic_update', methods: ['GET', 'POST'])]
     public function updateTopic(int                    $id,
                                 Request                $request,

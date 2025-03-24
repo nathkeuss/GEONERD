@@ -21,28 +21,16 @@ class TopicRepository extends ServiceEntityRepository
         parent::__construct($registry, Topic::class);
     }
 
-//    /**
-//     * @return Topic[] Returns an array of Topic objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function searchByTopicTitle(string $search): array
+    {
+        $qb = $this->createQueryBuilder('topic');
 
-//    public function findOneBySomeField($value): ?Topic
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        $query = $qb->select('topic')
+            ->where('topic.title LIKE :search')
+            ->setParameter('search', '%' . $search . '%')
+            ->getQuery();
+
+        return $query->getResult();
+
+    }
 }
