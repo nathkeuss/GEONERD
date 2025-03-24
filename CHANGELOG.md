@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.47](https://github.com/nathkeuss/GEONERD/compare/v0.1.46...v0.1.47) (2025-03-24)
+
+
+### Features
+
+* **search-bar:** add search bar functionality to find a topic in forum ([ffca68d](https://github.com/nathkeuss/GEONERD/commit/ffca68d459a5efca3c6c0b2ce27209a297f4af33))
+
 ### [0.1.46](https://github.com/nathkeuss/GEONERD/compare/v0.1.45...v0.1.46) (2025-03-24)
 
 
