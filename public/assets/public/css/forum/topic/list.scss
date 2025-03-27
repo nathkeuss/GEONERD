@@ -1,0 +1,96 @@
+@import '../../global/style';
+
+.table-forum {
+  margin-top: 5rem;
+}
+
+.head-text {
+  color: $text-accent-color;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+
+  font : {
+    family: $font-family;
+    size: 1.5rem;
+    weight: bold;
+  }
+}
+
+
+.data-text {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 1.5rem;
+  color: $text-light-color;
+
+  font : {
+    family: $font-family;
+    size: 1.5rem;
+    weight: 400;
+
+  }
+}
+
+.div-search {
+  border-radius: 4rem;
+  border: solid 0.2rem rgba(32, 32, 42, 1);
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+}
+
+
+.input-search {
+  border: none;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  background-color: $background-light-color;
+  padding: 0.7rem;
+  text-align: center;
+
+  font: {
+    family: $font-family;
+    size: 1.2rem;
+    weight: bold;
+  }
+
+  outline: none;
+}
+
+.button-search {
+  border: none;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  padding: 0.7rem;
+  background-color: white;
+
+}
+
+.button-new-topic {
+  background-color: $background-light-color;
+  border-radius: 4rem;
+  padding: 1rem;
+  border: solid 0.2rem $background-dark-color;
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+
+  font: {
+    family: $font-family;
+    size: 1.4rem;
+    weight: bold;
+  }
+}
+
+
+.show-post:hover .forum-row {
+  background-color: rgba(52, 52, 62, 1);
+  box-shadow: 0 0 10px rgba(52, 52, 62, 0.8);
+  border-radius: 2rem;
+  transition: background-color 0.3s;
+}
+
+.line {
+  background-color: white;
+  border: 0;
+  height: 0.2rem;
+  width: 105%;
+  position: relative;
+  left: -2.5%;
+}
