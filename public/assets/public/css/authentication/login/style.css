@@ -1,0 +1,109 @@
+/*GLOBAL*/
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(32, 32, 42);
+}
+
+span, p {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.error {
+  color: #d50000;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.error ul {
+  list-style-type: none;
+  text-align: start;
+  padding-right: 5rem;
+}
+
+/* VARIABLES */
+.form-connection {
+  background-color: #04FF00;
+  border: solid 0.3rem black;
+  box-shadow: rgb(0, 0, 0) -0.5rem 0.3rem;
+  border-radius: 1rem;
+}
+
+.form-h1-connection {
+  font-family: "Montserrat";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.label-connection {
+  font-family: "Montserrat";
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.input-connection {
+  border: solid 0.3rem rgb(32, 32, 42);
+  background-color: #C4FFC3;
+  border-radius: 4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: "Montserrat";
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.input-connection:focus {
+  outline: none;
+  transform: scale(1.05);
+}
+
+.button-connection {
+  color: #20202a;
+  width: 25%;
+  border: solid 0.2rem rgb(32, 32, 42);
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+  background-color: white;
+  border-radius: 4rem;
+  font-family: "Montserrat";
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.button-connection:hover {
+  background-color: #20202a;
+  color: white;
+}
+
+.span-to-inscription {
+  color: #20202a;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-weight: bold;
+}
+.span-to-inscription a {
+  color: #20202a;
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=style.css.map */

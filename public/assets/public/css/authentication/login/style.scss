@@ -1,0 +1,78 @@
+@import '../../global/style.scss';
+
+.form-connection {
+  background-color: $background-accent-color;
+  border: solid 0.3rem black;
+  box-shadow: rgb(0, 0, 0) -0.5rem 0.3rem;
+  border-radius: 1rem;
+}
+
+.form-h1-connection {
+  font: {
+    family: $font-family;
+    size: 2rem;
+    weight: bold;
+  }
+}
+
+
+.label-connection {
+  font: {
+    family: $font-family;
+    size: 1.3rem;
+    weight: bold;
+  }
+}
+
+.input-connection {
+  border: solid 0.3rem rgba(32, 32, 42, 1);
+  background-color: #C4FFC3;
+  border-radius: 4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  font: {
+    family: $font-family;
+    size: 1.1rem;
+    weight: bold;
+  }
+
+  &:focus {
+    outline: none;
+    transform: scale(1.05);
+  }
+}
+
+.button-connection {
+  color: $text-dark-color;
+  width: 25%;
+  border: solid 0.2rem rgba(32, 32, 42, 1);
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+  background-color: $background-light-color;
+  border-radius: 4rem;
+
+  font: {
+    family: $font-family;
+    size: 1.4rem;
+    weight: bold;
+  }
+
+  &:hover {
+    background-color: $background-dark-color;
+    color: $text-light-color;
+  }
+}
+
+.span-to-inscription {
+  color: $text-dark-color;
+  font: {
+    family: $font-family;
+    size: 1rem;
+    weight: bold;
+  }
+
+  a {
+    color: $text-dark-color;
+    text-decoration: underline;
+
+  }
+}

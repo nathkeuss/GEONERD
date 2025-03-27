@@ -4,6 +4,8 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/public/css/authentication/login/style.css') }}">
+
 {% endblock %}
 
 
@@ -13,6 +15,11 @@
     <main class="container-fluid d-flex justify-content-center align-items-center flex-grow-1">
 
         <form action="{{ path('login_admin') }}" method="POST" class="form-connection m-auto mt-5 w-50">
+
+            <div class="text-center pt-4">
+                <img src="{{ asset('assets/img/authentication/utilisateur.png') }}"
+                     alt="Image d'un bonhomme connexion">
+            </div>
 
             <h1 class="form-h1-connection text-center mt-4">Se connecter</h1>
 
