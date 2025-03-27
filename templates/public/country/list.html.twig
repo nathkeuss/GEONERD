@@ -4,6 +4,8 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/public/css/country/list.css') }}">
+
 {% endblock %}
 
 
@@ -17,25 +19,45 @@
             </a>
         {% endfor %}
 
-        <form>
-            <input type="text" name="search" placeholder="Rechercher un pays" value="{{ search|default('') }}">
-            <button type="submit"></button>
-        </form>
+
+        <div class="w-75 m-auto d-flex align-items-center justify-content-between mt-5">
+
+            <form class="d-flex col-lg-4 col m-lg-auto" action="{{ path('country_list') }}" method="get">
+                <input class="input-search text-start w-100" type="text" name="search" placeholder="Rechercher un pays"
+                       value="{{ search|default('') }}">
+                <button type="submit" class="button-search"><img class="w-100 h-100 img-fluid"
+                                                                 src="{{ asset('assets/img/forum/search.png') }}"
+                                                                 alt="Image d'une loupe de recherche"></button>
+            </form>
+
+
+        </div>
 
         {% if search %}
-            <h2>Résultats de la recherche pour "{{ search }}"</h2>
+            <h1 class="choice-country mb-5 mt-5">Résultat de recherche pour "{{ search }}"</h1>
         {% else %}
-            <h2>Choisis un pays</h2>
+            <h1 class="choice-country mb-5 mt-5">Choisis un pays</h1>
         {% endif %}
 
-        {% for country in countries %}
-            <a class="country"
-               href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}">
-                <h2>{{ country.name }}</h2>
-                <img src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
-                     alt="Drapeau de {{ country.name }}" class="img-fluid my-2 rounded">
-            </a>
-        {% endfor %}
+        <section class="w-75 m-auto row justify-content-between">
+
+            {% for country in countries %}
+
+                <a href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}"
+                   class="container-country col-lg-3 col-5 h-100 p-0">
+                    <h2 class="country-name w-100 text-center">{{ country.name }}</h2>
+                    <div class="w-100 h-100 container-flag">
+                        <img class="img-fluid w-100 h-100"
+                             src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
+                             alt="Image du tutoriel {{ country.name }}">
+                    </div>
+                </a>
+
+            {% endfor %}
+
+
+        </section>
+
     </main>
 
 {% endblock %}
