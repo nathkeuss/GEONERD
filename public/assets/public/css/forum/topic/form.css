@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/*GLOBAL*/
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(32, 32, 42);
+}
+
+span, p {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.error {
+  color: #d50000;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.error ul {
+  list-style-type: none;
+  text-align: start;
+  padding-right: 5rem;
+}
+
+/* VARIABLES */
+.h1-new-discussion {
+  padding: 2rem;
+  color: white;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.section-form {
+  border: solid 2px white;
+  border-radius: 1.25rem;
+}
+
+.title-topic {
+  margin-bottom: 2rem;
+  border: solid 2px #04FF00;
+  border-radius: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 1.5rem;
+  background-color: transparent; /* Retire la couleur de fond par défaut */
+  outline: none;
+}
+
+.message-topic {
+  height: 300px;
+  resize: none;
+  margin-bottom: 2rem;
+  border: solid 2px #04FF00;
+  border-radius: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 1.5rem;
+  background-color: transparent;
+  outline: none;
+}
+
+.image-topic {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1rem;
+  color: #04FF00;
+  background-color: transparent;
+  border: solid 2px #04FF00;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: ease background-color 0.2s, ease color 0.2s;
+}
+.image-topic:hover {
+  color: #20202a;
+  background-color: #04FF00;
+}
+
+.button-publish {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #4da8da;
+  background-color: transparent;
+  border: solid 2px #4da8da;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: ease background-color 0.2s, ease color 0.2s;
+}
+.button-publish:hover {
+  color: #20202a;
+  background-color: #4da8da;
+}
+
+/*# sourceMappingURL=form.css.map */
