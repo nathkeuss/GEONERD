@@ -1,13 +1,13 @@
-@import '../../global/style.scss';
+@import '../global/style';
 
-.form-connection {
+.form-inscription {
   background-color: $background-accent-color;
   border: solid 0.3rem black;
   box-shadow: rgb(0, 0, 0) -0.5rem 0.3rem;
   border-radius: 1rem;
 }
 
-.form-h1-connection {
+.form-h1-inscription {
   font: {
     family: $font-family;
     size: 2rem;
@@ -16,7 +16,7 @@
 }
 
 
-.label-connection {
+.label-inscription {
   font: {
     family: $font-family;
     size: 1.3rem;
@@ -24,8 +24,8 @@
   }
 }
 
-.input-connection {
-  border: solid 0.3rem rgba(32, 32, 42, 1);
+.input-inscription {
+  border: solid 0.3rem $background-dark-color;
   background-color: #C4FFC3;
   border-radius: 4rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -42,12 +42,11 @@
   }
 }
 
-.button-connection {
-  color: $text-dark-color;
+.button-inscription {
   width: 25%;
-  border: solid 0.2rem rgba(32, 32, 42, 1);
+  border: solid 0.2rem $background-dark-color;
   box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
-  background-color: $background-light-color;
+  background-color: #fff;
   border-radius: 4rem;
 
   font: {
@@ -62,7 +61,7 @@
   }
 }
 
-.span-to-inscription {
+.span-to-connection {
   color: $text-dark-color;
   font: {
     family: $font-family;
@@ -71,8 +70,10 @@
   }
 
   a {
+    text-decoration: none;
     color: $text-dark-color;
     text-decoration: underline;
 
   }
+
 }
