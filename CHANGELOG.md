@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.55](https://github.com/nathkeuss/GEONERD/compare/v0.1.54...v0.1.55) (2025-03-27)
+
+
+### Features
+
+* **forum:** added styles for topic list page ([f578a32](https://github.com/nathkeuss/GEONERD/commit/f578a326252bb785737d587e3e9efe9f4c2533c3))
+
 ### [0.1.54](https://github.com/nathkeuss/GEONERD/compare/v0.1.53...v0.1.54) (2025-03-27)
 
 ### [0.1.53](https://github.com/nathkeuss/GEONERD/compare/v0.1.52...v0.1.53) (2025-03-27)
