@@ -4,14 +4,62 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/public/css/home/style.css') }}">
+
 {% endblock %}
 
 
 {% block body %}
 
-    <main>
+    <main class="container-fluid">
+        <!-- Sélection pays -->
+        <h1 class="home-h1 d-none d-lg-block">Sélectionne un pays</h1>
 
-        <h1>Ceci est mon main</h1>
+        <!-- Section contenant la carte -->
+        <section class="home-section-map d-none d-lg-block">
+            <div class="w-75 m-auto">
+                {{ include('public/map.html.twig') }}
+            </div>
+        </section>
+
+        <!-- texte pour dire go pc pour version optimal -->
+
+        <p class="mobile-message w-75 m-auto d-block d-lg-none text-center mt-5">Pour une expérience optimale, rends-toi
+            sur un ordinateur. Tu pourras ainsi interagir avec une carte interactive et accéder directement aux pays de
+            ton choix !</p>
+
+        <!-- Choix page -->
+        <section class="w-75 mt-5 m-auto">
+
+            <!-- PARENT GRID -->
+            <div class="home-div-grid">
+                <!-- TUTO -->
+                <a class="home-a-nav" href="{{ path('country_list') }}">
+                    <p class="home-a-p">TUTO</p>
+                    <figure class="home-img"><img class="w-100 h-100"
+                                                  src="{{ asset('assets/img/home/img_tuto.png') }}"
+                                                  alt="Image de fond de la div tuto"></figure>
+                </a>
+
+                <!-- QUIZ -->
+                <a class="home-a-nav" href="#">
+                    <p class="home-a-p">QUIZ<span class="soon w-50 m-auto ms-3">soon!</span></p>
+                    <figure class="home-img"><img class="w-100 h-100"
+                                                  src="{{ asset('assets/img/home/img_quiz.png') }}"
+                                                  alt="Image de fond de la div quiz"></figure>
+                </a>
+
+                <!-- FORUM -->
+                <a class="home-a-nav" href="{{ path('topic_list') }}">
+                    <p class="home-a-p">FORUM</p>
+                    <figure class="home-img"><img class="w-100 h-100"
+                                                  src="{{ asset('assets/img/home/img_forum.png') }}"
+                                                  alt="Image de fond de la div forum"></figure>
+                </a>
+            </div>
+
+        </section>
+
 
     </main>
 
