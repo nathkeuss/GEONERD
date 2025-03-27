@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.52](https://github.com/nathkeuss/GEONERD/compare/v0.1.51...v0.1.52) (2025-03-27)
+
+
+### Features
+
+* **connection-signup-page:** added styles for connection and sign up page ([5def699](https://github.com/nathkeuss/GEONERD/commit/5def69952f71afdcc92c832290be3023e8db9788))
+
 ### [0.1.51](https://github.com/nathkeuss/GEONERD/compare/v0.1.50...v0.1.51) (2025-03-27)
 
 
