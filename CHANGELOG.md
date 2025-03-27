@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.56](https://github.com/nathkeuss/GEONERD/compare/v0.1.55...v0.1.56) (2025-03-27)
+
+
+### Features
+
+* **topic:** add layout and visual styles for topic show page ([2b8b42c](https://github.com/nathkeuss/GEONERD/commit/2b8b42ccb07286f7cec4a24c530f31c632cd99c1))
+
 ### [0.1.55](https://github.com/nathkeuss/GEONERD/compare/v0.1.54...v0.1.55) (2025-03-27)
 
 
