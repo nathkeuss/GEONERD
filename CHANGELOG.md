@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.60](https://github.com/nathkeuss/GEONERD/compare/v0.1.59...v0.1.60) (2025-03-27)
+
+
+### Features
+
+* **profile-page:** update styles ([a28aba9](https://github.com/nathkeuss/GEONERD/commit/a28aba9e166489b1d192f72f5253ba702f59d232))
+
 ### [0.1.59](https://github.com/nathkeuss/GEONERD/compare/v0.1.58...v0.1.59) (2025-03-27)
 
 
