@@ -84,6 +84,12 @@
 
 </header>
 
+{% for message in app.flashes('danger') %}
+    <div class="alert alert-danger text-center mt-4 mb-4 w-100" role="alert">
+        <h4 class="mb-0">{{ message }}</h4>
+    </div>
+{% endfor %}
+
 
 {% block body %}{% endblock %}
 
