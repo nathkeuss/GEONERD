@@ -92,6 +92,21 @@
   }
 }
 
+input[type="file"]::file-selector-button {
+  color: black;
+  background-color: white;
+  border-style: dotted;
+  border-radius: 1rem;
+  font: {
+    family: $font-family;
+    weight: bold;
+    size: 1rem;
+  }
+  cursor: pointer;
+
+}
+
+
 .line {
   background-color: $background-light-color;
   border: 0;
