@@ -4,34 +4,152 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/public/css/forum/topic/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/public/css/forum/reply/form.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 {% endblock %}
 
 
 {% block body %}
 
-    <main>
 
-        <section class="col-10 col-lg-6 m-auto mt-5 section-form">
+    <main class="flex-grow-1">
 
-            <h1 class="h1-new-discussion text-center">Modifier la réponse</h1>
+        <section class="w-80 m-auto mt-5">
 
-            <div class="w-95 m-auto">
-                {{ form_start(formReplyView) }}
+            {# titre et boutons répondre/list des topics #}
+            <div class="row align-items-center div-title-reply p-3 justify-content-between m-0">
+                <h1 class="col-7 topic-title">{{ topic.title }}</h1>
+                <a class="col-2 list-topics-button text-decoration-none text-center" href="{{ path('topic_list') }}">Liste
+                    des
+                    topic</a>
+            </div>
 
-                <div class="w-100 error">
-                    {{ form_widget(formReplyView.content) }}
-                    {{ form_errors(formReplyView.content) }}
+            {# topic #}
+            <div class="div-topic-reply mt-5">
+                <div class="w-95 m-auto">
+                    <div class="d-flex pt-3 align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="div-img-profile me-2">
+                                <img class="img-fluid rounded-circle w-100 h-100"
+                                     src="{{ asset('uploads/user/profile_pictures/' ~ topic.user.profilePicture) }}"
+                                     alt="Image de profil de l'utilisateur">
+                            </div>
+                            <span class="post-user-username">{{ topic.user.username }}</span>
+                        </div>
+                        <div>
+                            <span class="post-date">{{ topic.date|date("\\l\\e d/m à H\\hi") }}</span>
+                        </div>
+                    </div>
+
+                    <hr class="divider-user-message">
+
+                    <div class="d-flex justify-content-between row">
+                        <div class="{% if not topic.image %}col-12{% else %}col-7{% endif %}">
+                            <p class="post-content">{{ topic.content }}</p>
+                        </div>
+                        {% if topic.image %}
+                            <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('uploads/forum/topics/' ~ topic.image) }}"
+                                     alt="Image du topic">
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
 
-                <div class="w-25 error">
-                    {{ form_widget(formReplyView.image) }}
-                    {{ form_errors(formReplyView.image) }}
-                </div>
+                <hr class="divider-reply">
 
-                <div class="text-end">
-                    {{ form_widget(formReplyView.submit) }}
-                </div>
-                {{ form_end(formReplyView) }}
+                {# Formulaire de modification de réponse (si demandé) #}
+                {% if updateReplyId is defined and formReplyView is defined %}
+                    <div class="w-95 m-auto mb-5">
+                        <h2 class="text-center h1-reply">Modifier votre réponse</h2>
+
+                        <div class="d-flex pt-3 mb-3 align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="div-img-profile me-2">
+                                    <img class="img-fluid w-100 h-100"
+                                         src="{{ asset('uploads/user/profile_pictures/' ~ currentReply.user.profilePicture) }}"
+                                         alt="Image de profil de l'utilisateur">
+                                </div>
+                                <span class="post-user-username">{{ currentReply.user.username }}</span>
+                            </div>
+                            <div>
+                                <span class="post-date">{{ currentReply.date|date("\\l\\e d/m à H\\hi") }}</span>
+                            </div>
+                        </div>
+
+                        {{ form_start(formReplyView) }}
+                        <div class="w-100 error">
+                            {{ form_widget(formReplyView.content, { 'attr': {'class': 'message-reply py-2 px-2 w-100'} }) }}
+                            {{ form_errors(formReplyView.content) }}
+                        </div>
+
+                        <div class="w-25 error">
+                            {{ form_widget(formReplyView.image, { 'attr': {'class': 'image-reply w-100'} }) }}
+                            {{ form_errors(formReplyView.image) }}
+                        </div>
+
+                        <div class="text-end mt-3">
+                            {{ form_widget(formReplyView.submit, {'attr': { 'class': 'button-publish mb-4' },'label': 'Modifier'}) }}
+                        </div>
+                        {{ form_end(formReplyView) }}
+                    </div>
+                    <hr class="divider-reply">
+                {% endif %}
+
+
+                {# réponses #}
+                {% set visibleReplies = [] %}
+                {% for r in replies %}
+                    {% if updateReplyId is not defined or r.id != updateReplyId %}
+                        {% set visibleReplies = visibleReplies|merge([r]) %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if visibleReplies|length > 0 %}
+                    {% for reply in visibleReplies %}
+                        <div class="w-95 m-auto {% if loop.last %}mb-3{% endif %}">
+                            <div class="d-flex pt-3 align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="div-img-profile me-2">
+                                        <img class="img-fluid w-100 h-100"
+                                             src="{{ asset('uploads/user/profile_pictures/' ~ reply.user.profilePicture) }}"
+                                             alt="Image de profil de l'utilisateur">
+                                    </div>
+                                    <span class="post-user-username">{{ reply.user.username }}</span>
+                                </div>
+                                <div>
+                                    <span class="post-date">{{ reply.date|date("\\l\\e d/m à H\\hi") }}</span>
+                                </div>
+                            </div>
+                            <hr class="divider-user-message">
+
+                            <div class="d-flex justify-content-between row">
+                                <div class="{% if not reply.image %}col-12{% else %}col-7{% endif %}">
+                                    <p class="post-content">{{ reply.content }}</p>
+                                </div>
+
+                                {% if reply.image %}
+                                    <div class="overflow-hidden div-img-user-post col-5 p-0 m-0">
+                                        <img class="img-fluid w-100 h-100"
+                                             src="{{ asset('uploads/forum/replies/' ~ reply.image) }}"
+                                             alt="Image de la réponse">
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                        </div>
+
+                        {% if not loop.last %}
+                            <hr class="divider-reply">
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <h1 class="no-reply text-center p-2">&#x1F480;&#x1F480;&#x1F480; </h1>
+                {% endif %}
+
             </div>
 
         </section>
