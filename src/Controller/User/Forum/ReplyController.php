@@ -54,7 +54,9 @@ class ReplyController extends AbstractController
         $formReplyView = $formReply->createView();
 
         return $this->render('user/forum/reply/create.html.twig', [
-            'formReplyView' => $formReplyView
+            'formReplyView' => $formReplyView,
+            'topic' => $topic,
+            'replies' => $topic->getReplies()
         ]);
 
     }
@@ -97,9 +99,15 @@ class ReplyController extends AbstractController
         }
 
         $formReplyView = $formReply->createView();
+        $topic = $reply->getTopic();
+        $replies = $topic->getReplies();
 
         return $this->render('user/forum/reply/update.html.twig', [
-            'formReplyView' => $formReplyView
+            'formReplyView' => $formReplyView,
+            'topic' => $topic,
+            'replies' => $replies,
+            'updateReplyId' => $reply->getId(),
+            'currentReply' => $reply,
         ]);
 
     }

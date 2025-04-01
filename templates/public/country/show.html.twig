@@ -1,24 +1,56 @@
 {% extends 'public/base.html.twig' %}
 
-{% block title %}Tutoriel pour {{ country.name }}{% endblock %}
+{% block title %}Tutoriel - {{ country.name }}{% endblock %}
 
 {% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('assets/public/css/country/show.css') }}">
 
 {% endblock %}
 
 
 {% block body %}
 
-    <div>
-        <img src="{{ asset('uploads/country/banners/' ~ country.banner) }}" alt="Bannière du pays {{ country.name }}">
-    </div>
 
-    <h1>{{ country.name }}</h1>
-    {% for tutorial in tutorials %}
-        <img src="{{ asset('uploads/country/tutorials/' ~ tutorial.image) }}"
-             class="card-img-top"
-             alt="Image du tutoriel {{ country.name }}">
-        <p>{{ tutorial.description }}</p>
-    {% endfor %}
+    <main>
+        {# img de fond + nom du pays #}
+        <section class="w-100 overflow-hidden section-background-image-title mt-5 mb-5">
+            <div class="w-100 h-100">
+                <img
+                        class="w-100 h-100 img-fluid image-center"
+                        src="{{ asset('uploads/country/banners/' ~ country.banner) }}" alt="Bannière du pays {{ country.name }}"
+                        alt="Image de fond qui montre un paysage du pays {{ country.name }}">
+            </div>
+            <h1 class="position-absolute start-50 translate-middle country-name">{{ country.name }}</h1>
+        </section>
+
+
+        {# section parent #}
+        <section class="w-75 m-auto">
+
+            <h1 class="text-center h1-identify">Comment identifier le pays</h1>
+            {# images avec explications #}
+            {% if tutorials is empty %}
+                <h1 class="text-center text-light">&#x1F477; Tutoriel en construction &#x1F477;</h1>
+            {% else %}
+                {% for tutorial in tutorials %}
+                    <article class="row w-100 align-items-center article-explain justify-content-between">
+
+                        <div class="col-lg-6 col-12">
+                            <img class="img-fluid w-100 h-100"
+                                 src="{{ asset('uploads/country/tutorials/' ~ tutorial.image) }}"
+                                 alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
+                        </div>
+
+                        <div class="col-lg-6 mt-lg-0 col-12 mt-3">
+                            <p class="image-explain">{{ tutorial.description }}</p>
+                        </div>
+
+                    </article>
+                {% endfor %}
+            {% endif %}
+
+        </section>
+    </main>
 
 {% endblock %}

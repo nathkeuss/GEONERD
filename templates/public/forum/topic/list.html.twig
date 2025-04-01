@@ -4,34 +4,65 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/public/css/forum/topic/list.css') }}">
+
 {% endblock %}
 
 
 {% block body %}
 
-    <form>
-        <input type="text" name="search" placeholder="Rechercher un pays" value="{{ search|default('') }}">
-        <button type="submit"></button>
-    </form>
+    <main class="container-fluid">
 
-    {% if search %}
-    <h2>Résultats de la recherche pour "{{ search }}"</h2>
-    {% else %}
-    <h1>Liste des topics</h1>
-    {% endif %}
+        <div class="w-80 m-auto d-flex align-items-center justify-content-between mt-5">
 
-    {% if app.user %}
-        <a href="{{ path('topic_create') }}">Créer un topic</a>
-    {% endif %}
+            <form class="d-flex div-search" action="{{ path('topic_list') }}" method="get">
+                <input class="input-search text-start" type="text" name="search"
+                       placeholder="Rechercher un topic">
+                <button type="submit" class="button-search"><img class="w-100 h-100 img-fluid"
+                                                                 src="{{ asset('assets/img/forum/search.png') }}"
+                                                                 alt="Image d'une loupe de recherche"></button>
+            </form>
 
-    {% for topic in topics %}
-        <h2>{{ topic.title }}</h2>
-        <h3>{{ topic.getLastActivityDate|date('\\l\\e d/m à H\\hi') }}</h3>
-        <h3>{{ topic.getRepliesCount() }}</h3>
-        <p>{{ topic.content }}</p>
-        <p>Créé par {{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</p>
-        <a href="{{ path('topic_show', {'id': topic.id}) }}">Voir le topic</a>
-    {% endfor %}
+            {% if app.user %}
+                <button class="button-new-topic" onclick="window.location.href='{{ path('topic_create') }}';">Nouveau topic</button>
+            {% else %}
+                <button class="button-new-topic" onclick="window.location.href='{{ path('login_user') }}';">Nouveau topic</button>
+            {% endif %}
+
+
+        </div>
+
+        <section class="w-75 m-auto">
+            <div class="w-100 mt-5">
+
+                <div class="forum-row row">
+                    <div class="head-text col-6">Sujet</div>
+                    <div class="head-text text-start col-2">Auteur</div>
+                    <div class="head-text text-center col-2">Nb msg</div>
+                    <div class="head-text text-center col-2">Der. message</div>
+                </div>
+
+                <hr class="line">
+
+                {% for topic in topics %}
+
+                    <a class="text-decoration-none show-post" href="{{ path('topic_show', {'id': topic.id}) }}">
+                        <div class="forum-row row align-items-center">
+                            <div class="data-text col-6">{{ topic.title }}</div>
+                            <div class="data-text text-start col-2">{{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</div>
+                            <div class="data-text text-center col-2">{{ topic.getRepliesCount() }}</div>
+                            <div class="data-text text-center col-2">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
+                        </div>
+                    </a>
+
+                    <hr class="line">
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </main>
 
 
 

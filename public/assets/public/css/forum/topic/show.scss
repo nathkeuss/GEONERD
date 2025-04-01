@@ -1,0 +1,152 @@
+@import '../../global/style';
+
+.div-title-reply {
+  border: solid 2px white;
+  border-radius: 1.25rem;
+}
+
+.topic-title {
+  color: white;
+  font: {
+    family: $font-family;
+    weight: bold;
+    size: 2rem;
+  }
+}
+
+.reply-button {
+  color: black;
+  background-color: $background-light-color;
+  border-radius: 4rem;
+  padding: 0.2rem;
+  border: solid 0.2rem $background-dark-color;
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+
+  font: {
+    family: $font-family;
+    size: 1.4rem;
+    weight: bold;
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    font-size: 1.3rem;
+  }
+}
+
+.list-topics-button {
+  color: black;
+  background-color: #ffffff;
+  border-radius: 4rem;
+  padding: 0.2rem;
+  border: solid 0.2rem $background-dark-color;
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+
+  font: {
+    family: $font-family;
+    size: 1.4rem;
+    weight: bold;
+  }
+}
+
+.div-topic-reply {
+  border: solid 2px white;
+  border-radius: 2.1rem;
+}
+
+.div-img-profile {
+  width: 4rem;
+  height: 4rem;
+}
+
+.post-user-username {
+  color: $text-light-color;
+  font: {
+    family: $font-family;
+    weight: 500;
+    size: 1.7rem;
+  }
+}
+
+.post-date {
+  color: $text-light-color;
+  font: {
+    family: $font-family;
+    weight: 500;
+    size: 1.7rem;
+  }
+}
+
+.post-content {
+  color: $text-light-color;
+  font: {
+    family: $font-family;
+    weight: 400;
+    size: 1.5rem;
+  }
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+
+}
+
+.div-img-user-post {
+  border-radius: 1rem;
+}
+
+.divider-user-message {
+  background-color: white;
+  border: 0;
+  height: 0.2rem;
+}
+
+.divider-reply {
+  background-color: $background-light-color;
+  border: 0;
+  height: 0.1rem;
+  opacity: 1;
+}
+
+.button-update {
+  font: {
+    family: $font-family;
+    weight: 400;
+    size: 1rem;
+  }
+  color: #ffa500;
+  border: solid 1px #FFA500;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: ease background-color 0.2s, ease color 0.2s;
+
+  &:hover {
+    color: #20202A;
+    background-color: #FFA500;
+  }
+}
+
+.button-delete {
+  font: {
+    family: $font-family;
+    weight: 400;
+    size: 1rem;
+  }
+  color: #ff0000;
+  border: solid 1px #ff0000;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: ease background-color 0.2s, ease color 0.2s;
+
+  &:hover {
+    color: $text-dark-color;
+    background-color: #ff0000;
+  }
+}
+
+.no-reply {
+  color: #a80707;
+  font: {
+    family: $font-family;
+    weight: 500;
+    size: 2rem;
+  }
+}

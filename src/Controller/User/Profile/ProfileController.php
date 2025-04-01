@@ -33,17 +33,17 @@ class ProfileController extends AbstractController
         $formProfile->handleRequest($request);
 
         if ($formProfile->isSubmitted() && $formProfile->isValid()) {
-
             $userUsername = $formProfile->get('username')->getData();
             $userPassword = $formProfile->get('password')->getData();
             $userProfilePicture = $formProfile->get('profile_picture')->getData();
 
-            if ($userUsername) {
-                $user->setUsername($userUsername);
+            if (!$userPassword || !$passwordHasher->isPasswordValid($user, $userPassword)) {
+                $this->addFlash('danger', 'Le mot de passe est incorrect ou manquant.');
+                return $this->redirectToRoute('user_profile_show', ['id' => $id]);
             }
 
-            if ($userPassword) {
-                $user->setPassword($passwordHasher->hashPassword($user, $userPassword));
+            if ($userUsername) {
+                $user->setUsername($userUsername);
             }
 
             if ($userProfilePicture) {

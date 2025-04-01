@@ -4,6 +4,8 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/public/css/forum/topic/form.css') }}">
+
 {% endblock %}
 
 
@@ -18,23 +20,23 @@
             <div class="w-95 m-auto">
                 {{ form_start(formTopicView) }}
                 <div class="w-75 error">
-                    {{ form_widget(formTopicView.title) }}
+                    {{ form_widget(formTopicView.title, { 'attr': {'class': 'title-topic py-2 px-2 w-100'} }) }}
                     {{ form_errors(formTopicView.title) }}
                 </div>
 
                 <div class="w-100 error">
-                    {{ form_widget(formTopicView.content) }}
+                    {{ form_widget(formTopicView.content, { 'attr': {'class': 'message-topic py-2 px-2 w-100'} }) }}
                     {{ form_errors(formTopicView.content) }}
                 </div>
 
                 <div class="w-25 error">
-                    {{ form_widget(formTopicView.image) }}
+                    {{ form_widget(formTopicView.image, { 'attr': {'class': 'image-topic w-100'} }) }}
                     {{ form_errors(formTopicView.image) }}
                 </div>
 
 
                 <div class="text-end">
-                    {{ form_widget(formTopicView.submit) }}
+                    {{ form_widget(formTopicView.submit, { 'attr': {'class': 'button-publish mb-4'} }) }}
                 </div>
                 {{ form_end(formTopicView) }}
             </div>

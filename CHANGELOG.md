@@ -2,6 +2,85 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.61](https://github.com/nathkeuss/GEONERD/compare/v0.1.60...v0.1.61) (2025-04-01)
+
+
+### Features
+
+* **country-list:** update style for country list page and add style for continent show ([4a74693](https://github.com/nathkeuss/GEONERD/commit/4a74693f435139f75045eefb4568172201311d16))
+
+### [0.1.60](https://github.com/nathkeuss/GEONERD/compare/v0.1.59...v0.1.60) (2025-03-27)
+
+
+### Features
+
+* **profile-page:** update styles ([a28aba9](https://github.com/nathkeuss/GEONERD/commit/a28aba9e166489b1d192f72f5253ba702f59d232))
+
+### [0.1.59](https://github.com/nathkeuss/GEONERD/compare/v0.1.58...v0.1.59) (2025-03-27)
+
+
+### Features
+
+* **profile-page:** add layout and visual styles for profile page ([a2c1b00](https://github.com/nathkeuss/GEONERD/commit/a2c1b00f500cd6e2b60a2f946d26228713ada1f6))
+
+### [0.1.58](https://github.com/nathkeuss/GEONERD/compare/v0.1.57...v0.1.58) (2025-03-27)
+
+
+### Features
+
+* **reply:** add layout and visual styles for update and create reply ([ac911e9](https://github.com/nathkeuss/GEONERD/commit/ac911e916966d88ff49994fe3ea15c3a14757df3))
+
+### [0.1.57](https://github.com/nathkeuss/GEONERD/compare/v0.1.56...v0.1.57) (2025-03-27)
+
+
+### Features
+
+* **topic:** add layout and visual styles for create and update a topic ([4a08b6d](https://github.com/nathkeuss/GEONERD/commit/4a08b6dec0bab94b2a65fc249894a185c9e1efc1))
+
+### [0.1.56](https://github.com/nathkeuss/GEONERD/compare/v0.1.55...v0.1.56) (2025-03-27)
+
+
+### Features
+
+* **topic:** add layout and visual styles for topic show page ([2b8b42c](https://github.com/nathkeuss/GEONERD/commit/2b8b42ccb07286f7cec4a24c530f31c632cd99c1))
+
+### [0.1.55](https://github.com/nathkeuss/GEONERD/compare/v0.1.54...v0.1.55) (2025-03-27)
+
+
+### Features
+
+* **forum:** added styles for topic list page ([f578a32](https://github.com/nathkeuss/GEONERD/commit/f578a326252bb785737d587e3e9efe9f4c2533c3))
+
+### [0.1.54](https://github.com/nathkeuss/GEONERD/compare/v0.1.53...v0.1.54) (2025-03-27)
+
+### [0.1.53](https://github.com/nathkeuss/GEONERD/compare/v0.1.52...v0.1.53) (2025-03-27)
+
+
+### Features
+
+* **country-list-show-page:** added styles to country list and show page ([7bcd467](https://github.com/nathkeuss/GEONERD/commit/7bcd467e7ab761b1b75206ff6de10882c501c133))
+
+### [0.1.52](https://github.com/nathkeuss/GEONERD/compare/v0.1.51...v0.1.52) (2025-03-27)
+
+
+### Features
+
+* **connection-signup-page:** added styles for connection and sign up page ([5def699](https://github.com/nathkeuss/GEONERD/commit/5def69952f71afdcc92c832290be3023e8db9788))
+
+### [0.1.51](https://github.com/nathkeuss/GEONERD/compare/v0.1.50...v0.1.51) (2025-03-27)
+
+
+### Features
+
+* **home-page:** added styles for home page ([9b2ad42](https://github.com/nathkeuss/GEONERD/commit/9b2ad422d1d3a115d0a61d30e0eda574675da35d))
+
+### [0.1.50](https://github.com/nathkeuss/GEONERD/compare/v0.1.49...v0.1.50) (2025-03-27)
+
+
+### Features
+
+* **header-footer:** added styles for header and footer ([a001813](https://github.com/nathkeuss/GEONERD/commit/a001813784d76264ba6019e5f0c70eddd2e5893f))
+
 ### [0.1.49](https://github.com/nathkeuss/GEONERD/compare/v0.1.48...v0.1.49) (2025-03-24)
 
 ### [0.1.48](https://github.com/nathkeuss/GEONERD/compare/v0.1.47...v0.1.48) (2025-03-24)

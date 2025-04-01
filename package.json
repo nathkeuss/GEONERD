@@ -1,8 +1,9 @@
 {
-  "version": "0.1.49",
+  "version": "0.1.61",
   "devDependencies": {
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "sass": "^1.86.0",
     "standard-version": "^9.5.0"
   },
   "config": {

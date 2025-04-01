@@ -1,0 +1,56 @@
+@import '../global/style.scss';
+
+
+.section-background-image-title {
+  height: 400px;
+  position: relative;
+  border: solid 2px white;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+  }
+}
+
+.image-center {
+  object-fit: cover;
+  object-position: center;
+}
+
+.country-name {
+  color: white;
+  font: {
+    family: $font-family;
+    size: 5rem;
+    weight: bold;
+  }
+  text-shadow: 1px 1px 10px black,
+  0 0 10px #000000,
+  0 0 10px #000000;
+  z-index: 2;
+  top: 80%;
+}
+
+.h1-identify {
+  color: white;
+  font: bold 3rem $font-family;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.article-explain {
+  margin-bottom: 5rem;
+}
+
+/*.image-explain {
+  color: $text-light-color !important;
+  font: normal 2rem $font-family !important;
+
+}*/

@@ -4,6 +4,8 @@
 
 {% block stylesheets %}
 
+    <link rel="stylesheet" href="{{ asset('assets/public/css/authentication/signup.css') }}">
+
 {% endblock %}
 
 
@@ -14,6 +16,10 @@
 
         {{ form_start(formSignUpView, {'attr': {'class': 'form-inscription m-auto col-10 col-lg-6 mt-5 mb-5'}}) }}
 
+        <div class="text-center pt-4">
+            <img src="{{ asset('assets/img/authentication/utilisateur.png') }}"
+                 alt="Image d'un bonhomme connexion">
+        </div>
 
         <h1 class="form-h1-inscription text-center mt-4">Se créer un compte</h1>
 

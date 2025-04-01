@@ -1,0 +1,178 @@
+/*GLOBAL*/
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(32, 32, 42);
+}
+
+span, p {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.error {
+  color: #d50000;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.error ul {
+  list-style-type: none;
+  text-align: start;
+  padding-right: 5rem;
+}
+
+/* VARIABLES */
+.div-title-reply {
+  border: solid 2px white;
+  border-radius: 1.25rem;
+}
+
+.topic-title {
+  color: white;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.reply-button {
+  color: black;
+  background-color: white;
+  border-radius: 4rem;
+  padding: 0.2rem;
+  border: solid 0.2rem #20202a;
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+  font-family: "Montserrat";
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .reply-button {
+    font-size: 1.3rem;
+  }
+}
+
+.list-topics-button {
+  color: black;
+  background-color: #ffffff;
+  border-radius: 4rem;
+  padding: 0.2rem;
+  border: solid 0.2rem #20202a;
+  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+  font-family: "Montserrat";
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.div-topic-reply {
+  border: solid 2px white;
+  border-radius: 2.1rem;
+}
+
+.div-img-profile {
+  width: 4rem;
+  height: 4rem;
+}
+
+.post-user-username {
+  color: white;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
+.post-date {
+  color: white;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
+.post-content {
+  color: white;
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1.5rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.div-img-user-post {
+  border-radius: 1rem;
+}
+
+.divider-user-message {
+  background-color: white;
+  border: 0;
+  height: 0.2rem;
+}
+
+.divider-reply {
+  background-color: white;
+  border: 0;
+  height: 0.1rem;
+  opacity: 1;
+}
+
+.button-update {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1rem;
+  color: #ffa500;
+  border: solid 1px #FFA500;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: ease background-color 0.2s, ease color 0.2s;
+}
+.button-update:hover {
+  color: #20202A;
+  background-color: #FFA500;
+}
+
+.button-delete {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1rem;
+  color: #ff0000;
+  border: solid 1px #ff0000;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: ease background-color 0.2s, ease color 0.2s;
+}
+.button-delete:hover {
+  color: #20202a;
+  background-color: #ff0000;
+}
+
+.no-reply {
+  color: #a80707;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+/*# sourceMappingURL=show.css.map */

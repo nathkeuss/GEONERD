@@ -1,0 +1,152 @@
+/*GLOBAL*/
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(32, 32, 42);
+}
+
+span, p {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: disc;
+  color: white;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.error {
+  color: #d50000;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.error ul {
+  list-style-type: none;
+  text-align: start;
+  padding-right: 5rem;
+}
+
+/* VARIABLES */
+.choice-title {
+  text-align: center;
+  color: white;
+  font-family: "Montserrat";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.continent {
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #04FF00;
+  color: #20202a;
+  border: 2px solid #20202a;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.continent:hover {
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}
+.continent:nth-of-type(1) {
+  background-color: #e52252;
+}
+.continent:nth-of-type(2) {
+  background-color: #ee7800;
+}
+.continent:nth-of-type(3) {
+  background-color: #dcbc00;
+}
+.continent:nth-of-type(4) {
+  background-color: #7444b2;
+}
+.continent:nth-of-type(5) {
+  background-color: #5d9a32;
+}
+
+.container-country {
+  position: relative;
+  border-radius: 10%;
+  border: solid 4px black;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.307) -0.5rem 0.3rem;
+  z-index: 1000;
+  transition: transform 0.5s;
+  margin: 3rem;
+}
+.container-country::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.756) 0%, transparent 50%);
+}
+.container-country:hover {
+  transform: scale(1.1);
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .container-country {
+    margin: 1rem;
+  }
+}
+
+.country-name {
+  z-index: 2000;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Montserrat";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.input-search {
+  border: none;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  background-color: white;
+  padding: 0.7rem;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.button-search {
+  border: none;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  padding: 0.7rem;
+  background-color: white;
+}
+
+/*# sourceMappingURL=list.css.map */

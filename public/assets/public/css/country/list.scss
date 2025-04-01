@@ -1,0 +1,113 @@
+@import '../global/style.scss';
+
+.choice-title {
+  text-align: center;
+  color: $text-light-color;
+  font: {
+    family: $font-family;
+    size: 2.5rem;
+    weight: bold;
+  }
+}
+
+.continent {
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: $background-accent-color;
+  color: $text-dark-color;
+  border: 2px solid $background-dark-color;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+
+  font: {
+    family: $font-family;
+    size: 1.5rem;
+    weight: bold;
+  }
+
+  &:hover {
+    top: 3px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  &:nth-of-type(1) { background-color: #e52252; } // Europe
+  &:nth-of-type(2) { background-color: #ee7800; } // Asie
+  &:nth-of-type(3) { background-color: #dcbc00; } // Afrique
+  &:nth-of-type(4) { background-color: #7444b2; } // Océanie
+  &:nth-of-type(5) { background-color: #5d9a32; } // Amérique
+}
+
+
+
+
+.container-country {
+  position: relative;
+  border-radius: 10%;
+  border: solid 4px black;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.307) -0.5rem 0.3rem;
+  z-index: 1000;
+  transition: transform 0.5s;
+  margin: 3rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.756) 0%, transparent 50%);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    margin: 1rem;
+  }
+
+}
+
+.country-name {
+  z-index: 2000;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $text-light-color;
+  font: {
+    family: $font-family;
+    size: 2.5rem;
+    weight: bold;
+  }
+}
+
+.input-search {
+  border: none;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  background-color: white;
+  padding: 0.7rem;
+  text-align: center;
+
+  font: {
+    family: $font-family;
+    size: 1.2rem;
+    weight: bold;
+  }
+
+  outline: none;
+}
+
+.button-search {
+  border: none;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  padding: 0.7rem;
+  background-color: white;
+
+}

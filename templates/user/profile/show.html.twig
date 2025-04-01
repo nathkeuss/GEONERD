@@ -1,46 +1,83 @@
 {% extends 'public/base.html.twig' %}
 
-{% block title %}Profil{% endblock %}
+{% block title %}Bienvenue sur ton profil {{ app.user.username }}{% endblock %}
 
 {% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('assets/public/css/profile.css') }}">
 
 {% endblock %}
 
 
 {% block body %}
 
-    <h2>{{ app.user.username }}</h2>
-    <h2>{{ app.user.email }}</h2>
-    <img src="{{ asset('uploads/user/profile_pictures/' ~ app.user.profilePicture) }}" alt="Photo de profil de {{ app.user.username }}">
-    <a href="{{ path('user_profile_delete', {'id': app.user.id}) }}">Supprimer mon compte</a>
-    <main>
-        <div>
-            {{ form_start(formProfileView) }}
+    <main class="container-fluid d-flex justify-content-center align-items-center flex-grow-1">
 
-            <div>
-                {{ form_label(formProfileView.username) }}
-                {{ form_widget(formProfileView.username) }}
-                {{ form_errors(formProfileView.username) }}
+        <section class="section-info m-auto d-flex flex-column">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="div-img-logo">
+                        <img class="w-100 h-100 rounded-circle img-fluid"
+                             src="{{ asset('uploads/user/profile_pictures/' ~ app.user.profilePicture) }}"
+                             alt="Photo de profil">
+                    </div>
+
+                    <div>
+                        <h1 class="profile-info-username">{{ app.user.username }}</h1>
+                        <h2 class="profile-info-email">{{ app.user.email }}</h2>
+                    </div>
+                </div>
+
             </div>
 
-            <div>
-                {{ form_label(formProfileView.password) }}
-                {{ form_widget(formProfileView.password) }}
-                {{ form_errors(formProfileView.password) }}
+
+            <hr class="line mb-5">
+
+            {{ form_start(formProfileView, {'attr': {'class': 'w-100'}}) }}
+
+            <div class="row">
+
+                <div class="col-6">
+                    {{ form_label(formProfileView.username, 'Pseudo', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
+                    {{ form_widget(formProfileView.username, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre votre pseudo'}}) }}
+                    {{ form_errors(formProfileView.username) }}
+                </div>
+
+                <div class="col-6">
+                    {{ form_label(formProfileView.profile_picture, 'Photo de profil', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
+                    {{ form_widget(formProfileView.profile_picture, {'attr': {'class': 'input-profile-info w-100'}}) }}
+                    {{ form_errors(formProfileView.profile_picture) }}
+                </div>
             </div>
 
-            <div>
-                {{ form_label(formProfileView.profile_picture) }}
-                {{ form_widget(formProfileView.profile_picture) }}
-                {{ form_errors(formProfileView.profile_picture) }}
+            <div class="row mt-4">
+
+                <div class="col-6">
+                    {{ form_label(formProfileView.password, 'Mot de passe', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
+                    {{ form_widget(formProfileView.password, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre ton mot de passe pour valider les modifications'}}) }}
+                    {{ form_errors(formProfileView.password) }}
+                </div>
+
             </div>
 
-            <div>
-                {{ form_widget(formProfileView.submit) }}
-            </div>
+            <hr class="line mt-5">
 
+
+            <div class="mt-4 d-flex justify-content-between align-items-center">
+                <a class="form-button-delete text-decoration-none" href="{{ path('user_profile_delete', {'id': app.user.id}) }}">Supprimer mon compte</a>
+
+                {{ form_widget(formProfileView.submit, {'attr': {'class': 'form-button-update'}}) }}
+            </div>
             {{ form_end(formProfileView) }}
-        </div>
+
+        </section>
+
     </main>
+
+
+
+
+
 
 {% endblock %}
