@@ -19,7 +19,7 @@ class TopicController extends AbstractController
         if (!empty($search)) {
             $topics = $topicRepository->searchByTopicTitle($search);
         } else {
-            $topics = $topicRepository->findAll();
+            $topics = $topicRepository->findBy([], ['date' => 'DESC']);
         }
 
         return $this->render('public/forum/topic/list.html.twig', [
