@@ -12,12 +12,14 @@
 {% block body %}
 
     <main>
-        <h1>Liste des continents</h1>
+        <h1 class="choice-title mb-5 mt-5">Choisir par continent</h1>
+        <section class="m-auto d-flex justify-content-center gap-3 pb-5">
         {% for continent in continents %}
-            <a class="continent" href="{{ path('continent_show', {'slugContinent': continent.slug}) }}">
-                <h2>{{ continent.name }}</h2>
+            <a class="continent text-decoration-none" href="{{ path('continent_show', {'slugContinent': continent.slug}) }}">
+                {{ continent.name }}
             </a>
         {% endfor %}
+        </section>
 
 
         <div class="w-75 m-auto d-flex align-items-center justify-content-between mt-5">
@@ -34,9 +36,9 @@
         </div>
 
         {% if search %}
-            <h1 class="choice-country mb-5 mt-5">Résultat de recherche pour "{{ search }}"</h1>
+            <h1 class="choice-title mb-5 mt-5">Résultat de recherche pour "{{ search }}"</h1>
         {% else %}
-            <h1 class="choice-country mb-5 mt-5">Choisis un pays</h1>
+            <h1 class="choice-title mb-5 mt-5">Choisis un pays</h1>
         {% endif %}
 
         <section class="w-75 m-auto row justify-content-between">

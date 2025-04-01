@@ -46,12 +46,46 @@ ul {
 }
 
 /* VARIABLES */
-.choice-country {
+.choice-title {
   text-align: center;
   color: white;
   font-family: "Montserrat";
   font-size: 2.5rem;
   font-weight: bold;
+}
+
+.continent {
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #04FF00;
+  color: #20202a;
+  border: 2px solid #20202a;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.continent:hover {
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}
+.continent:nth-of-type(1) {
+  background-color: #e52252;
+}
+.continent:nth-of-type(2) {
+  background-color: #ee7800;
+}
+.continent:nth-of-type(3) {
+  background-color: #dcbc00;
+}
+.continent:nth-of-type(4) {
+  background-color: #7444b2;
+}
+.continent:nth-of-type(5) {
+  background-color: #5d9a32;
 }
 
 .container-country {
