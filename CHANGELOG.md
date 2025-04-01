@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.65](https://github.com/nathkeuss/GEONERD/compare/v0.1.64...v0.1.65) (2025-04-01)
+
+
+### Features
+
+* **error-pages:** add custom 403, 404 and fallback error pages ([f99fe05](https://github.com/nathkeuss/GEONERD/commit/f99fe05bd2add98f502cdb39929bdc0a8bf00a1c))
+
 ### [0.1.64](https://github.com/nathkeuss/GEONERD/compare/v0.1.63...v0.1.64) (2025-04-01)
 
 
