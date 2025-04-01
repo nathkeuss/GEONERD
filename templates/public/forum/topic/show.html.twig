@@ -34,7 +34,7 @@
                         <div class="d-flex align-items-center">
                             <div class="div-img-profile me-2">
                                 <img class="img-fluid rounded-circle w-100 h-100"
-                                     src="{{ asset('uploads/user/profile_pictures/' ~ topic.user.profilePicture) }}"
+                                     src="{{ profile_picture(topic.user) }}"
                                      alt="Image de profil de l'utilisateur">
                             </div>
                             <span class="post-user-username">{{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</span>
@@ -88,7 +88,7 @@
                                 <div class="d-flex align-items-center">
                                     <div class="div-img-profile me-2">
                                         <img class="img-fluid w-100 h-100 rounded-circle"
-                                             src="{{ asset('uploads/user/profile_pictures/' ~ reply.user.profilePicture) }}"
+                                             src="{{ profile_picture(reply.user) }}"
                                              alt="Image de profil de l'utilisateur">
                                     </div>
                                     <span class="post-user-username">{{ reply.user.isDeleted ? 'Utilisateur supprimé' : reply.user.username }}</span>

@@ -56,7 +56,7 @@
                     <li class="nav-item d-flex flex-column align-items-center">
                         <div class="nav-a-connection d-flex align-items-center text-decoration-none" id="profile-menu">
                             <div class="div-img-profile me-3">
-                                <img src="{{ asset('uploads/user/profile_pictures/' ~ app.user.profilePicture) }}"
+                                <img src="{{ profile_picture(app.user) }}"
                                      alt="Image de profil de {{ app.user.username }}"
                                      class="img-fluid rounded-circle w-100 h-100">
                             </div>
