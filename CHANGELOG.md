@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.62](https://github.com/nathkeuss/GEONERD/compare/v0.1.61...v0.1.62) (2025-04-01)
+
+
+### Features
+
+* add layout and design ([48d78b4](https://github.com/nathkeuss/GEONERD/commit/48d78b47b885fbe0ef1d08354d5094f833ade04d))
+
+
+### Bug Fixes
+
+* **profile-picture:** add default profile picture and twig fallback ([8eae00f](https://github.com/nathkeuss/GEONERD/commit/8eae00fd0e6cbdf7537cc0c032708078aee51437))
+
 ### [0.1.61](https://github.com/nathkeuss/GEONERD/compare/v0.1.60...v0.1.61) (2025-04-01)
 
 
