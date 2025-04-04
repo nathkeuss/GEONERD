@@ -1,0 +1,148 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('assets/public/css/forum/topic/show.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="flex-grow-1">
+
+        <section class="w-80 m-auto mt-5">
+
+            {# div avec titre/répondre/liste #}
+            <div class="row align-items-center div-title-reply p-3 justify-content-between m-0">
+                <h1 class="col-7 topic-title">{{ topic.title }}</h1>
+                <a class="col-2 list-topics-button text-decoration-none text-center d-none d-lg-block" href="{{ path('topic_list') }}">Liste des
+                    topics</a>
+            </div>
+
+            {# div topic parent et réponses #}
+            <div class="div-topic-reply mt-5">
+                {# div img profil/pseudo/date #}
+                <div class="w-95 m-auto">
+                    <div class="d-flex pt-3 align-items-center justify-content-between">
+                        {# div img profil + pseudo #}
+                        <div class="d-flex align-items-center">
+                            <div class="div-img-profile me-2">
+                                <img class="img-fluid rounded-circle w-100 h-100"
+                                     src="{{ profile_picture(topic.user) }}"
+                                     alt="Image de profil de l'utilisateur">
+                            </div>
+                            <span class="post-user-username">{{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</span>
+                        </div>
+                        {# div date #}
+                        <div>
+                            <span class="post-date">{{ topic.date|date("\\l\\e d/m à H\\hi") }}</span>
+                        </div>
+                    </div>
+                    <hr class="divider-user-message">
+
+                    {# div content + img #}
+                    <div class="d-flex justify-content-between row mt-5 mb-5">
+                        <div class="{% if not topic.image %}col-lg-12{% else %}col-lg-7{% endif %}">
+                            <p class="post-content">{{ topic.content }}</p>
+                        </div>
+                        {# Vérifie si une image existe pour le post #}
+                        {% if topic.image %}
+                            <div class="overflow-hidden div-img-user-post col-12 col-lg-5 p-0 m-0">
+                                <img class="img-fluid w-100 h-100"
+                                     src="{{ asset('uploads/forum/topics/' ~ topic.image) }}"
+                                     alt="Image que l'auteur de la discussion a posté">
+                            </div>
+                        {% endif %}
+                    </div>
+
+ {#                   {% if topic.user == app.user %}
+                        <div class="mt-3 d-flex justify-content-end">
+                            <a href="{{ path('topic_update', {'id': topic.id}) }}"
+                               class="button-update text-decoration-none me-3">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                                Modifier
+                            </a>
+                            <a href="{{ path('topic_delete', {'id': topic.id}) }}"
+                               class="button-delete text-decoration-none"
+                               onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce topic ?')">
+                                <i class="fas fa-trash"></i>
+                                Supprimer
+                            </a>
+                        </div>
+                    {% endif %}#}
+                </div>
+                <hr class="divider-reply">
+
+                {# réponses #}
+                {% if replies|length > 0 %}
+                    {% for reply in replies %}
+                        <div class="w-95 m-auto {% if loop.last %}mb-3{% endif %}">
+                            <div class="d-flex pt-3 align-items-center justify-content-between">
+                                {# div img profil + pseudo #}
+                                <div class="d-flex align-items-center">
+                                    <div class="div-img-profile me-2">
+                                        <img class="img-fluid w-100 h-100 rounded-circle"
+                                             src="{{ profile_picture(reply.user) }}"
+                                             alt="Image de profil de l'utilisateur">
+                                    </div>
+                                    <span class="post-user-username">{{ reply.user.isDeleted ? 'Utilisateur supprimé' : reply.user.username }}</span>
+                                </div>
+                                {# div date #}
+                                <div>
+                                    <span class="post-date">{{ reply.date|date('\\l\\e d/m à H\\hi') }}</span>
+                                </div>
+                            </div>
+                            <hr class="divider-user-message">
+
+                            {# div content + img #}
+                            <div class="d-flex justify-content-between row mt-5 mb-5">
+                                <div class="{% if not reply.image %}col-lg-12{% else %}col-lg-7{% endif %}">
+                                    <p class="post-content">{{ reply.content }}</p>
+                                </div>
+
+                                {% if reply.image %}
+                                    <div class="overflow-hidden div-img-user-post col-12 col-lg-5 p-0 m-0">
+                                        <img class="img-fluid w-100 h-100"
+                                             src="{{ asset('uploads/forum/replies/' ~ reply.image) }}"
+                                             alt="Image que l'auteur de la discussion a posté">
+                                    </div>
+                                {% endif %}
+                            </div>
+
+{#                            {% if reply.user == app.user %}
+                                <div class="mt-3 d-flex justify-content-end">
+                                    <a href="{{ path('reply_update', {'id': topic.id, 'replyId': reply.id}) }}"
+                                       class="button-update text-decoration-none me-3">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        Modifier
+                                    </a>
+                                    <a href="{{ path('reply_delete', {'id': topic.id, 'replyId': reply.id}) }}"
+                                       class="button-delete text-decoration-none"
+                                       onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre message ?')">
+                                        <i class="fas fa-trash"></i>
+                                        Supprimer
+                                    </a>
+                                </div>
+                            {% endif %}#}
+                        </div>
+                        {% if not loop.last %}
+                            <hr class="divider-reply">
+                        {% endif %}
+                    {% endfor %}
+
+                {% else %}
+                    <h1 class="no-reply text-center p-2">&#x1F480;&#x1F480;&#x1F480; </h1>
+                {% endif %}
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+{% endblock %}

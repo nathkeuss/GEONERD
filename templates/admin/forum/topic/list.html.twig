@@ -1,0 +1,62 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des topics{% endblock %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('assets/public/css/forum/topic/list.css') }}">
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main class="container-fluid">
+
+        <div class="w-80 m-auto d-flex align-items-center justify-content-between mt-5">
+
+            <form class="d-flex div-search" action="{{ path('admin_topic_list') }}" method="get">
+                <input class="input-search text-start" type="text" name="search"
+                       placeholder="Rechercher un topic">
+                <button type="submit" class="button-search"><img class="w-100 h-100 img-fluid"
+                                                                 src="{{ asset('assets/img/forum/search.png') }}"
+                                                                 alt="Image d'une loupe de recherche"></button>
+            </form>
+
+        </div>
+
+        <section class="w-75 m-auto">
+            <div class="w-100 mt-5">
+
+                <div class="forum-row row">
+                    <div class="head-text col-6">Sujet</div>
+                    <div class="head-text text-start col-2">Auteur</div>
+                    <div class="head-text text-center col-2">Nb msg</div>
+                    <div class="head-text text-center col-2">Der. message</div>
+                </div>
+
+                <hr class="line">
+
+                {% for topic in topics %}
+
+                    <a class="text-decoration-none show-post" href="{{ path('admin_topic_show', {'id': topic.id}) }}">
+                        <div class="forum-row row align-items-center">
+                            <div class="data-text col-6">{{ topic.title }}</div>
+                            <div class="data-text text-start col-2">{{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</div>
+                            <div class="data-text text-center col-2">{{ topic.getRepliesCount() }}</div>
+                            <div class="data-text text-center col-2">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
+                        </div>
+                    </a>
+
+                    <hr class="line">
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+{% endblock %}
