@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.66](https://github.com/nathkeuss/GEONERD/compare/v0.1.65...v0.1.66) (2025-04-04)
+
+
+### Features
+
+* **forum:** add topic list and show pages in admin panel ([a7be3ca](https://github.com/nathkeuss/GEONERD/commit/a7be3caa5440b2fcffbd34080d455b62166b8d57))
+
 ### [0.1.65](https://github.com/nathkeuss/GEONERD/compare/v0.1.64...v0.1.65) (2025-04-01)
 
 
