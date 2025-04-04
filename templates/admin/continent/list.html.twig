@@ -23,7 +23,7 @@
                         <div class="d-flex">
                             <a href="{{ path('continent_update', {'slugContinent': continent.slug}) }}" class="btn btn-warning btn-sm me-2">Modifier</a>
                             <a href="{{ path('continent_delete', {'slugContinent': continent.slug}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce continent ?')">Supprimer</a>
-                            <a href="{{ path('continent_show', {'slugContinent': continent.slug}) }}" class="btn btn-info btn-sm ms-2">Voir</a>
+                            <a href="{{ path('admin_continent_show', {'slugContinent': continent.slug}) }}" class="btn btn-info btn-sm ms-2">Voir</a>
                         </div>
                     </li>
                 {% endfor %}

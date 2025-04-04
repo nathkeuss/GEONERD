@@ -1,0 +1,56 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block stylesheets %}
+
+
+{% endblock %}
+
+
+{% block body %}
+
+    <main>
+        <h1>Liste des topics de l'utilisateur :</h1>
+
+        {% if topics is empty %}
+            <p class="text-center">Aucun topic trouvé pour cet utilisateur.</p>
+        {% else %}
+            {% for topic in topics %}
+                <a class="text-decoration-none d-block w-75 m-auto"
+                   href="{{ path('admin_topic_show', {'id': topic.id}) }}">
+                    <div class="row align-items-center">
+                        <div class="col-6">{{ topic.title }}</div>
+                        <div class="text-center col">{{ topic.getRepliesCount() }}</div>
+                        <div class="text-center col">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
+                    </div>
+                </a>
+            {% endfor %}
+        {% endif %}
+
+        <h1>Liste des réponses de l'utilisateur :</h1>
+
+        {% if replies is empty %}
+            <p class="text-center">Aucune réponse trouvée pour cet utilisateur.</p>
+        {% else %}
+            {% for reply in replies %}
+                <a class="text-decoration-none d-block w-75 m-auto"
+                   href="{{ path('admin_topic_show', {'id': reply.topic.id}) }}">
+                    <div class="row align-items-center">
+                        <div class="col-6">{{ reply.content }}</div>
+                    </div>
+                    {% if reply.image %}
+                        <div>
+                            <img class="img-fluid w-100 h-100"
+                                 src="{{ asset('uploads/forum/replies/' ~ reply.image) }}"
+                                 alt="Image que l'auteur de la discussion a posté">
+                        </div>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        {% endif %}
+    </main>
+
+
+
+{% endblock %}

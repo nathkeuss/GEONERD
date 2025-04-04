@@ -69,7 +69,7 @@ class CountryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/continent/{slugContinent}/country/show/{slugCountry}', name: 'country_show', methods: ['GET'])]
+    #[Route('/admin/continent/{slugContinent}/country/show/{slugCountry}', name: 'admin_country_show', methods: ['GET'])]
     public function showCountry(string              $slugContinent,
                                 string              $slugCountry,
                                 ContinentRepository $continentRepository,
