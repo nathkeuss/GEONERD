@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.67](https://github.com/nathkeuss/GEONERD/compare/v0.1.66...v0.1.67) (2025-04-04)
+
+
+### Features
+
+* **forum:** add topic and reply deletion from admin panel ([8138847](https://github.com/nathkeuss/GEONERD/commit/81388479eba2dc846e97fb6887ddb6e3121cd5f2))
+
 ### [0.1.66](https://github.com/nathkeuss/GEONERD/compare/v0.1.65...v0.1.66) (2025-04-04)
 
 
