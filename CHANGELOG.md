@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.70](https://github.com/nathkeuss/GEONERD/compare/v0.1.69...v0.1.70) (2025-04-07)
+
+
+### Features
+
+* **admin-form:** integrate tinymce in admin forms to allow styled content on user side ([dd30b0f](https://github.com/nathkeuss/GEONERD/commit/dd30b0fcb29d55de42b4b65c07e8198dec7bc8c2))
+
 ### [0.1.69](https://github.com/nathkeuss/GEONERD/compare/v0.1.68...v0.1.69) (2025-04-07)
 
 
