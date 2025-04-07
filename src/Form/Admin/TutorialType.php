@@ -29,8 +29,9 @@ class TutorialType extends AbstractType
 
             ])
             ->add('description', TextareaType::class, [
+                'required' => false,
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-control tinymce',
                     'placeholder' => "Description de l'image",
                 ],
                 'label' => 'Description',

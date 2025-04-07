@@ -8,17 +8,20 @@
 
 {% block body %}
 
-    <a href="{{ path('admin_continent_show', {'slugContinent': continent.slug}) }}" class="btn btn-secondary mb-3">
-        &larr; Retour à la liste des pays
-    </a>
+
 
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="text-primary">Tutoriels pour {{ country.name }}</h2>
+            <a href="{{ path('admin_continent_show', {'slugContinent': continent.slug}) }}" class="btn btn-secondary mb-3 w-25 ">
+                &larr; Retour à la liste des pays
+            </a>
             <a href="{{ path('tutorial_create', {'slugContinent': continent.slug, 'slugCountry': country.slug}) }}" class="btn btn-success">
                 Ajouter un tutoriel
             </a>
         </div>
+
+        <h2 class="text-primary">Tutoriels pour {{ country.name }}</h2>
+
 
         {% if tutorials|length > 0 %}
             <div class="row">
@@ -29,7 +32,7 @@
                                  class="card-img-top"
                                  alt="Image du tutoriel {{ country.name }}">
                             <div class="card-body">
-                                <p class="card-text">{{ tutorial.description }}</p>
+                                <p class="card-text">{{ tutorial.description|raw }}</p>
                                 <div class="d-flex justify-content-between">
                                     <a href="{{ path('tutorial_update', {'slugContinent': continent.slug, 'slugCountry': country.slug, 'id': tutorial.id }) }}"
                                        class="btn btn-primary btn-sm">Modifier</a>

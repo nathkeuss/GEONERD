@@ -141,7 +141,7 @@ class TutorialController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success', 'Le tutoriel a bien été supprimé');
-        return $this->redirectToRoute('country_show', [
+        return $this->redirectToRoute('admin_country_show', [
             'slugContinent' => $slugContinent,
             'slugCountry' => $slugCountry
         ]);
