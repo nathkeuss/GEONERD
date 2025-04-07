@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.69](https://github.com/nathkeuss/GEONERD/compare/v0.1.68...v0.1.69) (2025-04-07)
+
+
+### Features
+
+* **interface:** update admin interface ([2ab668d](https://github.com/nathkeuss/GEONERD/commit/2ab668dc3d4f453e020226cb124d8e458d48d193))
+
 ### [0.1.68](https://github.com/nathkeuss/GEONERD/compare/v0.1.67...v0.1.68) (2025-04-04)
 
 
