@@ -20,8 +20,8 @@ class UserModerationController extends AbstractController
     {
         $user = $userRepository->find($id);
 
-        $topics = $topicRepository->findBy(['user' => $id]);
-        $replies = $replyRepository->findBy(['user' => $id]);
+        $topics = $topicRepository->findUserTopicsOrderedByMostRecentFirst($id);
+        $replies = $replyRepository->findUserRepliesOrderedByMostRecentFirst($id);
 
         return $this->render('admin/user/show.html.twig', [
             'user' => $user,

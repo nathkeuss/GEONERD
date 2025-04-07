@@ -33,4 +33,15 @@ class TopicRepository extends ServiceEntityRepository
         return $query->getResult();
 
     }
+
+    public function findUserTopicsOrderedByMostRecentFirst(int $userId): array {
+        return $this->createQueryBuilder('topic')
+            ->where('topic.user = :userId')
+            ->setParameter('userId', $userId)
+            ->orderBy('topic.date', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
 }

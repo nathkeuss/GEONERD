@@ -4,6 +4,72 @@
 
 {% block stylesheets %}
 
+    <style>
+
+        span {
+            color: white;
+        }
+
+        .img-profile {
+            width: 7rem;
+            height: 7rem;
+        }
+
+        .username {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .email {
+            font-size: 1.5rem;
+            color: gray;
+        }
+
+        section {
+            border-radius: 1rem;
+            background-color: #303038;
+            border: solid 2px #5b6167;
+        }
+
+        .topic-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .replies-count {
+            font-size: 1.2rem;
+            color: gray;
+        }
+
+        .activity-date {
+            font-size: 1rem;
+            color: gray;
+        }
+
+        .topic {
+            border-radius: 1rem;
+        }
+
+        .topic:hover {
+            background-color: #1e1f21;
+        }
+
+        .reply-content {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .reply {
+            border-radius: 1rem;
+        }
+
+        .reply:hover {
+            background-color: #1e1f21;
+        }
+
+
+    </style>
+
 
 {% endblock %}
 
@@ -11,44 +77,87 @@
 {% block body %}
 
     <main>
-        <h1>Liste des topics de l'utilisateur :</h1>
 
-        {% if topics is empty %}
+        <div class="w-50 m-auto mt-5">
+            <div class="d-flex align-items-center">
+                <div class="img-profile">
+                    <img class="w-100 rounded" src="{{ profile_picture(user) }}"
+                         alt="Photo de profil de {{ user.username }}">
+                </div>
+                <div class="ms-3 d-flex flex-column">
+                    <span class="username">{{ user.username }}</span>
+                    <span class="email">{{ user.email }}</span>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="w-50 m-auto mt-5 p-4">
+
+            {% if topics is empty %}
             <p class="text-center">Aucun topic trouvé pour cet utilisateur.</p>
-        {% else %}
+            {% else %}
+            <h1>Topic{{ topics|length > 1 ? 's' : '' }} ({{ topics|length }})</h1>
+
+            <hr>
+
+
             {% for topic in topics %}
-                <a class="text-decoration-none d-block w-75 m-auto"
+
+                <a class="topic d-block text-decoration-none p-4"
                    href="{{ path('admin_topic_show', {'id': topic.id}) }}">
-                    <div class="row align-items-center">
-                        <div class="col-6">{{ topic.title }}</div>
-                        <div class="text-center col">{{ topic.getRepliesCount() }}</div>
-                        <div class="text-center col">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="topic-title">{{ topic.title }}</span>
+                        <span class="replies-count">{{ topic.getRepliesCount() }} réponse{{ topic.getRepliesCount() > 1 ? 's' : '' }}</span>
                     </div>
+                    <span class="activity-date">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</span>
+
                 </a>
+
+                {% if not loop.last %}
+                    <hr>{% endif %}
+
+
             {% endfor %}
+
         {% endif %}
 
-        <h1>Liste des réponses de l'utilisateur :</h1>
+        </section>
 
-        {% if replies is empty %}
-            <p class="text-center">Aucune réponse trouvée pour cet utilisateur.</p>
-        {% else %}
-            {% for reply in replies %}
-                <a class="text-decoration-none d-block w-75 m-auto"
-                   href="{{ path('admin_topic_show', {'id': reply.topic.id}) }}">
-                    <div class="row align-items-center">
-                        <div class="col-6">{{ reply.content }}</div>
-                    </div>
-                    {% if reply.image %}
-                        <div>
-                            <img class="img-fluid w-100 h-100"
-                                 src="{{ asset('uploads/forum/replies/' ~ reply.image) }}"
-                                 alt="Image que l'auteur de la discussion a posté">
+
+        <section class="w-50 m-auto mt-5 p-4">
+            {% if replies is empty %}
+                <p class="text-center">Aucune réponse trouvée pour cet utilisateur.</p>
+            {% else %}
+                <h1>Message{{ replies|length > 1 ? 's' : '' }} ({{ replies|length }})</h1>
+                <hr>
+
+                {% for reply in replies %}
+                    <a class="reply d-block text-decoration-none p-4"
+                       href="{{ path('admin_topic_show', {'id': reply.topic.id}) }}">
+                        <span class="activity-date">{{ reply.date|date("\\l\\e d/m à H\\hi") }}</span>
+                        <div class="row d-flex justify-content-between mb-3 mt-2">
+                            <span class="d-block {% if reply.image %} col-6 {% endif %} reply-content">{{ reply.content }}</span>
+                            {% if reply.image %}
+                                <div class="w-50 col-5">
+                                    <img class="img-fluid rounded w-100 h-100"
+                                         src="{{ asset('uploads/forum/replies/' ~ reply.image) }}"
+                                         alt="Image que l'auteur de la discussion a posté">
+                                </div>
+                            {% endif %}
                         </div>
-                    {% endif %}
-                </a>
-            {% endfor %}
-        {% endif %}
+                    </a>
+
+                    {% if not loop.last %}
+                        <hr>{% endif %}
+
+                {% endfor %}
+            {% endif %}
+
+
+        </section>
+
     </main>
 
 
