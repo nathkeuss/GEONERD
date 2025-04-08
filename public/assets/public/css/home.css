@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-color: rgb(32, 32, 42);
+  background-color: rgb(19, 19, 37);
 }
 
 span, p {
@@ -93,8 +93,8 @@ ul {
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  color: #20202a;
-  border: solid 0.3rem #20202a;
+  color: #131325;
+  border: solid 0.3rem #131325;
   border-radius: 1.5rem;
   box-shadow: black -0.6rem 0.5rem;
   cursor: pointer;
@@ -128,7 +128,7 @@ ul {
 
 /* QUIZ/FORUM text */
 .home-a-p {
-  color: #20202a;
+  color: #131325;
   padding-left: 6.25rem;
   z-index: 2000;
   position: relative;

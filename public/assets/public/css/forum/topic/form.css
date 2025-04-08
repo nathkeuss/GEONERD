@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-color: rgb(32, 32, 42);
+  background-color: rgb(19, 19, 37);
 }
 
 span, p {
@@ -97,7 +97,7 @@ ul {
   transition: ease background-color 0.2s, ease color 0.2s;
 }
 .image-topic:hover {
-  color: #20202a;
+  color: #131325;
   background-color: #04FF00;
 }
 
@@ -113,7 +113,7 @@ ul {
   transition: ease background-color 0.2s, ease color 0.2s;
 }
 .button-publish:hover {
-  color: #20202a;
+  color: #131325;
   background-color: #4da8da;
 }
 

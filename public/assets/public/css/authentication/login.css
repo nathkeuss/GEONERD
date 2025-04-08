@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-color: rgb(32, 32, 42);
+  background-color: rgb(19, 19, 37);
 }
 
 span, p {
@@ -81,7 +81,7 @@ ul {
 }
 
 .button-connection {
-  color: #20202a;
+  color: #131325;
   width: 25%;
   border: solid 0.2rem rgb(32, 32, 42);
   box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
@@ -92,18 +92,18 @@ ul {
   font-weight: bold;
 }
 .button-connection:hover {
-  background-color: #20202a;
+  background-color: #131325;
   color: white;
 }
 
 .span-to-inscription {
-  color: #20202a;
+  color: #131325;
   font-family: "Montserrat";
   font-size: 1rem;
   font-weight: bold;
 }
 .span-to-inscription a {
-  color: #20202a;
+  color: #131325;
   text-decoration: underline;
 }
 
