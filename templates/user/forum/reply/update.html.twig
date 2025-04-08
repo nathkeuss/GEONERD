@@ -33,10 +33,10 @@
                         <div class="d-flex align-items-center">
                             <div class="div-img-profile me-2">
                                 <img class="img-fluid rounded-circle w-100 h-100"
-                                     src="{{ asset('uploads/user/profile_pictures/' ~ topic.user.profilePicture) }}"
+                                     src="{{ profile_picture(topic.user) }}"
                                      alt="Image de profil de l'utilisateur">
                             </div>
-                            <span class="post-user-username">{{ topic.user.username }}</span>
+                            <span class="post-user-username">{{ topic.user.isDeleted ? 'supprimé' : topic.user.username }}</span>
                         </div>
                         <div>
                             <span class="post-date">{{ topic.date|date("\\l\\e d/m à H\\hi") }}</span>
@@ -70,10 +70,10 @@
                             <div class="d-flex align-items-center">
                                 <div class="div-img-profile me-2">
                                     <img class="img-fluid w-100 h-100"
-                                         src="{{ asset('uploads/user/profile_pictures/' ~ currentReply.user.profilePicture) }}"
+                                         src="{{ profile_picture(currentReply.user) }}"
                                          alt="Image de profil de l'utilisateur">
                                 </div>
-                                <span class="post-user-username">{{ currentReply.user.username }}</span>
+                                <span class="post-user-username">{{ currentReply.user.isDeleted ? 'supprimé' : currentReply.user.username }}</span>
                             </div>
                             <div>
                                 <span class="post-date">{{ currentReply.date|date("\\l\\e d/m à H\\hi") }}</span>
@@ -81,14 +81,18 @@
                         </div>
 
                         {{ form_start(formReplyView) }}
-                        <div class="w-100 error">
+                        <div class="w-100">
                             {{ form_widget(formReplyView.content, { 'attr': {'class': 'message-reply py-2 px-2 w-100'} }) }}
-                            {{ form_errors(formReplyView.content) }}
+                            {% for error in formReplyView.content.vars.errors %}
+                                <span class="error d-block mt-2 ms-2"><i class="fa-solid fa-circle-exclamation"></i> {{ error.message }}</span>
+                            {% endfor %}
                         </div>
 
-                        <div class="w-25 error">
+                        <div class="w-25">
                             {{ form_widget(formReplyView.image, { 'attr': {'class': 'image-reply w-100'} }) }}
-                            {{ form_errors(formReplyView.image) }}
+                            {% for error in formReplyView.image.vars.errors %}
+                                <span class="error d-block mt-2 ms-2"><i class="fa-solid fa-circle-exclamation"></i> {{ error.message }}</span>
+                            {% endfor %}
                         </div>
 
                         <div class="text-end mt-3">
@@ -115,10 +119,10 @@
                                 <div class="d-flex align-items-center">
                                     <div class="div-img-profile me-2">
                                         <img class="img-fluid w-100 h-100"
-                                             src="{{ asset('uploads/user/profile_pictures/' ~ reply.user.profilePicture) }}"
+                                             src="{{ profile_picture(reply.user) }}"
                                              alt="Image de profil de l'utilisateur">
                                     </div>
-                                    <span class="post-user-username">{{ reply.user.username }}</span>
+                                    <span class="post-user-username">{{ reply.user.isDeleted ? 'supprimé' : reply.user.username }}</span>
                                 </div>
                                 <div>
                                     <span class="post-date">{{ reply.date|date("\\l\\e d/m à H\\hi") }}</span>

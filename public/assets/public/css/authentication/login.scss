@@ -1,5 +1,15 @@
 @import '../global/style';
 
+.success-signup {
+  color: #b10909;
+  font: {
+    family: $font-family;
+    size: 1rem;
+    weight: bold;
+  }
+}
+
+
 .form-connection {
   background-color: $background-accent-color;
   border: solid 0.3rem black;

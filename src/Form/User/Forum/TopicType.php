@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class TopicType extends AbstractType
 {
@@ -29,7 +30,19 @@ class TopicType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image du topic',
                 'mapped' => false,
-                'required' => false
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp',
+                        ],
+                        'maxSizeMessage' => 'L\'image ne doit pas dépasser 3 Mo',
+                        'mimeTypesMessage' => 'Le fichier doit être au format JPEG, PNG ou WEBP',
+                    ])
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Créer un topic'

@@ -19,19 +19,25 @@
 
             <div class="w-95 m-auto">
                 {{ form_start(formTopicView) }}
-                <div class="w-75 error">
+                <div class="w-75">
                     {{ form_widget(formTopicView.title, { 'attr': {'class': 'title-topic py-2 px-2 w-100'} }) }}
-                    {{ form_errors(formTopicView.title) }}
+                    {% for error in formTopicView.title.vars.errors %}
+                        <span class="error d-block mt-2 ms-2"><i class="fa-solid fa-circle-exclamation"></i> {{ error.message }}</span>
+                    {% endfor %}
                 </div>
 
-                <div class="w-100 error">
+                <div class="w-100">
                     {{ form_widget(formTopicView.content, { 'attr': {'class': 'message-topic py-2 px-2 w-100'} }) }}
-                    {{ form_errors(formTopicView.content) }}
+                    {% for error in formTopicView.content.vars.errors %}
+                        <span class="error d-block mt-2 ms-2"><i class="fa-solid fa-circle-exclamation"></i> {{ error.message }}</span>
+                    {% endfor %}
                 </div>
 
-                <div class="w-25 error">
+                <div class="w-25">
                     {{ form_widget(formTopicView.image, { 'attr': {'class': 'image-topic w-100'} }) }}
-                    {{ form_errors(formTopicView.image) }}
+                    {% for error in formTopicView.image.vars.errors %}
+                        <span class="error d-block mt-2 ms-2"><i class="fa-solid fa-circle-exclamation"></i> {{ error.message }}</span>
+                    {% endfor %}
                 </div>
 
 

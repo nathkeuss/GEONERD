@@ -30,18 +30,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, Equatab
      * @var string The hashed password
      */
     #[ORM\Column]
-/*    #[Assert\NotBlank(message: "Le mot de passe ne peut pas être vide.")]*/
-/*    #[Assert\Regex(
-        pattern: "/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/",
-        message: "Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial."
-    )]*/
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "Le nom d'utilisateur est obligatoire.")]
     #[Assert\Length(
         min: 3,
-        max: 10,
+        max: 18,
         minMessage: "Le nom d'utilisateur doit contenir plus de 3 caractères.",
         maxMessage: "Le nom d'utilisateur ne doit pas contenir plus de 10 caractères.",
     )]

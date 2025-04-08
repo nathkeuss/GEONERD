@@ -1,5 +1,12 @@
 @import '../../global/style';
 
+ul {
+  list-style: none;
+  padding-left: 5px;
+  position: relative;
+  color: red;
+}
+
 .h1-new-discussion {
   padding: 2rem;
   color: $text-light-color;
@@ -16,7 +23,6 @@
 }
 
 .title-topic {
-  margin-bottom: 2rem;
   border: solid 2px $background-accent-color;
   border-radius: 1rem;
   color: rgba(255, 255, 255, 0.75);
@@ -25,14 +31,14 @@
     weight: normal;
     size: 1.5rem;
   }
-  background-color: transparent; /* Retire la couleur de fond par défaut */
+  background-color: transparent;
   outline: none;
 }
 
 .message-topic {
   height: 300px;
   resize: none;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
   border: solid 2px $background-accent-color;
   border-radius: 1rem;
   color: rgba(255, 255, 255, 0.75);

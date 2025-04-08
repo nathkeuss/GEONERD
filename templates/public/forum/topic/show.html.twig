@@ -37,7 +37,7 @@
                                      src="{{ profile_picture(topic.user) }}"
                                      alt="Image de profil de l'utilisateur">
                             </div>
-                            <span class="post-user-username">{{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</span>
+                            <span class="post-user-username">{{ topic.user.isDeleted ? 'supprimé' : topic.user.username }}</span>
                         </div>
                         {# div date #}
                         <div>
@@ -91,7 +91,7 @@
                                              src="{{ profile_picture(reply.user) }}"
                                              alt="Image de profil de l'utilisateur">
                                     </div>
-                                    <span class="post-user-username">{{ reply.user.isDeleted ? 'Utilisateur supprimé' : reply.user.username }}</span>
+                                    <span class="post-user-username">{{ reply.user.isDeleted ? 'supprimé' : reply.user.username }}</span>
                                 </div>
                                 {# div date #}
                                 <div>

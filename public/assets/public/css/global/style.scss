@@ -37,18 +37,12 @@ ul {
 }
 
 .error {
-  color: #d50000;
+  color: #b10909;
   font: {
-    family : 'Montserrat';
-    weight: bold;
+    family: 'Montserrat';
     size: 1rem;
+    weight: bold;
   }
-}
-
-.error ul {
-  list-style-type: none;
-  text-align: start;
-  padding-right: 5rem;
 }
 
 /* VARIABLES */

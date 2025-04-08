@@ -33,19 +33,20 @@ ul {
 }
 
 .error {
-  color: #d50000;
+  color: #b10909;
   font-family: "Montserrat";
-  font-weight: bold;
   font-size: 1rem;
-}
-
-.error ul {
-  list-style-type: none;
-  text-align: start;
-  padding-right: 5rem;
+  font-weight: bold;
 }
 
 /* VARIABLES */
+.success-signup {
+  color: #b10909;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .form-connection {
   background-color: #04FF00;
   border: solid 0.3rem black;

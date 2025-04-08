@@ -49,7 +49,7 @@
                     <a class="text-decoration-none show-post" href="{{ path('topic_show', {'id': topic.id}) }}">
                         <div class="forum-row row align-items-center">
                             <div class="data-text col-6">{{ topic.title }}</div>
-                            <div class="data-text text-start col-2">{{ topic.user.isDeleted ? 'Utilisateur supprimé' : topic.user.username }}</div>
+                            <div class="data-text text-start col-2">{{ topic.user.isDeleted ? 'supprimé' : topic.user.username }}</div>
                             <div class="data-text text-center col-2">{{ topic.getRepliesCount() }}</div>
                             <div class="data-text text-center col-2">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
                         </div>

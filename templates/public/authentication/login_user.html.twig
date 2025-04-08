@@ -14,6 +14,11 @@
     <main class="container-fluid d-flex justify-content-center align-items-center flex-grow-1">
 
         <form action="{{ path('login_user') }}" method="POST" class="form-connection m-auto col-10 col-lg-6 mt-5 mb-5">
+            {% for message in app.flashes('success') %}
+                <div role="alert">
+                    <span class="success-signup text-center d-block p-4"><i class="fa-solid fa-circle-check"></i> Compte créé avec succès, tu peux désormais te connecter !</span>
+                </div>
+            {% endfor %}
 
             <div class="text-center pt-4">
                 <img src="{{ asset('assets/img/authentication/utilisateur.png') }}"
@@ -34,6 +39,14 @@
             </div>
 
             <button type="submit" class="button-connection d-block m-auto mt-4 p-1">Se connecter</button>
+
+            {% if error %}
+                <span class="error d-block text-center p-4">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    Identifiants invalides. Vérifie ton email et ton mot de passe.
+                </span>
+            {% endif %}
+
 
             <div class="text-center mt-4 pb-4">
                 <span class="span-to-inscription">Pas de compte ? <a href="{{ path('signup') }}">Créer un compte</a></span>
