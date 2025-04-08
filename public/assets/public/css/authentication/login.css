@@ -1,4 +1,7 @@
-/*GLOBAL*/
+/*FONTS*/
+/*BACKGROUND*/
+/*TEXT*/
+/* MIXIN */
 html {
   scroll-behavior: smooth;
 }
@@ -39,7 +42,6 @@ ul {
   font-weight: bold;
 }
 
-/* VARIABLES */
 .success-signup {
   color: #b10909;
   font-family: "Montserrat";

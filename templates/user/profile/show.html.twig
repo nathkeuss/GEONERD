@@ -38,22 +38,22 @@
 
             <div class="row">
 
-                <div class="col-6">
+                <div class="col-lg-6">
                     {{ form_label(formProfileView.username, 'Pseudo', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
                     {{ form_widget(formProfileView.username, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre votre pseudo'}}) }}
                     {{ form_errors(formProfileView.username) }}
                 </div>
 
-                <div class="col-6">
+                <div class="mt-3 mt-lg-0 col-lg-6">
                     {{ form_label(formProfileView.profile_picture, 'Photo de profil', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
                     {{ form_widget(formProfileView.profile_picture, {'attr': {'class': 'input-profile-info w-100'}}) }}
                     {{ form_errors(formProfileView.profile_picture) }}
                 </div>
             </div>
 
-            <div class="row mt-4">
+            <div class="row mt-3 mt-lg-4">
 
-                <div class="col-6">
+                <div class="col-lg-6">
                     {{ form_label(formProfileView.password, 'Mot de passe', {'label_attr': {'class': 'label-profile-info form-label text-start'}}) }}
                     {{ form_widget(formProfileView.password, {'attr': {'class': 'input-profile-info w-100', 'placeholder': 'Entre ton mot de passe pour valider les modifications'}}) }}
                     {{ form_errors(formProfileView.password) }}

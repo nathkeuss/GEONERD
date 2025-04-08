@@ -1,4 +1,7 @@
-/*GLOBAL*/
+/*FONTS*/
+/*BACKGROUND*/
+/*TEXT*/
+/* MIXIN */
 html {
   scroll-behavior: smooth;
 }
@@ -39,7 +42,6 @@ ul {
   font-weight: bold;
 }
 
-/* VARIABLES */
 .div-title-reply {
   border: solid 2px white;
   border-radius: 1.25rem;
@@ -53,15 +55,22 @@ ul {
 }
 
 .reply-button {
-  color: black;
-  background-color: white;
-  border-radius: 4rem;
-  padding: 0.2rem;
-  border: solid 0.2rem #131325;
-  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
   font-family: "Montserrat";
-  font-size: 1.4rem;
   font-weight: bold;
+  background-color: white;
+  color: #131325;
+  border: 2px solid #131325;
+  font-size: 1.5rem;
+}
+.reply-button:hover {
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .reply-button {
@@ -70,15 +79,22 @@ ul {
 }
 
 .list-topics-button {
-  color: black;
-  background-color: #ffffff;
-  border-radius: 4rem;
-  padding: 0.2rem;
-  border: solid 0.2rem #131325;
-  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
   font-family: "Montserrat";
-  font-size: 1.4rem;
   font-weight: bold;
+  background-color: white;
+  color: #131325;
+  border: 2px solid #131325;
+  font-size: 1.5rem;
+}
+.list-topics-button:hover {
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 .div-topic-reply {
@@ -133,33 +149,40 @@ ul {
 }
 
 .button-update {
-  font-family: "Montserrat";
-  font-weight: 400;
-  font-size: 1rem;
-  color: #ffa500;
-  border: solid 1px #FFA500;
-  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 1rem;
-  transition: ease background-color 0.2s, ease color 0.2s;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat";
+  font-weight: bold;
+  background-color: #ffa500;
+  color: #131325;
+  border: 2px solid #131325;
+  font-size: 1rem;
 }
 .button-update:hover {
-  color: #20202A;
-  background-color: #FFA500;
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 .button-delete {
-  font-family: "Montserrat";
-  font-weight: 400;
-  font-size: 1rem;
-  color: #ff0000;
-  border: solid 1px #ff0000;
-  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 1rem;
-  transition: ease background-color 0.2s, ease color 0.2s;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat";
+  font-weight: bold;
+  background-color: #ff0000;
+  color: #131325;
+  border: 2px solid #131325;
 }
 .button-delete:hover {
-  color: #131325;
-  background-color: #ff0000;
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 .no-reply {
@@ -184,10 +207,5 @@ ul {
     font-size: 1rem;
   }
 }
-/*
-.topic-title
-.reply-button
-.post-date
-.post-content*/
 
 /*# sourceMappingURL=show.css.map */

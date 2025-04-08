@@ -11,26 +11,11 @@
 }
 
 .continent {
-  border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
-  background-color: $background-accent-color;
+  @include button-style;
+  background-color: white;
   color: $text-dark-color;
   border: 2px solid $background-dark-color;
-  position: relative;
-  top: 0;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
-  transition: all 0.1s ease-in-out;
-
-  font: {
-    family: $font-family;
-    size: 1.5rem;
-    weight: bold;
-  }
-
-  &:hover {
-    top: 3px;
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
-  }
+  font-size: 1.5rem;
 
   &:nth-of-type(1) { background-color: #e52252; } // Europe
   &:nth-of-type(2) { background-color: #ee7800; } // Asie

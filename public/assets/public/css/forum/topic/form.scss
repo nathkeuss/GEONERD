@@ -73,23 +73,18 @@ ul {
 
 
 .button-publish {
-  font: {
-    family: $font-family;
-    weight: 400;
-    size: 1.5rem;
-  }
-  color: #4da8da;
+  @include button-style;
+  background-color: #4da8da;
+  color: $text-dark-color;
+  border: 2px solid #4da8da;
+  font-size: 1.5rem;
+}
+
+input[type="file"]::file-selector-button {
+  @include file-button-style;
   background-color: transparent;
-  border: solid 2px #4da8da;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 1rem;
-  transition: ease background-color 0.2s, ease color 0.2s;
-
-  &:hover {
-    color: $text-dark-color;
-    background-color: #4da8da;
-  }
-
+  color: $text-accent-color;
+  border-color: $background-accent-color
 }
 
 @media screen and (max-width: 768px) {

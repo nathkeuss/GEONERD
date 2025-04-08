@@ -24,51 +24,25 @@
 }
 
 .form-button-update {
-  border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
+  @include button-style;
   background-color: $background-accent-color;
   color: $text-dark-color;
-  border: 2px solid $background-dark-color;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
-  transition: all 0.15s ease-in-out;
-
-  font: {
-    family: $font-family;
-    size: 1.5rem;
-    weight: bold;
-  }
-
-  &:hover {
-    transform: translateY(2px);
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
-  }
+  border: 2px solid $background-accent-color;
+  font-size: 1.5rem;
 }
 
 .form-button-delete {
-  border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
+  @include button-style;
   background-color: #ff0000;
   color: $text-dark-color;
-  border: 2px solid $background-dark-color;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
-  transition: all 0.15s ease-in-out;
-
-  font: {
-    family: $font-family;
-    size: 1.5rem;
-    weight: bold;
-  }
-
-  &:hover {
-    transform: translateY(2px);
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
-  }
+  border: 2px solid #ff0000;
+  font-size: 1.5rem;
 }
 
 .label-profile-info {
   color: $text-light-color;
 
-  font : {
+  font: {
     family: $font-family;
     size: 1.7rem;
     weight: bold;
@@ -81,11 +55,12 @@
   padding: 0.9rem;
   background-color: $background-light-color;
 
-  font : {
+  font: {
     family: $font-family;
     size: 1.2rem;
     weight: bold;
   }
+
   &:focus {
     outline: none;
     box-shadow: inset 0 0 0 3px $background-accent-color;
@@ -93,17 +68,9 @@
 }
 
 input[type="file"]::file-selector-button {
-  color: black;
+  @include file-button-style;
   background-color: white;
-  border-style: dotted;
-  border-radius: 1rem;
-  font: {
-    family: $font-family;
-    weight: bold;
-    size: 1rem;
-  }
-  cursor: pointer;
-
+  color: black;
 }
 
 
@@ -114,4 +81,28 @@ input[type="file"]::file-selector-button {
   width: 105%;
   position: relative;
   left: -2.5%;
+}
+
+@media screen and (max-width: 768px) {
+  .form-button-update,
+  .form-button-delete {
+    font-size: 1rem;
+    padding: 0.4rem;
+  }
+  .profile-info-email,
+  .profile-info-username {
+    font-size: 1.5rem;
+  }
+  .div-img-logo {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
+  }
+  .input-profile-info {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .label-profile-info {
+    font-size: 1.2rem;
+  }
 }

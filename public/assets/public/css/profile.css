@@ -1,4 +1,7 @@
-/*GLOBAL*/
+/*FONTS*/
+/*BACKGROUND*/
+/*TEXT*/
+/* MIXIN */
 html {
   scroll-behavior: smooth;
 }
@@ -39,7 +42,6 @@ ul {
   font-weight: bold;
 }
 
-/* VARIABLES */
 .section-info {
   width: 85%;
   padding-top: 5rem;
@@ -65,35 +67,39 @@ ul {
 .form-button-update {
   border-radius: 1rem;
   padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat";
+  font-weight: bold;
   background-color: #04FF00;
   color: #131325;
-  border: 2px solid #131325;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
-  transition: all 0.15s ease-in-out;
-  font-family: "Montserrat";
+  border: 2px solid #04FF00;
   font-size: 1.5rem;
-  font-weight: bold;
 }
 .form-button-update:hover {
-  transform: translateY(2px);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 .form-button-delete {
   border-radius: 1rem;
   padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat";
+  font-weight: bold;
   background-color: #ff0000;
   color: #131325;
-  border: 2px solid #131325;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
-  transition: all 0.15s ease-in-out;
-  font-family: "Montserrat";
+  border: 2px solid #ff0000;
   font-size: 1.5rem;
-  font-weight: bold;
 }
 .form-button-delete:hover {
-  transform: translateY(2px);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 .label-profile-info {
@@ -118,14 +124,14 @@ ul {
 }
 
 input[type=file]::file-selector-button {
-  color: black;
-  background-color: white;
   border-style: dotted;
   border-radius: 1rem;
+  cursor: pointer;
   font-family: "Montserrat";
   font-weight: bold;
   font-size: 1rem;
-  cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 .line {
@@ -135,6 +141,30 @@ input[type=file]::file-selector-button {
   width: 105%;
   position: relative;
   left: -2.5%;
+}
+
+@media screen and (max-width: 768px) {
+  .form-button-update,
+  .form-button-delete {
+    font-size: 1rem;
+    padding: 0.4rem;
+  }
+  .profile-info-email,
+  .profile-info-username {
+    font-size: 1.5rem;
+  }
+  .div-img-logo {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
+  }
+  .input-profile-info {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .label-profile-info {
+    font-size: 1.2rem;
+  }
 }
 
 /*# sourceMappingURL=profile.css.map */

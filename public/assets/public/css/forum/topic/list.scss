@@ -65,17 +65,11 @@
 }
 
 .button-new-topic {
-  background-color: $background-light-color;
-  border-radius: 4rem;
-  padding: 1rem;
-  border: solid 0.2rem $background-dark-color;
-  box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.1rem;
-
-  font: {
-    family: $font-family;
-    size: 1.4rem;
-    weight: bold;
-  }
+  @include button-style;
+  background-color: white;
+  color: $text-dark-color;
+  border: 2px solid $background-dark-color;
+  font-size: 1.5rem;
 }
 
 

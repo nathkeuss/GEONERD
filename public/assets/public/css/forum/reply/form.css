@@ -1,4 +1,7 @@
-/*GLOBAL*/
+/*FONTS*/
+/*BACKGROUND*/
+/*TEXT*/
+/* MIXIN */
 html {
   scroll-behavior: smooth;
 }
@@ -39,7 +42,6 @@ ul {
   font-weight: bold;
 }
 
-/* VARIABLES */
 .h1-reply {
   padding: 2rem;
   color: white;
@@ -79,19 +81,34 @@ ul {
 }
 
 .button-publish {
-  font-family: "Montserrat";
-  font-weight: 400;
-  font-size: 1.5rem;
-  color: #4da8da;
-  background-color: transparent;
-  border: solid 2px #4da8da;
-  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 1rem;
-  transition: ease background-color 0.2s, ease color 0.2s;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+  font-family: "Montserrat";
+  font-weight: bold;
+  background-color: #4da8da;
+  color: #131325;
+  border: 2px solid #4da8da;
+  font-size: 1.5rem;
 }
 .button-publish:hover {
-  color: #131325;
-  background-color: #4da8da;
+  top: 3px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+input[type=file]::file-selector-button {
+  border-style: dotted;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #04FF00;
+  border-color: #04FF00;
 }
 
 @media screen and (max-width: 768px) {

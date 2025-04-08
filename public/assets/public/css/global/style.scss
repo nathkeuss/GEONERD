@@ -1,56 +1,6 @@
-/*GLOBAL*/
+// global/style.scss
 
-html {
-  scroll-behavior: smooth;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: rgb(19, 19, 37);
-}
-
-span, p {
-  color: white;
-  font : {
-    family: 'Montserrat';
-    size: 1.5rem;
-
-  }
-}
-
-ul {
-  list-style-type: disc;
-  color: white;
-}
-
-.w-95 {
-  width: 95%;
-}
-
-.w-80 {
-  width: 80%;
-}
-
-.error {
-  color: #b10909;
-  font: {
-    family: 'Montserrat';
-    size: 1rem;
-    weight: bold;
-  }
-}
-
-/* VARIABLES */
-
-$font-family: 'Montserrat';
-$background-dark-color: #131325FF;
-$background-light-color: white;
-$background-accent-color: #04FF00;
-$text-light-color: white;
-$text-dark-color: #131325FF;
-$text-accent-color: #04FF00;
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'utilities';

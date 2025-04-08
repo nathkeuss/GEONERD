@@ -1,4 +1,7 @@
-/*GLOBAL*/
+/*FONTS*/
+/*BACKGROUND*/
+/*TEXT*/
+/* MIXIN */
 html {
   scroll-behavior: smooth;
 }
@@ -39,7 +42,6 @@ ul {
   font-weight: bold;
 }
 
-/* VARIABLES */
 .form-inscription {
   background-color: #04FF00;
   border: solid 0.3rem black;
