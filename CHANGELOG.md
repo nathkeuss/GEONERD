@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.74](https://github.com/nathkeuss/GEONERD/compare/v0.1.73...v0.1.74) (2025-04-08)
+
+
+### Features
+
+* **responsive:** improve responsive ([57245ad](https://github.com/nathkeuss/GEONERD/commit/57245adf2797a308e6a3b2c87d97bf4a8f0a808c))
+
 ### [0.1.73](https://github.com/nathkeuss/GEONERD/compare/v0.1.72...v0.1.73) (2025-04-08)
 
 
