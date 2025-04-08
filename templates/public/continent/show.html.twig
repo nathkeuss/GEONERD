@@ -14,12 +14,12 @@
     <main>
         <h1 class="choice-title text-center mb-5 mt-5">Liste des pays pour l'{{ continent.name }}</h1>
 
-        <section class="w-75 m-auto row justify-content-between">
+        <section class="w-75 m-auto row gap-5 justify-content-between">
 
             {% for country in countries %}
 
                 <a href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}"
-                   class="container-country col-lg-3 col-5 h-100 p-0">
+                   class="container-country col-5 col-lg-3 h-100 p-0">
                     <h2 class="country-name w-100 text-center">{{ country.name }}</h2>
                     <div class="w-100 h-100 container-flag">
                         <img class="img-fluid w-100 h-100"

@@ -57,11 +57,6 @@ ul {
   z-index: 1;
 }
 
-.image-center {
-  object-fit: cover;
-  object-position: center;
-}
-
 .country-name {
   color: white;
   font-family: "Montserrat";
@@ -83,10 +78,20 @@ ul {
   margin-bottom: 5rem;
 }
 
-/*.image-explain {
-  color: $text-light-color !important;
-  font: normal 2rem $font-family !important;
+p {
+  font-size: 1.5rem;
+}
 
-}*/
+@media screen and (max-width: 768px) {
+  .country-name {
+    font-size: 3rem;
+  }
+  .h1-identify {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
 
 /*# sourceMappingURL=show.css.map */

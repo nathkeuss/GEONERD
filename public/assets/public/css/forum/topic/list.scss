@@ -94,3 +94,26 @@
   position: relative;
   left: -2.5%;
 }
+
+@media screen and (max-width: 768px) {
+  .head-text {
+    font-size: 1rem;
+  }
+  .data-text {
+    font-size: 1rem;
+    &:nth-of-type(2),
+    &:nth-of-type(3),
+    &:nth-of-type(4) {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+  .button-new-topic {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+  .button-search {
+
+  }
+
+}

@@ -90,7 +90,6 @@ ul {
   box-shadow: rgba(0, 0, 0, 0.307) -0.5rem 0.3rem;
   z-index: 1000;
   transition: transform 0.5s;
-  margin: 3rem;
 }
 .container-country::after {
   content: "";
@@ -103,11 +102,6 @@ ul {
 }
 .container-country:hover {
   transform: scale(1.1);
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .container-country {
-    margin: 1rem;
-  }
 }
 
 .country-name {
@@ -141,6 +135,15 @@ ul {
   border-bottom-right-radius: 4rem;
   padding: 0.7rem;
   background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .choice-title {
+    font-size: 1.5rem;
+  }
+  .country-name {
+    font-size: 1rem;
+  }
 }
 
 /*# sourceMappingURL=list.css.map */

@@ -1,13 +1,14 @@
 @import 'global/style';
 
-/*HEADER*/
+/* HEADER */
 
 .nav-img-logo {
   margin-left: 1.8rem;
   width: 7%;
 
-  @media screen and (min-width: 481px) and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     width: 10%;
+    margin-left: 1rem;
   }
 }
 
@@ -20,6 +21,16 @@
     family: $font-family;
     weight: bold;
     size: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.3rem;
+    margin-left: 1rem;
   }
 
   position: relative;
@@ -47,10 +58,14 @@
   }
 }
 
-
 .div-img-profile {
   width: 4rem;
   height: 4rem;
+
+  @media screen and (max-width: 768px) {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .nav-a-connection {
@@ -64,33 +79,31 @@
     weight: bold;
   }
 
-  /*  position: relative;
-    padding-right: 0.7rem;
-    border: solid 1px transparent;
-    border-radius: 1rem;
-    transition: border-color 0.5s;
-
-    &:hover {
-      border-color: #5D5D5D;
-    }*/
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 
   img {
     margin-right: 0.6rem;
     width: 2rem;
-    height: auto;
-  }
 
-  @media screen and (min-width: 481px) and (max-width: 1024px) {
-    margin-right: 2rem;
+    @media screen and (max-width: 768px) {
+      width: 1.5rem;
+    }
   }
 }
 
 .user-username {
   cursor: pointer;
+
   font: {
     family: $font-family;
     size: 2rem;
     weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
   }
 }
 
@@ -100,7 +113,7 @@
   border: solid 1px #5D5D5D;
   background-color: rgba(32, 32, 42, 1);
   z-index: 50000;
-  margin-top:5rem;
+  margin-top: 5rem;
   transform: scale(0);
   opacity: 0;
   transition: transform 0.3s, opacity 0.3s;
@@ -113,11 +126,17 @@
 
 .custom-dropdown-item {
   color: $text-light-color;
+
   font: {
     family: $font-family;
     size: 1.5rem;
     weight: 500;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+
   text-decoration: none;
   display: block;
   padding: 0.5rem;
@@ -130,13 +149,11 @@
   }
 }
 
-
 .custom-dropdown-item:nth-of-type(2) {
   color: #ff0000;
 }
 
-
-/*FOOTER*/
+/* FOOTER */
 
 footer {
   background-color: $background-light-color;
@@ -150,7 +167,6 @@ footer {
   height: 100%;
 }
 
-
 .footer-a {
   text-decoration: none;
   color: rgba(32, 32, 42, 1);
@@ -161,7 +177,11 @@ footer {
     weight: 900;
   }
 
-  @media screen and (min-width: 481px) and (max-width: 1024px) {
-    font-size: 7rem;
+  @media screen and (max-width: 768px) {
+    font-size: 5rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 3rem;
   }
 }
