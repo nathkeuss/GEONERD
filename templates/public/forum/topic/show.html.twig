@@ -14,12 +14,12 @@
 
     <main class="flex-grow-1">
 
-        <section class="w-80 m-auto mt-5">
+        <section class="w-95 m-auto mt-5">
 
             {# div avec titre/répondre/liste #}
             <div class="row align-items-center div-title-reply p-3 justify-content-between m-0">
-                <h1 class="col-7 topic-title">{{ topic.title }}</h1>
-                <a class=" col-2 reply-button text-decoration-none text-center"
+                <h1 class="col-7 col-lg-7 topic-title">{{ topic.title }}</h1>
+                <a class="col-4 col-lg-2 reply-button text-decoration-none text-center"
                    href="{{ path('reply_create', {'id': topic.id}) }}">Répondre</a>
                 <a class="col-2 list-topics-button text-decoration-none text-center d-none d-lg-block" href="{{ path('topic_list') }}">Liste des
                     topics</a>
@@ -29,7 +29,7 @@
             <div class="div-topic-reply mt-5">
                 {# div img profil/pseudo/date #}
                 <div class="w-95 m-auto">
-                    <div class="d-flex pt-3 align-items-center justify-content-between">
+                    <div class="d-block d-lg-flex pt-3 align-items-center justify-content-between">
                         {# div img profil + pseudo #}
                         <div class="d-flex align-items-center">
                             <div class="div-img-profile me-2">
@@ -41,7 +41,7 @@
                         </div>
                         {# div date #}
                         <div>
-                            <span class="post-date">{{ topic.date|date("\\l\\e d/m à H\\hi") }}</span>
+                            <span class="post-date mt-2 ms-1 mt-lg-0 ms-lg-0">{{ topic.date|date("\\l\\e d/m à H\\hi") }}</span>
                         </div>
                     </div>
                     <hr class="divider-user-message">
@@ -53,7 +53,7 @@
                         </div>
                         {# Vérifie si une image existe pour le post #}
                         {% if topic.image %}
-                            <div class="overflow-hidden div-img-user-post col-12 col-lg-5 p-0 m-0">
+                            <div class="overflow-hidden div-img-user-post col-10 m-auto col-lg-5 p-0 m-0">
                                 <img class="img-fluid w-100 h-100"
                                      src="{{ asset('uploads/forum/topics/' ~ topic.image) }}"
                                      alt="Image que l'auteur de la discussion a posté">
@@ -82,8 +82,8 @@
                 {# réponses #}
                 {% if replies|length > 0 %}
                     {% for reply in replies %}
-                        <div class="w-95 m-auto {% if loop.last %}mb-3{% endif %}">
-                            <div class="d-flex pt-3 align-items-center justify-content-between">
+                        <article class="w-95 m-auto {% if loop.last %}mb-3{% endif %}">
+                            <div class="d-block d-lg-flex pt-3 align-items-center justify-content-between">
                                 {# div img profil + pseudo #}
                                 <div class="d-flex align-items-center">
                                     <div class="div-img-profile me-2">
@@ -95,7 +95,7 @@
                                 </div>
                                 {# div date #}
                                 <div>
-                                    <span class="post-date">{{ reply.date|date('\\l\\e d/m à H\\hi') }}</span>
+                                    <span class="post-date mt-2 ms-1 mt-lg-0 ms-lg-0">{{ reply.date|date('\\l\\e d/m à H\\hi') }}</span>
                                 </div>
                             </div>
                             <hr class="divider-user-message">
@@ -107,7 +107,7 @@
                                 </div>
 
                                 {% if reply.image %}
-                                    <div class="overflow-hidden div-img-user-post col-12 col-lg-5 p-0 m-0">
+                                    <div class="overflow-hidden div-img-user-post col-10 m-auto col-lg-5 p-0 m-0">
                                         <img class="img-fluid w-100 h-100"
                                              src="{{ asset('uploads/forum/replies/' ~ reply.image) }}"
                                              alt="Image que l'auteur de la discussion a posté">
@@ -130,7 +130,7 @@
                                     </a>
                                 </div>
                             {% endif %}
-                        </div>
+                        </article>
                         {% if not loop.last %}
                             <hr class="divider-reply">
                         {% endif %}

@@ -91,3 +91,19 @@ ul {
   }
 
 }
+
+@media screen and (max-width: 768px) {
+  .h1-new-discussion {
+    font-size: 2rem;
+  }
+  .message-reply {
+    font-size: 1.2rem;
+  }
+  .image-reply {
+    font-size: 1.2rem;
+  }
+  .button-publish {
+    font-size: 1.2rem;
+  }
+
+}

@@ -169,4 +169,25 @@ ul {
   font-size: 2rem;
 }
 
+@media screen and (max-width: 768px) {
+  .topic-title {
+    font-size: 1.5rem;
+  }
+  .reply-button {
+    font-size: 1.2rem;
+  }
+  .post-date {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .post-content {
+    font-size: 1rem;
+  }
+}
+/*
+.topic-title
+.reply-button
+.post-date
+.post-content*/
+
 /*# sourceMappingURL=show.css.map */
