@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.71](https://github.com/nathkeuss/GEONERD/compare/v0.1.70...v0.1.71) (2025-04-08)
+
+
+### Features
+
+* **validation:** add data constraints and style error messages on forms ([c2dbd35](https://github.com/nathkeuss/GEONERD/commit/c2dbd35f66c79843d1bd4d9e73c346197c44c522))
+
 ### [0.1.70](https://github.com/nathkeuss/GEONERD/compare/v0.1.69...v0.1.70) (2025-04-07)
 
 
