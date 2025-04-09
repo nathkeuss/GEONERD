@@ -9,14 +9,10 @@
 
 .mobile-message {
   color: $text-light-color;
-  font : {
+  font: {
     family: $font-family;
-    size: 2rem;
+    size: 1rem;
     weight: bold;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
   }
 }
 
@@ -29,10 +25,6 @@
     family: $font-family;
     size: 2em;
     weight: 500;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.5em;
   }
 }
 
@@ -55,11 +47,6 @@
   height: 80vh;
   gap: 1.8rem;
 
-  @media screen and (max-width: 1024px) {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
 }
 
 /* liens dans la grille */
@@ -83,9 +70,6 @@
     transform: scale(1.03);
   }
 
-  @media screen and (max-width: 768px) {
-    height: 12rem;
-  }
 }
 
 /* TUTO */
@@ -113,21 +97,12 @@
   z-index: 2000;
   position: relative;
 
-  font : {
+  font: {
     family: $font-family;
     size: 6rem;
     weight: 900;
   }
 
-  @media screen and (max-width: 1024px) {
-    font-size: 4rem;
-    padding-left: 3rem;
-  }
-
-  @media screen and (max-width: 480px) {
-    font-size: 2.5rem;
-    padding-left: 2rem;
-  }
 }
 
 .soon {
@@ -140,22 +115,11 @@
     weight: 900;
   }
 
-  @media screen and (max-width: 1024px) {
-    font-size: 2rem;
-  }
 }
 
 /* TUTO text */
 .home-a-nav:first-of-type .home-a-p {
   font-size: 10rem;
-
-  @media screen and (max-width: 1024px) {
-    font-size: 5rem;
-  }
-
-  @media screen and (max-width: 480px) {
-    font-size: 3rem;
-  }
 }
 
 /* Figures dans les liens */
@@ -169,11 +133,6 @@
   width: 40%;
   top: -10%;
   right: 10%;
-
-  @media screen and (max-width: 1024px) {
-    top: 0%;
-    width: 60%;
-  }
 }
 
 /* img dans QUIZ */
@@ -182,12 +141,6 @@
   width: 45%;
   top: 3%;
   right: -5%;
-
-  @media screen and (max-width: 1024px) {
-    width: 35%;
-    top: 10%;
-    right: 5%;
-  }
 }
 
 /* img dans FORUM */
@@ -197,11 +150,48 @@
   top: -5%;
   right: 15%;
   z-index: 1000;
-
-  @media screen and (max-width: 1024px) {
-    transform: rotate(-10deg);
-    width: 35%;
-    top: -10%;
-    right: -2%;
-  }
 }
+
+@media screen and (max-width: 768px) {
+  .home-div-grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .home-a-nav {
+    width: 100%;
+    height: 15vh;
+  }
+  .home-a-p {
+    font-size: 3rem;
+    padding-left: 2rem;
+  }
+  .home-a-nav:first-of-type .home-a-p {
+    font-size: 3rem;
+  }
+  .soon {
+    font-size: 2rem;
+  }
+  .home-a-nav:first-of-type .home-img {
+    width: 50%;
+    top: 1%;
+    right: 10%;
+  }
+    .home-a-nav:nth-of-type(2) .home-img {
+        width: 40%;
+        top: 5%;
+        right: 10%;
+    }
+    .home-a-nav:nth-of-type(3) .home-img {
+        width: 50%;
+        top: 1%;
+        right: 5%;
+    }
+}
+
+/*.mobile-message
+.home-h1
+.home-section-map
+.home-a-nav
+.home-a-p
+.soon*/

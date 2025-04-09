@@ -142,6 +142,9 @@ ul {
     padding: 0.5rem;
     margin-top: 1rem;
   }
+  .button-search {
+    padding: 0 1rem 0 0;
+  }
 }
 
 /*# sourceMappingURL=list.css.map */

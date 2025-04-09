@@ -27,62 +27,56 @@
 <body class="d-flex flex-column">
 
 <header>
+    <nav class="px-3 py-3 px-lg-5 py-lg-4">
+        <ul class="d-flex align-items-center">
+            <li>
+                <a class="nav-img-logo d-block" href="{{ path('home') }}">
+                    <img class="img-fluid w-100 h-100" src="{{ asset('assets/img/base/logo_site.png') }}"
+                         alt="Logo du site GEONERD, une planète avec des yeux et un doigt levé en mode 'actually' ">
+                </a>
+            </li>
+            {% if app.request.attributes.get('_route') != 'home' %}
+                <li>
+                    <a class="nav-a-text d-none d-lg-block" href="{{ path('home') }}">ACCUEIL</a>
+                </li>
+            {% endif %}
 
-    <nav class="nav navbar navbar-expand-sm container-fluid w-100 ps-5 pe-5">
-        <!-- logo -->
-        <a class="nav-img-logo navbar-brand m-0" href="{{ path('home') }}">
-            <img class="w-100 h-100" src="{{ asset('assets/img/base/logo_site.png') }}"
-                 alt="Logo du site GEONERD, une planète avec des yeux et un doigt levé en mode 'actually' ">
-        </a>
-
-        <div class="navbar-collapse">
-            <ul class="navbar-nav w-100 d-flex justify-content-between align-items-center">
-                <!-- navigation -->
-                <div class="d-flex">
-                    <li class="nav-item nav-responsive">
-                        {% if app.request.attributes.get('_route') != 'home' %}
-                            <a class="nav-a-text d-none d-lg-block" href="{{ path('home') }}">ACCUEIL</a>
-                        {% endif %}
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-a-text d-block" href="{{ path('country_list') }}">TUTO</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-a-text d-block" href="{{ path('topic_list') }}">FORUM</a>
-                    </li>
-                </div>
-
-                <!-- connexion/dropdown -->
-                {% if app.user %}
-                    <li class="nav-item d-flex flex-column align-items-center">
-                        <div class="nav-a-connection d-flex align-items-center text-decoration-none" id="profile-menu">
-                            <div class="div-img-profile me-3">
-                                <img src="{{ profile_picture(app.user) }}"
-                                     alt="Image de profil de {{ app.user.username }}"
-                                     class="img-fluid rounded-circle w-100 h-100">
-                            </div>
-                            <span class="user-username">{{ app.user.username }}</span>
+            <li>
+                <a class="nav-a-text d-block" href="{{ path('country_list') }}">TUTO</a>
+            </li>
+            <li>
+                <a class="nav-a-text d-block" href="{{ path('topic_list') }}">FORUM</a>
+            </li>
+            {% if app.user %}
+                <li class="ms-auto d-flex flex-column align-items-center">
+                    <div class="nav-a-connection d-flex align-items-center text-decoration-none" id="profile-menu">
+                        <div class="div-img-profile me-3">
+                            <img src="{{ profile_picture(app.user) }}"
+                                 alt="Image de profil de {{ app.user.username }}"
+                                 class="img-fluid rounded-circle w-100 h-100">
                         </div>
-                        <div class="custom-dropdown position-absolute" id="profile-dropdown">
-                            <a class="custom-dropdown-item d-flex mb-2" href="{{ path('user_profile_show', {'id': app.user.id}) }}">Mon compte</a>
-                            <hr style="color: white">
-                            <a class="custom-dropdown-item" href="{{ path('logout_user') }}">Déconnexion</a>
-                        </div>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-a-connection d-flex align-items-center text-decoration-none text-light"
-                           href="{{ path('login_user') }}">
-                            <img src="{{ asset('assets/img/base/utilisateur.png') }}"
-                                 alt="Icône d'un bonhomme de connexion">
-                            Connexion
-                        </a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
+                        <span class="user-username">{{ app.user.username }}</span>
+                    </div>
+                    <div class="custom-dropdown position-absolute" id="profile-dropdown">
+                        <a class="custom-dropdown-item d-flex mb-2"
+                           href="{{ path('user_profile_show', {'id': app.user.id}) }}">Mon compte</a>
+                        <hr style="color: white">
+                        <a class="custom-dropdown-item" href="{{ path('logout_user') }}">Déconnexion</a>
+                    </div>
+                </li>
+            {% else %}
+                <li>
+                    <a class="nav-a-connection d-flex align-items-center text-decoration-none text-light"
+                       href="{{ path('login_user') }}">
+                        <img src="{{ asset('assets/img/base/utilisateur.png') }}"
+                             alt="Icône d'un bonhomme de connexion">
+                        Connexion
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+
     </nav>
-
 </header>
 
 {% for message in app.flashes('danger') %}

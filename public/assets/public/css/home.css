@@ -51,13 +51,8 @@ ul {
 .mobile-message {
   color: white;
   font-family: "Montserrat";
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
-}
-@media screen and (max-width: 768px) {
-  .mobile-message {
-    font-size: 1.5rem;
-  }
 }
 
 .home-h1 {
@@ -67,11 +62,6 @@ ul {
   font-family: "Montserrat";
   font-size: 2em;
   font-weight: 500;
-}
-@media screen and (max-width: 768px) {
-  .home-h1 {
-    font-size: 1.5em;
-  }
 }
 
 .home-section-map svg {
@@ -90,13 +80,6 @@ ul {
   width: 100%;
   height: 80vh;
   gap: 1.8rem;
-}
-@media screen and (max-width: 1024px) {
-  .home-div-grid {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-  }
 }
 
 /* liens dans la grille */
@@ -118,11 +101,6 @@ ul {
 }
 .home-a-nav:hover {
   transform: scale(1.03);
-}
-@media screen and (max-width: 768px) {
-  .home-a-nav {
-    height: 12rem;
-  }
 }
 
 /* TUTO */
@@ -153,18 +131,6 @@ ul {
   font-size: 6rem;
   font-weight: 900;
 }
-@media screen and (max-width: 1024px) {
-  .home-a-p {
-    font-size: 4rem;
-    padding-left: 3rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .home-a-p {
-    font-size: 2.5rem;
-    padding-left: 2rem;
-  }
-}
 
 .soon {
   color: red;
@@ -173,25 +139,10 @@ ul {
   font-size: 3rem;
   font-weight: 900;
 }
-@media screen and (max-width: 1024px) {
-  .soon {
-    font-size: 2rem;
-  }
-}
 
 /* TUTO text */
 .home-a-nav:first-of-type .home-a-p {
   font-size: 10rem;
-}
-@media screen and (max-width: 1024px) {
-  .home-a-nav:first-of-type .home-a-p {
-    font-size: 5rem;
-  }
-}
-@media screen and (max-width: 480px) {
-  .home-a-nav:first-of-type .home-a-p {
-    font-size: 3rem;
-  }
 }
 
 /* Figures dans les liens */
@@ -206,12 +157,6 @@ ul {
   top: -10%;
   right: 10%;
 }
-@media screen and (max-width: 1024px) {
-  .home-a-nav:first-of-type .home-img {
-    top: 0%;
-    width: 60%;
-  }
-}
 
 /* img dans QUIZ */
 .home-a-nav:nth-of-type(2) .home-img {
@@ -219,13 +164,6 @@ ul {
   width: 45%;
   top: 3%;
   right: -5%;
-}
-@media screen and (max-width: 1024px) {
-  .home-a-nav:nth-of-type(2) .home-img {
-    width: 35%;
-    top: 10%;
-    right: 5%;
-  }
 }
 
 /* img dans FORUM */
@@ -236,13 +174,48 @@ ul {
   right: 15%;
   z-index: 1000;
 }
-@media screen and (max-width: 1024px) {
+
+@media screen and (max-width: 768px) {
+  .home-div-grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .home-a-nav {
+    width: 100%;
+    height: 15vh;
+  }
+  .home-a-p {
+    font-size: 3rem;
+    padding-left: 2rem;
+  }
+  .home-a-nav:first-of-type .home-a-p {
+    font-size: 3rem;
+  }
+  .soon {
+    font-size: 2rem;
+  }
+  .home-a-nav:first-of-type .home-img {
+    width: 50%;
+    top: 1%;
+    right: 10%;
+  }
+  .home-a-nav:nth-of-type(2) .home-img {
+    width: 40%;
+    top: 5%;
+    right: 10%;
+  }
   .home-a-nav:nth-of-type(3) .home-img {
-    transform: rotate(-10deg);
-    width: 35%;
-    top: -10%;
-    right: -2%;
+    width: 50%;
+    top: 1%;
+    right: 5%;
   }
 }
+/*.mobile-message
+.home-h1
+.home-section-map
+.home-a-nav
+.home-a-p
+.soon*/
 
 /*# sourceMappingURL=home.css.map */

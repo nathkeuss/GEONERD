@@ -38,12 +38,11 @@
 
         <section class="w-75 m-auto">
             <div class="w-100 mt-5">
-                <span class="d-block d-lg-none">Les sujets</span>
-                <div class="forum-row row d-none d-lg-flex justify-content-between">
-                    <div class="head-text col-6">Sujet</div>
-                    <div class="head-text text-start col-2">Auteur</div>
-                    <div class="head-text text-center col-2">Nb msg</div>
-                    <div class="head-text text-center col-2">Der. message</div>
+                <div class="forum-row row justify-content-between">
+                    <div class="head-text col-5 col-lg-6">Sujet</div>
+                    <div class="head-text text-start d-none d-lg-flex col-lg-2">Auteur</div>
+                    <div class="head-text text-center col col-lg-2">Nb msg</div>
+                    <div class="head-text text-center col col-lg-2">Der. message</div>
                 </div>
 
                 <hr class="line">
@@ -52,10 +51,10 @@
 
                     <a class="text-decoration-none show-post" href="{{ path('topic_show', {'id': topic.id}) }}">
                         <div class="forum-row row justify-content-between align-items-center">
-                            <div class="data-text col-12 col-lg-6">{{ topic.title }}</div>
-                            <div class="data-text text-start col-2 col-lg-2">{{ topic.user.isDeleted ? 'supprimé' : topic.user.username }}</div>
+                            <div class="data-text col-5 col-lg-6">{{ topic.title }}</div>
+                            <div class="data-text text-start col col-lg-2">{{ topic.user.isDeleted ? 'supprimé' : topic.user.username }}</div>
                             <div class="data-text text-center d-none d-lg-block col-lg-2">{{ topic.getRepliesCount() }}</div>
-                            <div class="data-text text-center col-4 col-lg-2">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
+                            <div class="data-text text-center col col-lg-2">{{ topic.getLastActivityDate|date("\\l\\e d/m à H\\hi") }}</div>
                         </div>
                     </a>
 
