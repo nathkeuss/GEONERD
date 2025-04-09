@@ -9,6 +9,7 @@
           content="Site pour apprendre la géographie et principalement pour le jeu geoguessr. Contient multiples tutoriels et un forum.">
     <meta name="keywords" content="geoguessr, fr, français, apprendre geoguessr">
     <meta name="author" content="Nathan JULIO - GEONERD">
+    <link rel="icon" href="{{ asset('assets/img/base/logo_site.ico') }}" type="image/ico">
     <title>{% block title %}Accueil GEONERD{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,17 +37,24 @@
                 </a>
             </li>
             {% if app.request.attributes.get('_route') != 'home' %}
-                <li>
-                    <a class="nav-a-text d-none d-lg-block" href="{{ path('home') }}">ACCUEIL</a>
+                <li class="d-none d-lg-block">
+                    <a class="nav-a-text" href="{{ path('home') }}">ACCUEIL</a>
                 </li>
             {% endif %}
 
-            <li>
+            <li class="d-none d-lg-block ms-4">
                 <a class="nav-a-text d-block" href="{{ path('country_list') }}">TUTO</a>
             </li>
-            <li>
+            <li class="d-none d-lg-block ms-4">
                 <a class="nav-a-text d-block" href="{{ path('topic_list') }}">FORUM</a>
             </li>
+
+            <ul class="ms-auto d-lg-none" id="mobile-burger">
+                <li class="hamb"></li>
+                <li class="hamb"></li>
+                <li class="hamb"></li>
+            </ul>
+
             {% if app.user %}
                 <li class="ms-auto d-flex flex-column align-items-center">
                     <div class="nav-a-connection d-flex align-items-center text-decoration-none" id="profile-menu">
@@ -55,7 +63,7 @@
                                  alt="Image de profil de {{ app.user.username }}"
                                  class="img-fluid rounded-circle w-100 h-100">
                         </div>
-                        <span class="user-username">{{ app.user.username }}</span>
+                        <span class="user-username d-none d-lg-block">{{ app.user.username }}</span>
                     </div>
                     <div class="custom-dropdown position-absolute" id="profile-dropdown">
                         <a class="custom-dropdown-item d-flex mb-2"
@@ -65,16 +73,21 @@
                     </div>
                 </li>
             {% else %}
-                <li>
+                <li class="ms-auto">
                     <a class="nav-a-connection d-flex align-items-center text-decoration-none text-light"
                        href="{{ path('login_user') }}">
-                        <img src="{{ asset('assets/img/base/utilisateur.png') }}"
+                        <img class="d-block" src="{{ asset('assets/img/base/utilisateur.png') }}"
                              alt="Icône d'un bonhomme de connexion">
-                        Connexion
+                        <span class="d-none d-lg-block nav-a-connection">Connexion</span>
                     </a>
                 </li>
             {% endif %}
         </ul>
+        <!-- Menu mobile slide -->
+        <div id="mobile-menu" class="w-100 m-auto mobile-slide-menu d-lg-none">
+            <a href="{{ path('country_list') }}">TUTO</a>
+            <a href="{{ path('topic_list') }}">FORUM</a>
+        </div>
 
     </nav>
 </header>
