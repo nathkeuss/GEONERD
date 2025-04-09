@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.78](https://github.com/nathkeuss/GEONERD/compare/v0.1.77...v0.1.78) (2025-04-09)
+
+
+### Bug Fixes
+
+* **favicon:** fix favicon ([ef96b7f](https://github.com/nathkeuss/GEONERD/commit/ef96b7f88fb09331accb0852b86b091dd09814fb))
+
 ### [0.1.77](https://github.com/nathkeuss/GEONERD/compare/v0.1.76...v0.1.77) (2025-04-09)
 
 
