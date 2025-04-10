@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.80](https://github.com/nathkeuss/GEONERD/compare/v0.1.79...v0.1.80) (2025-04-10)
+
+
+### Bug Fixes
+
+* **country-controller:** fix create/delete/update ([9ff997c](https://github.com/nathkeuss/GEONERD/commit/9ff997c540716d9da7b081145ad75e4e23333267))
+
 ### [0.1.79](https://github.com/nathkeuss/GEONERD/compare/v0.1.78...v0.1.79) (2025-04-10)
 
 
