@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.79](https://github.com/nathkeuss/GEONERD/compare/v0.1.78...v0.1.79) (2025-04-10)
+
+
+### Features
+
+* **svg-map:** make each country clickable with link ([3640b55](https://github.com/nathkeuss/GEONERD/commit/3640b557aee0e2886c26ab7760d24837fe52c92a))
+
 ### [0.1.78](https://github.com/nathkeuss/GEONERD/compare/v0.1.77...v0.1.78) (2025-04-09)
 
 
