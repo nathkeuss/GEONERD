@@ -57,7 +57,7 @@ class CountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le pays a bien été ajouté');
-            return $this->redirectToRoute('continent_show', ['slug' => $slugContinent]);
+            return $this->redirectToRoute('admin_continent_show', ['slugContinent' => $slugContinent]);
         }
 
         $formCountryView = $formCountry->createView();
@@ -133,7 +133,7 @@ class CountryController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', 'Le pays a bien été modifié');
-            return $this->redirectToRoute('continent_show', ['slug' => $slugContinent]);
+            return $this->redirectToRoute('continent_show', ['slugContinent' => $slugContinent]);
         }
 
         $formCountryView = $formCountry->createView();
@@ -166,7 +166,7 @@ class CountryController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success', 'Le pays a bien été supprimé');
-        return $this->redirectToRoute('continent_show', ['slug' => $slugContinent]);
+        return $this->redirectToRoute('continent_show', ['slugContinent' => $slugContinent]);
     }
 
 }

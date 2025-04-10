@@ -31,7 +31,7 @@ class Country
     #[ORM\JoinColumn(nullable: false)]
     private ?Continent $continent = null;
 
-    #[ORM\OneToMany(mappedBy: 'country', targetEntity: Tutorial::class)]
+    #[ORM\OneToMany(mappedBy: 'country', targetEntity: Tutorial::class, cascade: ['remove'], orphanRemoval: true)]
     private Collection $tutorials;
 
     #[ORM\Column(length: 255, unique: true, nullable: false)]
