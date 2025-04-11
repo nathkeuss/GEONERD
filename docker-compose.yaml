@@ -1,33 +1,32 @@
+version: "3.8"
+
 services:
-  server:
+  geonerd:
     build:
       context: .
+    container_name: geonerd-app
     ports:
       - "8000:80"
-    volumes:
-      - .:/var/www/html:cached
     depends_on:
       - db
     env_file:
       - .env.local
     command: >
       bash -c "chown -R www-data:www-data var && apache2-foreground"
+    restart: unless-stopped
 
   db:
     image: mysql:8
-    restart: always
+    container_name: geonerd-db
+    restart: unless-stopped
     env_file:
       - .env.local
-    ports:
-      - "3306:3306"
+    volumes:
+      - geonerd-db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 5
 
-  phpmyadmin:
-    image: phpmyadmin
-    restart: always
-    ports:
-      - "8080:80"
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
-    depends_on:
-      - db
+volumes:
+  geonerd-db-data:

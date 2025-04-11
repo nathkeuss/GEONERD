@@ -24,7 +24,7 @@ COPY . .
 COPY ./apache-config.conf /etc/apache2/sites-available/000-default.conf
 
 # installe les dépendances Symfony (prod uniquement ici)
-RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-progress || true
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts --no-progress || true
 
 # crée les dossiers var/cache et var/log au cas où ils n'existent pas
 RUN mkdir -p var/cache var/log
