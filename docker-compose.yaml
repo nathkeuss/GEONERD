@@ -7,8 +7,8 @@ services:
       - "8000:80"
     depends_on:
       - db
-    volumes:
-      - /var/www/html/GEONERD/.env:/var/www/html/.env
+    env_file:
+      - /var/www/html/GEONERD/.env
     command: >
       bash -c "chown -R www-data:www-data var && apache2-foreground"
     restart: unless-stopped
@@ -17,8 +17,9 @@ services:
     image: mysql:8
     container_name: geonerd-db
     restart: unless-stopped
+    env_file:
+      - /var/www/html/GEONERD/.env
     volumes:
-      - /var/www/html/GEONERD/.env:/var/www/html/.env
       - geonerd-db-data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
