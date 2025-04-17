@@ -1,6 +1,7 @@
 
 ###> symfony/framework-bundle ###
 docker-compose.override.yaml
+.env.prod
 /.env.local
 /.env.local.php
 /.env.*.local
