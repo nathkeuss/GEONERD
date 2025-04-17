@@ -1,37 +1,49 @@
-# utilise l'image PHP avec Apache
+FROM composer:2 as composer
+
+# set working directory for Composer
+WORKDIR /app
+
+# copy only the files needed for depencency installation
+COPY composer.json composer.lock ./
+
+# install php dependencies
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts --no-progress
+
+# php + apache image
 FROM php:8.2-apache
 
-# installe les extensions PHP nécessaires pour Symfony + outils système
+# install required system tools and php extensions
 RUN apt-get update && apt-get install -y \
     unzip \
     git \
     zip \
-    && docker-php-ext-install pdo pdo_mysql
+    && docker-php-ext-install pdo pdo_mysql \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# active le module mod_rewrite d'Apache
+# enable apache mod_rewrite for Symfony routing
 RUN a2enmod rewrite
 
-# installe Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# définit le dossier de travail
+# set working directory
 WORKDIR /var/www/html
 
-# copie tout le projet
+# copy full project
 COPY . .
+# copy installed vendor dependencies from composer stage
+COPY --from=composer /app/vendor ./vendor
 
-# copie la config Apache
+# replace default aapache config with custom one
 COPY ./apache-config.conf /etc/apache2/sites-available/000-default.conf
 
-# installe les dépendances Symfony (prod uniquement ici)
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts --no-progress || true
-
-# crée les dossiers var/cache et var/log au cas où ils n'existent pas
+# created required folders if they don't exist
 RUN mkdir -p var/cache var/log
 
-# donne les bonnes permissions (évite les erreurs de cache/log)
+# set correct permissions to prevent permission issues
 RUN chown -R www-data:www-data var
 RUN chmod -R 775 var
 
-# démarre Apache
+# expose apache on port 80
+EXPOSE 80
+
+# start apache in the foreground
 CMD ["apache2-foreground"]

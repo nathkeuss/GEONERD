@@ -1,0 +1,36 @@
+# docker-compose.override.example.yaml
+# copy this file to docker-compose.override.yaml for local development
+
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "8000:80"  # local port to access the app
+    volumes:
+      - .:/var/www/html:cached  # local directory mounted to the container
+    depends_on:
+      - db
+    env_file:
+      - .env.local  # non-versionned file with local environment variables
+    command: >
+      bash -c "chown -R www-data:www-data var && apache2-foreground"
+
+  db:
+    image: mysql:8
+    restart: always
+    env_file:
+      - .env.local
+    ports:
+      - "3306:3306"  # allow access to the database from the host
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - db
