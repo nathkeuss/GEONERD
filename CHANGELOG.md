@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/nathkeuss/GEONERD/compare/v1.0.0...v1.0.1) (2025-04-18)
+
+
+### Bug Fixes
+
+* **uploads-responsive:** ensure image upload folders exist and improve responsive layout ([b8917a7](https://github.com/nathkeuss/GEONERD/commit/b8917a733ed7f8b78a41059a359347f8db87454b))
+
 ## [1.0.0](https://github.com/nathkeuss/GEONERD/compare/v0.1.81...v1.0.0) (2025-04-11)
 
 ### [0.1.81](https://github.com/nathkeuss/GEONERD/compare/v0.1.80...v0.1.81) (2025-04-11)
