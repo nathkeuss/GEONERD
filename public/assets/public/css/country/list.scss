@@ -24,9 +24,6 @@
   &:nth-of-type(5) { background-color: #5d9a32; } // Amérique
 }
 
-
-
-
 .container-country {
   position: relative;
   border-radius: 10%;
@@ -98,5 +95,9 @@
   }
   .country-name {
     font-size: 1rem;
+  }
+  .container-country {
+    box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.2rem;
+    border: solid 3px black;
   }
 }

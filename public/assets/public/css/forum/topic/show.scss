@@ -21,9 +21,6 @@
   border: 2px solid $background-dark-color;
   font-size: 1.5rem;
 
-  @media screen and (min-width: 481px) and (max-width: 1024px) {
-    font-size: 1.3rem;
-  }
 }
 
 .list-topics-button {
@@ -121,7 +118,8 @@
     font-size: 1.5rem;
   }
   .reply-button {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
   }
   .post-date {
     font-size: 1.2rem;

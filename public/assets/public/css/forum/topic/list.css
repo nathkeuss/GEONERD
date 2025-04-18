@@ -47,8 +47,12 @@ ul {
   }
 }
 
-.table-forum {
-  margin-top: 5rem;
+.search-new-topic {
+  width: 80%;
+}
+
+.list-topics {
+  width: 75%;
 }
 
 .head-text {
@@ -62,8 +66,8 @@ ul {
 
 .data-text {
   padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
   color: white;
   font-family: "Montserrat";
   font-size: 1.5rem;
@@ -134,21 +138,35 @@ ul {
 
 @media screen and (max-width: 768px) {
   .head-text {
+    padding: 1rem;
     font-size: 1rem;
   }
   .data-text {
+    padding: 1rem;
     font-size: 1rem;
   }
   .data-text:nth-of-type(2), .data-text:nth-of-type(3), .data-text:nth-of-type(4) {
     color: rgba(255, 255, 255, 0.6);
   }
   .button-new-topic {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+  }
+  .input-search {
     font-size: 1rem;
     padding: 0.5rem;
-    margin-top: 1rem;
   }
   .button-search {
-    padding: 0 1rem 0 0;
+    border-top-right-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    padding: 0.7rem;
+  }
+  .list-topics {
+    width: 100%;
+  }
+  .search-new-topic {
+    width: 95%;
   }
 }
 

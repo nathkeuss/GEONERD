@@ -27,7 +27,7 @@
             <form class="d-flex col-lg-4 col m-lg-auto" action="{{ path('country_list') }}" method="get">
                 <input class="input-search text-start w-100" type="text" name="search" placeholder="Rechercher un pays"
                        value="{{ search|default('') }}">
-                <button type="submit" class="button-search"><img class="w-100 h-100 img-fluid"
+                <button type="submit" class="button-search"><img class="w-100 img-fluid"
                                                                  src="{{ asset('assets/img/forum/search.png') }}"
                                                                  alt="Image d'une loupe de recherche"></button>
             </form>
@@ -41,14 +41,14 @@
             <h1 class="choice-title mb-5 mt-5">Choisis un pays</h1>
         {% endif %}
 
-        <section class="w-75 m-auto row gap-5 justify-content-between">
+        <section class="w-75 m-auto row gap-4 justify-content-between">
 
             {% for country in countries %}
 
                 <a href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}"
                    class="container-country col-5 col-lg-3 h-100 p-0">
                     <h2 class="country-name w-100 text-center">{{ country.name }}</h2>
-                    <div class="w-100 h-100 container-flag">
+                    <div class="w-100 h-100">
                         <img class="img-fluid w-100 h-100"
                              src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
                              alt="Image du tutoriel {{ country.name }}">

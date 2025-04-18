@@ -77,11 +77,6 @@ ul {
   top: 3px;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .reply-button {
-    font-size: 1.3rem;
-  }
-}
 
 .list-topics-button {
   border-radius: 1rem;
@@ -202,7 +197,8 @@ ul {
     font-size: 1.5rem;
   }
   .reply-button {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
   }
   .post-date {
     font-size: 1.2rem;

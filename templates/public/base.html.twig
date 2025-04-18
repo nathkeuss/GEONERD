@@ -36,11 +36,9 @@
                          alt="Logo du site GEONERD, une planète avec des yeux et un doigt levé en mode 'actually' ">
                 </a>
             </li>
-            {% if app.request.attributes.get('_route') != 'home' %}
-                <li class="d-none d-lg-block">
-                    <a class="nav-a-text" href="{{ path('home') }}">ACCUEIL</a>
-                </li>
-            {% endif %}
+            <li class="d-none d-lg-block">
+                <a class="nav-a-text" href="{{ path('home') }}">ACCUEIL</a>
+            </li>
 
             <li class="d-none d-lg-block ms-4">
                 <a class="nav-a-text d-block" href="{{ path('country_list') }}">TUTO</a>
@@ -106,13 +104,13 @@
 
     <nav>
         <ul class="d-flex align-items-center m-0">
-            <li class="footer-li"><a class="footer-a" href="#top">GEONERD</a></li>
-            <li class="footer-li offset-7 offset-lg-8"><a class="footer-a" href="https://discord.gg/2FYmuFb9kZ"
+            <li class="footer-li"><a class="footer-a d-block" href="#top">GEONERD</a></li>
+            <li class="footer-li offset-6 offset-lg-8"><a class="footer-a d-block" href="https://discord.gg/fmeKjGsqKZ"
                                                           target="_blank"><img class="w-100 h-100"
                                                                                src="{{ asset('assets/img/base/logo_discord.svg') }}"
                                                                                alt="Lien qui dirige vers le discord du site"></a>
             </li>
-            <li class="footer-li"><a class="footer-a" href="https://www.youtube.com/@keuss" target="_blank"><img
+            <li class="footer-li"><a class="footer-a d-block" href="https://www.youtube.com/@keuss" target="_blank"><img
                             class="w-100 h-100" src="{{ asset('assets/img/base/logo_youtube.png') }}"
                             alt="Lien qui dirige vers le Youtube du créateur"></a></li>
         </ul>
