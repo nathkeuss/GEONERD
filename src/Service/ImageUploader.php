@@ -27,10 +27,6 @@ class ImageUploader
 
         $imgDir = $projectDir . '/public/uploads/' . $subDirectory;
 
-        if (!is_dir($imgDir)) {
-            mkdir($imgDir, 0775, true);
-        }
-
         $image->move($imgDir, $imageNewFilename);
 
         return $imageNewFilename;
