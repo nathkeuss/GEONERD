@@ -61,6 +61,10 @@ main span, main p {
   height: 600px;
   position: absolute;
   top: 0;
+  border-bottom: solid 8px black;
+  overflow: hidden;
+  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
 }
 
 .section-explain {
@@ -104,10 +108,11 @@ main span, main p {
     font-size: 1rem;
   }
   .article-explain {
-    margin-bottom: 1rem;
+    margin: 0 auto 2rem auto;
   }
   .section-banner {
     height: 300px;
+    border-bottom: solid 4px black;
   }
   .section-explain {
     margin: 250px auto 0 auto;

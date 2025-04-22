@@ -34,7 +34,7 @@
                 <h1 class="text-center text-light">&#x1F477; Tutoriel en construction &#x1F477;</h1>
             {% else %}
                 {% for tutorial in tutorials %}
-                    <article class="m-0 row w-100 align-items-center article-explain justify-content-between">
+                    <article class="row w-100 align-items-center article-explain justify-content-between">
 
                         <div class="col-12 col-lg-6">
                             <img class="img-fluid w-100 h-100"
@@ -42,7 +42,7 @@
                                  alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
                         </div>
 
-                        <div class="col-lg-6 mt-lg-0 col-12 mt-3">
+                        <div class="col-lg-6 mt-1 mt-lg-0 col-12">
                             <p class="image-explain">{{ tutorial.description|raw }}</p>
                         </div>
 
