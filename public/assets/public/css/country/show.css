@@ -47,21 +47,24 @@ ul {
   }
 }
 
-.section-background-image-title {
-  height: 400px;
+header {
   position: relative;
-  border: solid 2px white;
-  overflow: hidden;
+  z-index: 3;
+  text-shadow: 1px 1px 10px black, 0 0 50px #000000;
 }
-.section-background-image-title::before {
-  content: "";
+
+main span, main p {
+  font-size: 1.5rem;
+}
+
+.section-banner {
+  height: 600px;
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.25);
-  z-index: 1;
+}
+
+.section-explain {
+  margin: 550px auto 0 auto;
 }
 
 .country-name {
@@ -69,15 +72,16 @@ ul {
   font-family: "Montserrat";
   font-size: 5rem;
   font-weight: bold;
-  text-shadow: 1px 1px 10px black, 0 0 10px #000000, 0 0 10px #000000;
+  text-shadow: 1px 1px 50px black, 0 0 60px #000000;
   z-index: 2;
+  white-space: nowrap;
+  text-align: center;
   top: 80%;
 }
 
 .h1-identify {
   color: white;
   font: bold 3rem "Montserrat";
-  margin-top: 5rem;
   margin-bottom: 5rem;
 }
 
@@ -85,22 +89,28 @@ ul {
   margin-bottom: 5rem;
 }
 
-p {
-  font-size: 1.5rem;
-}
-
 @media screen and (max-width: 768px) {
+  main span, main p {
+    font-size: 0.7rem;
+  }
   .country-name {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .h1-identify {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
   }
   p {
     font-size: 1rem;
   }
   .article-explain {
     margin-bottom: 1rem;
+  }
+  .section-banner {
+    height: 300px;
+  }
+  .section-explain {
+    margin: 250px auto 0 auto;
   }
 }
 

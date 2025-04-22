@@ -27,7 +27,7 @@
 .container-country {
   position: relative;
   border-radius: 10%;
-  border: solid 4px black;
+  border: solid 3px black;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.307) -0.5rem 0.3rem;
   z-index: 1000;
@@ -94,7 +94,7 @@
     font-size: 1.5rem;
   }
   .country-name {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
   .container-country {
     box-shadow: rgba(0, 0, 0, 0.307) -0.3rem 0.2rem;
