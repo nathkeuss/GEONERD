@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/nathkeuss/GEONERD/compare/v1.1.0...v1.1.1) (2025-04-22)
+
+
+### Bug Fixes
+
+* **tinymce-tutopage:** fix tinymce api, improve ui interface for tuto page ([e576765](https://github.com/nathkeuss/GEONERD/commit/e576765e8f251014cf785fdefe4858d33a307a44))
+
 ## [1.1.0](https://github.com/nathkeuss/GEONERD/compare/v1.0.1...v1.1.0) (2025-04-19)
 
 
