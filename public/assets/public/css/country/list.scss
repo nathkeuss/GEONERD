@@ -10,6 +10,10 @@
   }
 }
 
+.warning {
+  text-align: center;
+}
+
 .continent {
   @include button-style;
   background-color: white;
@@ -90,6 +94,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .warning {
+    text-align: left;
+    font-size: 0.9rem;
+  }
   .choice-title {
     font-size: 1.5rem;
   }

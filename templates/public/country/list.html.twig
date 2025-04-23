@@ -46,13 +46,23 @@
         <section class="w-75 m-auto row gap-5 justify-content-between">
 
             {% set countriesWithTutos = countries|filter(c => c.tutorials|length > 0) %}
+            {% set countryNames = countriesWithTutos|map(c => c.name) %}
 
-            {% if countriesWithTutos|length > 0 %}
-                <p class="text-center">
+            {% if countryNames|length > 0 %}
+                {% set last = countryNames|last %}
+                {% set others = countryNames|slice(0, countryNames|length - 1) %}
+                <p class="warning">
                     Les tutos sont en construction. Voici la liste des pays qui ont un tuto pour l’instant :
-                    <strong>{{ countriesWithTutos|map(c => c.name)|join(', ') }}</strong>
+                    <strong>
+                        {% if others|length > 0 %}
+                            {{ others|join(', ') ~ ' et ' ~ last }}.
+                        {% else %}
+                            {{ last }}.
+                        {% endif %}
+                    </strong>
                 </p>
             {% endif %}
+
 
             {% for country in countries|shuffle %}
 

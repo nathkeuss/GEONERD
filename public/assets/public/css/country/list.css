@@ -55,6 +55,10 @@ ul {
   font-weight: bold;
 }
 
+.warning {
+  text-align: center;
+}
+
 .continent {
   border-radius: 1rem;
   padding: 0.5rem 1.5rem;
@@ -145,6 +149,10 @@ ul {
 }
 
 @media screen and (max-width: 768px) {
+  .warning {
+    text-align: left;
+    font-size: 0.9rem;
+  }
   .choice-title {
     font-size: 1.5rem;
   }

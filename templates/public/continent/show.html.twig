@@ -19,7 +19,7 @@
             {% set countriesWithTutos = countries|filter(c => c.tutorials|length > 0) %}
 
             {% if countriesWithTutos|length > 0 %}
-                <p class="text-center">
+                <p class="warning">
                     Les tutos sont en construction. Voici la liste des pays qui ont un tuto pour l’instant :
                     <strong>{{ countriesWithTutos|map(c => c.name)|join(', ') }}</strong>
                 </p>
