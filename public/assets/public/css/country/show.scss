@@ -25,6 +25,7 @@ main span, main p {
 
 .section-explain {
   margin: 550px auto 0 auto;
+  width: 75%;
 }
 
 .country-name {
@@ -49,12 +50,12 @@ main span, main p {
 }
 
 .article-explain {
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
 }
 
 @media screen and (max-width: 768px) {
   main span, main p {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
   .country-name {
     font-size: 2rem;
@@ -67,7 +68,7 @@ main span, main p {
     font-size: 1rem;
   }
   .article-explain {
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 4rem auto;
   }
   .section-banner {
     height: 300px;
@@ -75,5 +76,6 @@ main span, main p {
   }
   .section-explain {
     margin: 250px auto 0 auto;
+    width: 90%;
   }
 }

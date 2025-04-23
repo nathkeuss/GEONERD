@@ -16,12 +16,21 @@
 
         <section class="w-75 m-auto row gap-5 justify-content-between">
 
+            {% set countriesWithTutos = countries|filter(c => c.tutorials|length > 0) %}
+
+            {% if countriesWithTutos|length > 0 %}
+                <p class="text-center">
+                    Les tutos sont en construction. Voici la liste des pays qui ont un tuto pour l’instant :
+                    <strong>{{ countriesWithTutos|map(c => c.name)|join(', ') }}</strong>
+                </p>
+            {% endif %}
+
             {% for country in countries|shuffle %}
 
                 <a href="{{ path('country_show', {'slugContinent': country.continent.slug, 'slugCountry': country.slug}) }}"
-                   class="container-country col-5 col-lg-3 mb-5 h-100 p-0">
+                   class="container-country m-auto col-10 col-lg-3 mb-0 mb-lg-5 h-100 p-0">
                     <h2 class="country-name w-100 text-center">{{ country.name }}</h2>
-                    <div class="w-100 h-100 container-flag">
+                    <div class="w-100 h-100">
                         <img class="img-fluid w-100 h-100"
                              src="{{ asset('uploads/country/flags/' ~ country.flag) }}"
                              alt="Image du tutoriel {{ country.name }}">

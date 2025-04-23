@@ -25,24 +25,6 @@
 
         .notStreetView {
             position: relative;
-            /*            background-color: rgba(255, 0, 0, 0.3);*/
-            /*          background-image: linear-gradient(
-                              45deg,
-                              rgba(0, 0, 0, 0.1) 25%,
-                              transparent 25%,
-                              transparent 75%,
-                              rgba(0, 0, 0, 0.1) 75%
-                      ),
-                      linear-gradient(
-                              45deg,
-                              rgba(0, 0, 0, 0.1) 25%,
-                              transparent 25%,
-                              transparent 75%,
-                              rgba(0, 0, 0, 0.1) 75%
-                      );*/
-            /*
-            fill: rgba(255, 255, 255, 0.75);
-            */
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
             opacity: 0.5;
@@ -959,11 +941,14 @@
         </a>
 
         <!-- Mali => Mali -->
-        <path
-                class="country notStreetView"
-                id="Mali"
-                d="M377.584,494.845l2.662-1.823l14.799-0.087l-3.423-23.806l3.907-0.112l18.903,14.428l2.541,0.362l-0.959,8.021l-11.886,1.08l-9.171,6.847l-1.669,4.686l-6.37,0.269l-1.625-4.677l-4.884,0.346l0.189-1.53z"
-        />
+        <a href="{{ path('country_show', {'slugContinent': 'afrique','slugCountry': 'mali'}) }}">
+
+            <path
+                    class="country"
+                    id="Mali"
+                    d="M377.584,494.845l2.662-1.823l14.799-0.087l-3.423-23.806l3.907-0.112l18.903,14.428l2.541,0.362l-0.959,8.021l-11.886,1.08l-9.171,6.847l-1.669,4.686l-6.37,0.269l-1.625-4.677l-4.884,0.346l0.189-1.53z"
+            />
+        </a>
 
         <!-- Myanmar => Myanmar -->
         <path

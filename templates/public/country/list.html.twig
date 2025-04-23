@@ -41,7 +41,18 @@
             <h1 class="choice-title mb-5 mt-5">Choisis un pays</h1>
         {% endif %}
 
+
+
         <section class="w-75 m-auto row gap-5 justify-content-between">
+
+            {% set countriesWithTutos = countries|filter(c => c.tutorials|length > 0) %}
+
+            {% if countriesWithTutos|length > 0 %}
+                <p class="text-center">
+                    Les tutos sont en construction. Voici la liste des pays qui ont un tuto pour l’instant :
+                    <strong>{{ countriesWithTutos|map(c => c.name)|join(', ') }}</strong>
+                </p>
+            {% endif %}
 
             {% for country in countries|shuffle %}
 
