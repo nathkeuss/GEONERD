@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/nathkeuss/GEONERD/compare/v1.1.1...v1.2.0) (2025-04-23)
+
+
+### Features
+
+* **country-list:** improve responsive and add "warning" message ([abd147b](https://github.com/nathkeuss/GEONERD/commit/abd147bbd5c46b83855d8b6869afc1bb28eddefa))
+
+
+### Bug Fixes
+
+* **responsive:** fix responsive ([c0f9993](https://github.com/nathkeuss/GEONERD/commit/c0f9993631b73b47c843e0a9508901de3788b7eb))
+
 ### [1.1.1](https://github.com/nathkeuss/GEONERD/compare/v1.1.0...v1.1.1) (2025-04-22)
 
 
