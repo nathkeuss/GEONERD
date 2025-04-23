@@ -33,7 +33,7 @@
                         {# div img profil + pseudo #}
                         <div class="d-flex align-items-center">
                             <div class="div-img-profile me-2">
-                                <img class="img-fluid rounded-circle w-100 h-100"
+                                <img class="img-fluid rounded-circle object-fit-cover w-100 h-100"
                                      src="{{ profile_picture(topic.user) }}"
                                      alt="Image de profil de l'utilisateur">
                             </div>
@@ -87,7 +87,7 @@
                                 {# div img profil + pseudo #}
                                 <div class="d-flex align-items-center">
                                     <div class="div-img-profile me-2">
-                                        <img class="img-fluid w-100 h-100 rounded-circle"
+                                        <img class="img-fluid w-100 h-100 object-fit-cover rounded-circle"
                                              src="{{ profile_picture(reply.user) }}"
                                              alt="Image de profil de l'utilisateur">
                                     </div>

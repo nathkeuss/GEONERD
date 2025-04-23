@@ -24,6 +24,10 @@
   }
 }
 
+.div-input {
+  width: 75%;
+}
+
 .input-inscription {
   border: solid 0.3rem $background-dark-color;
   background-color: #C4FFC3;
@@ -85,6 +89,10 @@
 
   .form-h1-inscription {
     font-size: 1.5rem;
+  }
+
+  .div-input {
+    width: 95%;
   }
 
   .label-inscription {

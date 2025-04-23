@@ -67,6 +67,10 @@ ul {
   font-weight: bold;
 }
 
+.div-input {
+  width: 75%;
+}
+
 .label-connection {
   font-family: "Montserrat";
   font-size: 1.3rem;
@@ -121,6 +125,9 @@ ul {
   }
   .form-h1-connection {
     font-size: 1.5rem;
+  }
+  .div-input {
+    width: 95%;
   }
   .label-connection {
     font-size: 1rem;

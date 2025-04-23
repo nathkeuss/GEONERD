@@ -66,6 +66,10 @@ ul {
   font-weight: bold;
 }
 
+.div-input {
+  width: 75%;
+}
+
 .input-inscription {
   border: solid 0.3rem #131325;
   background-color: #C4FFC3;
@@ -113,6 +117,9 @@ ul {
   }
   .form-h1-inscription {
     font-size: 1.5rem;
+  }
+  .div-input {
+    width: 95%;
   }
   .label-inscription {
     font-size: 1rem;

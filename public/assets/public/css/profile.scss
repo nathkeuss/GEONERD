@@ -84,6 +84,11 @@ input[type="file"]::file-selector-button {
 }
 
 @media screen and (max-width: 768px) {
+  .section-info {
+    width: 95%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
   .form-button-update,
   .form-button-delete {
     font-size: 0.9em;
@@ -99,7 +104,7 @@ input[type="file"]::file-selector-button {
     margin-right: 1rem;
   }
   .input-profile-info {
-    font-size: 1rem;
+    font-size: 0.7rem;
     padding: 0.5rem;
   }
   .label-profile-info {

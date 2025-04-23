@@ -23,7 +23,7 @@
 
         <h1 class="form-h1-inscription text-center mt-4">Se créer un compte</h1>
 
-        <div class="w-75 m-auto mt-4">
+        <div class="div-input m-auto mt-4">
             {{ form_label(formSignUpView.email, 'Email', {'label_attr': {'class': 'label-inscription form-label d-block text-start'}}) }}
             {{ form_widget(formSignUpView.email, {'attr': {'class': 'input-inscription p-2 p-lg-3 w-100', 'placeholder': 'Entrez votre email'}}) }}
             {% for error in formSignUpView.email.vars.errors %}
@@ -31,7 +31,7 @@
             {% endfor %}
         </div>
 
-        <div class="w-75 m-auto mt-4">
+        <div class="div-input m-auto mt-4">
             {{ form_label(formSignUpView.username, 'Pseudonyme', {'label_attr': {'class': 'label-inscription form-label d-block text-start'}}) }}
             {{ form_widget(formSignUpView.username, {'attr': {'class': 'input-inscription p-2 p-lg-3 w-100', 'placeholder': 'Votre pseudo'}}) }}
             {% for error in formSignUpView.username.vars.errors %}
@@ -39,9 +39,9 @@
             {% endfor %}
         </div>
 
-        <div class="w-75 m-auto mt-4">
+        <div class="div-input m-auto mt-4">
             {{ form_label(formSignUpView.password, 'Mot de passe', {'label_attr': {'class': 'label-inscription form-label d-block text-start'}}) }}
-            {{ form_widget(formSignUpView.password, {'attr': {'class': 'input-inscription p-2 p-lg-3 w-100', 'placeholder': 'au moins 8 caractères, une majuscule, un chiffre et un caractère spécial'}}) }}
+            {{ form_widget(formSignUpView.password, {'attr': {'class': 'input-inscription p-2 p-lg-3 w-100', 'placeholder': '8 caractères, une maj, un chiffre et un caractère spécial'}}) }}
             {% for error in formSignUpView.password.vars.errors %}
                 <span class="error d-block mt-2 ms-2"><i class="fa-solid fa-circle-exclamation"></i> {{ error.message }}</span>
             {% endfor %}
