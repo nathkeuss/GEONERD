@@ -36,11 +36,12 @@
                 {% for tutorial in tutorials %}
                     <article class="row w-100 align-items-center article-explain justify-content-between">
 
-                        <div class="col-12 col-lg-6">
+                        <a href="https://www.plonkit.net" target="_blank" class="col-12 col-lg-6 ps-0 text-decoration-none position-relative">
                             <img class="img-fluid w-100 h-100"
                                  src="{{ asset('uploads/country/tutorials/' ~ tutorial.image) }}"
                                  alt="Image descriptif d'un élément du tutoriel {{ country.name }}">
-                        </div>
+                            <span class="tutorial-credit">plonkit.net</span>
+                        </a>
 
                         <div class="col-lg-6 mt-1 mt-lg-0 col-12">
                             <p class="image-explain">{{ tutorial.description|raw }}</p>

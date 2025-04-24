@@ -53,6 +53,17 @@ main span, main p {
   margin-bottom: 8rem;
 }
 
+.tutorial-credit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.83);
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.2rem;
+}
+
+
 @media screen and (max-width: 768px) {
   main span, main p {
     font-size: 0.9rem;
@@ -78,4 +89,8 @@ main span, main p {
     margin: 250px auto 0 auto;
     width: 90%;
   }
+    .tutorial-credit {
+        font-size: 0.7rem;
+        padding: 0.1rem;
+    }
 }
