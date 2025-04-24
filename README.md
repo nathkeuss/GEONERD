@@ -1,6 +1,8 @@
 
 # Development Environment – GEONERD
 
+Full-stack web app built with **Symfony**, **Docker**, and **Sass/Bootstrap**.
+
 This project is optimized to run quickly on **WSL/Linux** using Docker,  
 but it remains **100% compatible with Windows and macOS**, as long as Docker Desktop is installed.
 
@@ -23,15 +25,26 @@ git clone git@github.com:nathkeuss/GEONERD.git
 cd your-project-folder
 ```
 
-2. Start the containers:
+2. Copy the environment files and rename them
 
 ```bash
-docker compose up -d
+cp .env.example .env
+cp docker-compose.override.example.yaml docker-compose.override.yaml
+```
+Then edit these files with your own envrionment variables.
+
+
+
+3. Start the containers:
+
+```bash
+docker compose -f docker-compose.override.yaml build
+docker compose -f docker-compose.override.yaml up -d
 ```
 
-3. Access the application:
+4. Access the application:
 
-- Symfony: [http://localhost:8000](http://localhost:8000)
+- Website : [http://localhost:8000](http://localhost:8000)
 - PhpMyAdmin: [http://localhost:8080](http://localhost:8080)
 
 ---
@@ -52,8 +65,22 @@ Once Node is installed, run:
 
 ```bash
 npm install
+```
+
+To commit :
+
+```bash
+git add .
 npx cz
 ```
+
+You can also run:
+
+```bash
+npx standard-version
+```
+
+To create a new release and update the `CHANGELOG.md` file.
 
 This will allow you to create clean and consistent commit messages according to the project’s conventions.
 
@@ -62,17 +89,20 @@ This will allow you to create clean and consistent commit messages according to 
 ## Useful Commands
 
 ```bash
-# Start the containers
+# start the containers
 docker compose up -d
 
-# Stop the containers
+# stop the containers
 docker compose down
 
-# View the logs in real-time
+# view the logs in real-time
 docker compose logs -f
 
-# Rebuild if necessary
-docker compose build --no-cache
+# rebuild if necessary
+docker compose build
+
+# show all running containers
+docker ps
 ```
 
 ---
